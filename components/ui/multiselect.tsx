@@ -35,10 +35,11 @@ const Multiselect = ({ cities, onCitiesChange, onAddCity, onRemoveCity }: Multis
 
 	return (
 		<div className="space-y-4">
-			<div className="flex gap-2">
+			<div className="flex gap-2 mt-2">
 				<Input
 					placeholder="Add city"
 					value={inputValue}
+					className='text-sm'
 					onChange={(e) => setInputValue(e.target.value)}
 					onKeyDown={(e) => {
 						if (e.key === 'Enter') {
@@ -57,7 +58,7 @@ const Multiselect = ({ cities, onCitiesChange, onAddCity, onRemoveCity }: Multis
 						key={index}
 						className="flex items-center bg-accent px-3 py-1 rounded-full"
 					>
-						<span>{city}</span>
+						<span className='text-sm'>{city}</span>
 						<XCircle
 							className="ml-2 h-4 w-4 cursor-pointer"
 							onClick={() => handleRemoveCity(city)}

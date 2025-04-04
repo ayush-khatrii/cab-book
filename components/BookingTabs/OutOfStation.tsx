@@ -127,7 +127,7 @@ const OutOfStation = () => {
               />
             </div>
           </div>
-          <div className="space-y-2 col-span-2">
+          <div className="space-y-2 md:col-span-2">
             <Label className="text-sm font-medium">Pick-up Time</Label>
             <div className="relative">
               <TimeInput

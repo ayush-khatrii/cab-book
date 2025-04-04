@@ -26,26 +26,10 @@ import { useOutOfStationStore } from '@/store/outofstation';
 import { format } from "date-fns"
 
 const BookCab = () => {
-  const [selectedRide, setSelectedRide] = useState("outofstation");
-  const [outOfStation, setOutOfStation] = useState("outofstation");
-  const [cities, setCities] = useState<string[]>([]);
   const [date, setDate] = useState<Value>(new Date());
-  const [formData, setFormData] = useState<FormData>({
-    pickUp: "",
-    dropOff: "",
-    time: "",
-    date: new Date(),
-    fromDate: new Date(),
-    toDate: new Date(),
-    cities: [],
-    type: "outofstation",
-  });
   const { setSelectedTab, selectedTab, mainTab, setMainTab, onewayData, roundtripData, multicityData } = useOutOfStationStore();
 
 
-  const updateFormData = (field: string, value: any) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,7 +39,6 @@ const BookCab = () => {
 
     if (mainTab === "outofstation") {
       if (selectedTab === "oneway") {
-        console.log("⚡ One-Way Data:", onewayData);
         handleSendData(`🚖 *One-Way Trip*  
           - *Pick-up City:* ${onewayData.pickUp}  
           - *Drop-off City:* ${onewayData.dropOff}  
@@ -63,7 +46,7 @@ const BookCab = () => {
           - *Time:* ${onewayData.time}`);
 
       } else if (selectedTab === "roundtrip") {
-        handleSendData(`🚖 *One-Way Trip*  
+        handleSendData(`🚖 *Round Trip*  
           - *Pick-up City:* ${roundtripData.pickUp}  
           - *Drop-off Cities :* ${roundtripData.dropOff}  
           - *From Date:* ${format(roundtripData.fromDate, 'dd/MM/yyyy')}  
@@ -72,7 +55,7 @@ const BookCab = () => {
         );
 
       } else if (selectedTab === "multicity") {
-        handleSendData(`🚖 *One-Way Trip*  
+        handleSendData(`🚖 *Multicity Trip*  
           - *Pick-up City:* ${multicityData.pickUp}  
           - *To Cities :* ${multicityData.cities.map((city) => city).join(", ")}  
           - *From Date:* ${format(multicityData.fromDate, 'dd/MM/yyyy')}  
@@ -99,9 +82,9 @@ const BookCab = () => {
           defaultValue="outofstation"
           className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-auto"
           onValueChange={(value) => {
-            setMainTab(value); // Update main tab
+            setMainTab(value);
             if (value === "outofstation") {
-              setSelectedTab("oneway"); // Set default sub-tab for outofstation
+              setSelectedTab("oneway");
             }
           }}
         >
@@ -134,9 +117,8 @@ const BookCab = () => {
           <>
             <RadioGroup
               defaultValue="oneway"
-              className="flex justify-center items-center mb-10"
+              className="grid grid-cols-1 md:grid-cols-3 items-center w-full gap-4 mb-10"
               onValueChange={(value) => {
-                setOutOfStation(value as "oneway" | "roundtrip" | "multicity");
                 setSelectedTab(value as "oneway" | "roundtrip" | "multicity");
               }}
             >
@@ -282,7 +264,7 @@ const BookCab = () => {
         <div className="mt-6 group">
           {/* <Button type='submit' className="w-full">Search Cabs <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform ease-in-out" /></Button> */}
           <Button
-            variant="default" type='submit' className="w-full bg-green-500 my-5">
+            variant="default" type='submit' className="w-full mt-5">
             Send on whatsapp
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform ease-in-out" />
           </Button>
