@@ -6,12 +6,12 @@ import { XCircle } from 'lucide-react';
 
 interface MultiselectProps {
 	cities: string[];
-	setCities: React.Dispatch<React.SetStateAction<string[]>>;
+	onCitiesChange: (cities: string[]) => void;
 	onAddCity?: (city: string) => void;
 	onRemoveCity?: (city: string) => void;
 }
 
-const Multiselect = ({ cities, setCities, onAddCity, onRemoveCity }: MultiselectProps) => {
+const Multiselect = ({ cities, onCitiesChange, onAddCity, onRemoveCity }: MultiselectProps) => {
 	const [inputValue, setInputValue] = useState('');
 
 	const handleAddCity = () => {
@@ -19,7 +19,7 @@ const Multiselect = ({ cities, setCities, onAddCity, onRemoveCity }: Multiselect
 			if (onAddCity) {
 				onAddCity(inputValue.trim());
 			} else {
-				setCities((prev) => [...prev, inputValue.trim()]);
+				onCitiesChange([...cities, inputValue.trim()]);
 			}
 			setInputValue('');
 		}
@@ -29,7 +29,7 @@ const Multiselect = ({ cities, setCities, onAddCity, onRemoveCity }: Multiselect
 		if (onRemoveCity) {
 			onRemoveCity(city);
 		} else {
-			setCities((prev) => prev.filter((c) => c !== city));
+			onCitiesChange(cities.filter((c) => c !== city));
 		}
 	};
 

@@ -183,7 +183,7 @@ const OutOfStation = () => {
             <Label className="text-sm font-medium">To (add cities)</Label>
             <Multiselect
               cities={multicityData.cities}
-              setCities={(newCities) => {
+              onCitiesChange={(newCities) => {
                 setMultiCityData({ cities: newCities });
               }}
               onAddCity={handleAddCity}
