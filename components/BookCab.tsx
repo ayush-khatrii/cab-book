@@ -9,26 +9,19 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { Input } from "./ui/input";
 import TimeInput from './ui/time-input';
 import { RiTaxiFill } from "react-icons/ri";
-import Multiselect from './ui/multiselect';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { packages } from '@/constants';
 import DatePickerInput, { Value } from './ui/DatePicker';
 import { FaLocationDot } from 'react-icons/fa6';
 import OutOfStation from './BookingTabs/OutOfStation';
 import { useOutOfStationStore } from '@/store/outofstation';
 import { format } from "date-fns"
 import { MainTab } from '@/types';
+import LocalCity from './BookingTabs/LocalCity';
+import { useLocalCityStore } from '@/store/localcity';
 
 const BookCab = () => {
   const [date, setDate] = useState<Value>(new Date());
   const { setSelectedTab, selectedTab, mainTab, setMainTab, onewayData, roundtripData, multicityData } = useOutOfStationStore();
-
+  const { date: localCityDate, package: localCityPackage, pickUp: localCityPickUp, time: localCityTime } = useLocalCityStore();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -61,6 +54,19 @@ const BookCab = () => {
           - *Time:* ${multicityData.time} `
         );
       }
+    }
+    if (mainTab === "local") {
+      handleSendData(`🚖 *Local City Trip*  
+        - *Pick-up City:* ${localCityPickUp}  
+        - *Package:* ${localCityPackage}
+        - *Date:* ${format(localCityDate, 'dd/MM/yyyy')}  
+        - *Time:* ${localCityTime}`);
+    }
+    if (mainTab === "transfer") {
+      // handle transfer data 
+    }
+    if (mainTab === "selfdrive") {
+      // handle self drive data
     }
   };
 
@@ -139,49 +145,7 @@ const BookCab = () => {
         }
         {mainTab === "local" &&
           <>
-            <p className="text-accent-foreground text-center">Find a quick local ride nearby.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 col-span-2 mt-10 gap-4">
-              <div className="space-y-2">
-                <Label className="text-sm font-medium">Pick-up City</Label>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input className="pl-10" placeholder="Ahmedabad, Gujarat" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label className="text-sm font-medium">Select Package</Label>
-                <div className="relative">
-                  <Select>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select Package" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {
-                        packages.map((item) => (
-                          <SelectItem key={item.id} value={item.timeTravel}>{item.timeTravel}</SelectItem>
-                        ))
-                      }
-                    </SelectContent>
-                  </Select>
-
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label className="text-sm font-medium">Travel Date</Label>
-                <div className="relative">
-                  <DatePickerInput
-                    onChange={setDate}
-                    value={date}
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label className="text-sm font-medium">Pick-up Time</Label>
-                <div className="relative">
-                  <TimeInput />
-                </div>
-              </div>
-            </div>
+            <LocalCity />
           </>
         }
         {mainTab === "transfer" &&
@@ -208,6 +172,7 @@ const BookCab = () => {
                 <Label className="text-sm font-medium">Travel Date</Label>
                 <div className="relative">
                   <DatePickerInput
+                    name='date'
                     onChange={setDate}
                     value={date}
                   />
@@ -216,7 +181,9 @@ const BookCab = () => {
               <div className="space-y-2">
                 <Label className="text-sm font-medium">Pick-up Time</Label>
                 <div className="relative">
-                  <TimeInput />
+                  <TimeInput
+                    name='time'
+                  />
                 </div>
               </div>
             </div>
@@ -244,6 +211,7 @@ const BookCab = () => {
                 <Label className="text-sm font-medium">Travel Date</Label>
                 <div className="relative">
                   <DatePickerInput
+                    name="date"
                     onChange={setDate}
                     value={date}
                   />
@@ -252,7 +220,9 @@ const BookCab = () => {
               <div className="space-y-2">
                 <Label className="text-sm font-medium">Pick-up Time</Label>
                 <div className="relative">
-                  <TimeInput />
+                  <TimeInput
+                    name='time'
+                  />
                 </div>
               </div>
             </div>

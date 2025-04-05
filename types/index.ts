@@ -41,11 +41,11 @@ export type OUTOFSTATION_MULTICITY = {
   cities: string[];
 }
 
-export interface LocalCityStore {
+export interface LOCAL_CITY {
   pickUp: string;
   time: string;
   date: Date;
   package: string;
 
-  setLocalData: (data: Partial<Omit<LocalCityStore, 'setLocalData'>>) => void;
+  setLocalData: (data: Partial<LOCAL_CITY>) => void;
 }
