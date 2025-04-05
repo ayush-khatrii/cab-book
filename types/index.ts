@@ -49,3 +49,18 @@ export interface LOCAL_CITY {
 
   setLocalData: (data: Partial<LOCAL_CITY>) => void;
 }
+export interface TRANSFER {
+  pickUp: string;
+  dropLocation: string;
+  date: Date;
+  time: string;
+
+  setTransferData: (data: Partial<TRANSFER>) => void;
+}
+export interface SELF_DRIVE {
+  handoverLocation: string;
+  time: string;
+  date: Date;
+
+  setTransferData: (data: Partial<TRANSFER>) => void;
+}

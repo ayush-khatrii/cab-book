@@ -17,31 +17,34 @@ import { format } from "date-fns"
 import { MainTab } from '@/types';
 import LocalCity from './BookingTabs/LocalCity';
 import { useLocalCityStore } from '@/store/localcity';
+import Transfer from './BookingTabs/Transfer';
+import { useTransferStore } from '@/store/transfer';
 
 const BookCab = () => {
   const [date, setDate] = useState<Value>(new Date());
   const { setSelectedTab, selectedTab, mainTab, setMainTab, onewayData, roundtripData, multicityData } = useOutOfStationStore();
   const { date: localCityDate, package: localCityPackage, pickUp: localCityPickUp, time: localCityTime } = useLocalCityStore();
+  const { date: transferDate, pickUp: transferPickUp, dropLocation: transferDropLocation, time: transferTime } = useTransferStore();
+
+
+
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    console.log("🚖 Selected Main Tab:", mainTab);
-    console.log("🛣️ Selected Sub Tab:", selectedTab);
-
     if (mainTab === "outofstation") {
       if (selectedTab === "oneway") {
         handleSendData(`🚖 *One-Way Trip*  
           - *Pick-up City:* ${onewayData.pickUp}  
           - *Drop-off City:* ${onewayData.dropOff}  
-          - *Date:* ${format(onewayData.date, 'dd/MM/yyyy')}  
+          - *Date:* ${format(onewayData.date, 'dd MMMM, yyyy')}  
           - *Time:* ${onewayData.time}`);
 
       } else if (selectedTab === "roundtrip") {
         handleSendData(`🚖 *Round Trip*  
           - *Pick-up City:* ${roundtripData.pickUp}  
           - *Drop-off Cities :* ${roundtripData.dropOff}  
-          - *From Date:* ${format(roundtripData.fromDate, 'dd/MM/yyyy')}  
-          - *To Date:* ${format(roundtripData.toDate, 'dd/MM/yyyy')}  
+          - *From Date:* ${format(roundtripData.fromDate, 'dd MMMM, yyyy')}  
+          - *To Date:* ${format(roundtripData.toDate, 'dd MMMM, yyyy')}  
           - *Time:* ${roundtripData.time}`
         );
 
@@ -49,8 +52,8 @@ const BookCab = () => {
         handleSendData(`🚖 *Multicity Trip*  
           - *Pick-up City:* ${multicityData.pickUp}  
           - *To Cities :* ${multicityData.cities.map((city) => city).join(", ")}  
-          - *From Date:* ${format(multicityData.fromDate, 'dd/MM/yyyy')}  
-          - *To Date:* ${format(multicityData.toDate, 'dd/MM/yyyy')}  
+          - *From Date:* ${format(multicityData.fromDate, 'dd MMMM, yyyy')}  
+          - *To Date:* ${format(multicityData.toDate, 'dd MMMM, yyyy')}  
           - *Time:* ${multicityData.time} `
         );
       }
@@ -59,11 +62,16 @@ const BookCab = () => {
       handleSendData(`🚖 *Local City Trip*  
         - *Pick-up City:* ${localCityPickUp}  
         - *Package:* ${localCityPackage}
-        - *Date:* ${format(localCityDate, 'dd/MM/yyyy')}  
+        - *Date:* ${format(localCityDate, 'dd MMMM, yyyy')}  
         - *Time:* ${localCityTime}`);
     }
     if (mainTab === "transfer") {
       // handle transfer data 
+      handleSendData(`🚖 *Transfer to location*  
+        - *Pick-up City:* ${transferPickUp}  
+        - *Drop-Location:* ${transferDropLocation}
+        - *Date:* ${format(transferDate, 'dd MMMM, yyyy')}  
+        - *Time:* ${transferTime}`);
     }
     if (mainTab === "selfdrive") {
       // handle self drive data
@@ -150,43 +158,7 @@ const BookCab = () => {
         }
         {mainTab === "transfer" &&
           <>
-            <p className="text-accent-foreground text-center">Get seamless transfer services.</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 col-span-2 mt-10 gap-4">
-              <div className="space-y-2">
-                <Label className="text-sm font-medium">Pick-up Location</Label>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input className="pl-10" placeholder="Ahmedabad, Gujarat" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label className="text-sm font-medium">Drop-off Location</Label>
-                <div className="relative">
-                  <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input className="pl-10" placeholder="Ahmedabad, Airport" />
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label className="text-sm font-medium">Travel Date</Label>
-                <div className="relative">
-                  <DatePickerInput
-                    name='date'
-                    onChange={setDate}
-                    value={date}
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label className="text-sm font-medium">Pick-up Time</Label>
-                <div className="relative">
-                  <TimeInput
-                    name='time'
-                  />
-                </div>
-              </div>
-            </div>
+            <Transfer />
           </>
         }
         {mainTab === "selfdrive" &&
@@ -233,7 +205,7 @@ const BookCab = () => {
           {/* <Button type='submit' className="w-full">Search Cabs <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform ease-in-out" /></Button> */}
           <Button
             variant="default" type='submit' className="w-full mt-5">
-            Send on whatsapp
+            Book Now
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform ease-in-out" />
           </Button>
         </div>
