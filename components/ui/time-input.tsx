@@ -6,16 +6,21 @@ import { FaRegClock } from "react-icons/fa6";
 const hours = Array.from({ length: 12 }, (_, i) => {
   const value = String(i + 1).padStart(2, "0");
   return { value, label: value };
-})
-
-const minutes = Array.from({ length: 60 }, (_, i) => {
-  const value = String(i).padStart(2, "0");
-  return { value, label: value };
 });
 
+const minutes = [
+  { value: "00", label: "00" },
+  { value: "15", label: "15" },
+  { value: "30", label: "30" },
+  { value: "45", label: "45" },
+  { value: "59", label: "59" },
+]
+
 const TimeInput = ({
+  name,
   onChange,
 }: {
+  name: string
   onChange?: (value: string) => void,
 }) => {
   const [hour, setHour] = useState("");
@@ -37,7 +42,7 @@ const TimeInput = ({
         <FaRegClock size={13} />
       </div>
       <div className='flex items-center'>
-        <Select value={hour} onValueChange={(val) => {
+        <Select name={name} value={hour} onValueChange={(val) => {
           setHour(val);
           updatedTime(val, minute, period);
         }}>
@@ -52,7 +57,7 @@ const TimeInput = ({
             ))}
           </SelectContent>
         </Select>
-        <Select value={minute} onValueChange={(val) => {
+        <Select name={name} value={minute} onValueChange={(val) => {
           setMinute(val);
           updatedTime(hour, val, period);
         }}>
@@ -67,7 +72,7 @@ const TimeInput = ({
             ))}
           </SelectContent>
         </Select>
-        <Select value={period} onValueChange={(val) => {
+        <Select name={name} value={period} onValueChange={(val) => {
           setPeriod(val);
           updatedTime(hour, minute, val);
         }}>

@@ -1,21 +1,21 @@
+export type OutOfStationTab = 'oneway' | 'roundtrip' | 'multicity';
+export type MainTab = 'outofstation' | 'local' | 'transfer' | 'selfdrive';
+
 export type OUTOFSTATION = {
-  selectedTab: string;
-  setSelectedTab: (tab: string) => void;
+  mainTab: MainTab;
+  setMainTab: (tab: MainTab) => void;
 
-  mainTab: string;
-  setMainTab: (tab: string) => void;
+  selectedTab: OutOfStationTab;
+  setSelectedTab: (tab: OutOfStationTab) => void;
 
-  // oneway
   onewayData: OUTOFSTATION_ONEWAY;
-  setOnewayData: (data: Partial<OUTOFSTATION_ONEWAY>) => void;
-
-  // roundtrip
   roundtripData: OUTOFSTATION_ROUNDTRIP;
-  setRoundTripData: (data: Partial<OUTOFSTATION_ROUNDTRIP>) => void;
-
-  // multicity
   multicityData: OUTOFSTATION_MULTICITY;
+
+  setOnewayData: (data: Partial<OUTOFSTATION_ONEWAY>) => void;
+  setRoundTripData: (data: Partial<OUTOFSTATION_ROUNDTRIP>) => void;
   setMultiCityData: (data: Partial<OUTOFSTATION_MULTICITY>) => void;
+
   addCity: (city: string) => void;
   removeCity: (city: string) => void;
 }
@@ -41,13 +41,11 @@ export type OUTOFSTATION_MULTICITY = {
   cities: string[];
 }
 
-export type FormData = {
+export interface LocalCityStore {
   pickUp: string;
-  dropOff: string;
   time: string;
-  fromDate: Date;
-  toDate: Date;
   date: Date;
-  cities: string[];
-  type: "oneway" | "outofstation" | "multicity" | "roundtrip" | "local" | "transfer" | "selfdrive";
+  package: string;
+
+  setLocalData: (data: Partial<Omit<LocalCityStore, 'setLocalData'>>) => void;
 }

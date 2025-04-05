@@ -9,10 +9,12 @@ export type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 const DatePickerInput = ({
   onChange,
-  value
+  value,
+  name
 }: {
   onChange: (value: Date) => void;
-  value: Value
+  value: Value;
+  name: string
 }) => {
   const [date, setDate] = useState<Date>();
   const handleChange = (newDate = date) => {
@@ -22,6 +24,7 @@ const DatePickerInput = ({
   }
   return (
     <DatePicker
+      name={name}
       dayPlaceholder='dd'
       monthPlaceholder='mm'
       yearPlaceholder='yyyy'

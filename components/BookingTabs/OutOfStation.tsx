@@ -1,4 +1,3 @@
-import { FormData } from "@/types"
 import DatePickerInput from "../ui/DatePicker"
 import { Input } from "../ui/input"
 import { Label } from "../ui/label"
@@ -6,20 +5,25 @@ import { MapPin } from "lucide-react"
 import TimeInput from "../ui/time-input"
 import Multiselect from "../ui/multiselect"
 import { useOutOfStationStore } from "@/store/outofstation"
-import { useEffect } from "react"
+import { useCallback, useEffect } from "react"
 
 const OutOfStation = () => {
   const {
     selectedTab,
     onewayData,
-    setOnewayData,
     roundtripData,
-    setRoundTripData,
     multicityData,
-    setMultiCityData,
     addCity,
     removeCity
   } = useOutOfStationStore();
+
+  const setOnewayData = useOutOfStationStore(state => state.setOnewayData);
+  const setRoundTripData = useOutOfStationStore(state => state.setRoundTripData);
+  const setMultiCityData = useOutOfStationStore(state => state.setMultiCityData);
+
+  const handleChange = useCallback((formUpdater: (data: any) => void, field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    formUpdater({ [field]: e.target.value });
+  }, []);
 
 
   // Handle adding a city to multicityData
@@ -27,7 +31,6 @@ const OutOfStation = () => {
     addCity(city);
   };
 
-  // Handle removing a city from multicityData
   const handleRemoveCity = (city: string) => {
     removeCity(city);
   };
@@ -41,12 +44,12 @@ const OutOfStation = () => {
             <div className="relative">
               <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
+                name="pickUp"
                 className="pl-10"
                 placeholder="Surat, Gujarat"
                 value={onewayData.pickUp}
-                // onChange={(e) => setOnewayData({ pickUp: e.target.value })}
-                // merge the values instead of overwrite 
-                onChange={(e) => setOnewayData({ pickUp: e.target.value })}
+                onChange={handleChange(setOnewayData, 'pickUp')}
+
               />
             </div>
           </div>
@@ -55,10 +58,11 @@ const OutOfStation = () => {
             <div className="relative">
               <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
+                name="dropOff"
                 className="pl-10"
                 placeholder="Gandhidham, Gujarat"
                 value={onewayData.dropOff}
-                onChange={(e) => setOnewayData({ dropOff: e.target.value })}
+                onChange={handleChange(setOnewayData, 'dropOff')}
               />
             </div>
           </div>
@@ -66,6 +70,7 @@ const OutOfStation = () => {
             <Label className="text-sm font-medium">Travel Date</Label>
             <div className="relative">
               <DatePickerInput
+                name="date"
                 onChange={(dt) => setOnewayData({ date: dt })}
                 value={onewayData.date}
               />
@@ -75,6 +80,7 @@ const OutOfStation = () => {
             <Label className="text-sm font-medium">Travel Time</Label>
             <div className="relative">
               <TimeInput
+                name="time"
                 onChange={(time) => setOnewayData({ time })}
               />
             </div>
@@ -90,10 +96,11 @@ const OutOfStation = () => {
             <div className="relative">
               <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
+                name="pickUp"
                 className="pl-10"
                 placeholder="Surat, Gujarat"
-                onChange={(e) => setRoundTripData({ pickUp: e.target.value })}
                 value={roundtripData.pickUp}
+                onChange={handleChange(setRoundTripData, 'pickUp')}
               />
             </div>
           </div>
@@ -102,10 +109,11 @@ const OutOfStation = () => {
             <div className="relative">
               <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
+                name="dropOff"
                 className="pl-10"
                 placeholder="Gandhidham, Gujarat"
-                onChange={(e) => setRoundTripData({ dropOff: e.target.value })}
                 value={roundtripData.dropOff}
+                onChange={handleChange(setRoundTripData, 'dropOff')}
               />
             </div>
           </div>
@@ -113,6 +121,7 @@ const OutOfStation = () => {
             <Label className="text-sm font-medium">From Date</Label>
             <div className="relative">
               <DatePickerInput
+                name="fromDate"
                 onChange={(fromDate) => setRoundTripData({ fromDate })}
                 value={roundtripData.fromDate}
               />
@@ -122,6 +131,7 @@ const OutOfStation = () => {
             <Label className="text-sm font-medium">To Date</Label>
             <div className="relative">
               <DatePickerInput
+                name="toDate"
                 onChange={(toDate) => setRoundTripData({ toDate })}
                 value={roundtripData.toDate}
               />
@@ -131,6 +141,7 @@ const OutOfStation = () => {
             <Label className="text-sm font-medium">Pick-up Time</Label>
             <div className="relative">
               <TimeInput
+                name="time"
                 onChange={(time) => setRoundTripData({ time })}
               />
             </div>
@@ -146,10 +157,11 @@ const OutOfStation = () => {
             <div className="relative">
               <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
+                name="pickUp"
                 className="pl-10"
                 placeholder="Ahmedabad, Gujarat"
                 value={multicityData.pickUp}
-                onChange={(e) => setMultiCityData({ pickUp: e.target.value })}
+                onChange={handleChange(setMultiCityData, 'pickUp')}
               />
             </div>
           </div>
@@ -157,6 +169,7 @@ const OutOfStation = () => {
             <Label className="text-sm font-medium">From Date</Label>
             <div className="relative">
               <DatePickerInput
+                name="fromDate"
                 onChange={(fromDate) => setMultiCityData({ fromDate })}
                 value={multicityData.fromDate}
               />
@@ -166,6 +179,7 @@ const OutOfStation = () => {
             <Label className="text-sm font-medium">To Date</Label>
             <div className="relative">
               <DatePickerInput
+                name="toDate"
                 onChange={(toDate) => setMultiCityData({ toDate })}
                 value={multicityData.toDate}
               />
@@ -175,6 +189,7 @@ const OutOfStation = () => {
             <Label className="text-sm font-medium">Pick-up Time</Label>
             <div className="relative">
               <TimeInput
+                name="time"
                 onChange={(time) => setMultiCityData({ time })}
               />
             </div>

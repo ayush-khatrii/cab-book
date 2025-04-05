@@ -20,16 +20,14 @@ import {
 import { packages } from '@/constants';
 import DatePickerInput, { Value } from './ui/DatePicker';
 import { FaLocationDot } from 'react-icons/fa6';
-import { FormData } from '@/types';
 import OutOfStation from './BookingTabs/OutOfStation';
 import { useOutOfStationStore } from '@/store/outofstation';
 import { format } from "date-fns"
+import { MainTab } from '@/types';
 
 const BookCab = () => {
   const [date, setDate] = useState<Value>(new Date());
   const { setSelectedTab, selectedTab, mainTab, setMainTab, onewayData, roundtripData, multicityData } = useOutOfStationStore();
-
-
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -82,7 +80,7 @@ const BookCab = () => {
           defaultValue="outofstation"
           className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-auto"
           onValueChange={(value) => {
-            setMainTab(value);
+            setMainTab(value as MainTab);
             if (value === "outofstation") {
               setSelectedTab("oneway");
             }
@@ -132,7 +130,7 @@ const BookCab = () => {
               </label>
               <label className={`relative flex cursor-pointer flex-col items-center gap-2 p-4 rounded-md border transition ${selectedTab === "multicity" ? "border-ring bg-accent" : "border-gray-300"}`}>
                 <RadioGroupItem value="multicity" className="sr-only" />
-                <p className="text-xs md:text-sm font-medium">Multiple City</p>
+                <p className="text-xs md:text-sm font-medium">Multiple Cities</p>
               </label>
             </RadioGroup>
             <p className="text-accent-foreground text-center">Plan your long-distance journey with ease.</p>

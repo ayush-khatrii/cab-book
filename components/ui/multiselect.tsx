@@ -56,7 +56,7 @@ const Multiselect = ({ cities, onCitiesChange, onAddCity, onRemoveCity }: Multis
 				{cities.map((city, index) => (
 					<div
 						key={index}
-						className="flex items-center bg-accent px-3 py-1 rounded-full"
+						className="flex items-center bg-secondary flex-wrap t px-3 py-1 rounded-md border"
 					>
 						<span className='text-sm'>{city}</span>
 						<XCircle
