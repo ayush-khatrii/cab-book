@@ -45,7 +45,7 @@ const About = () => {
               Book Your Ride Now
             </Button>
             <Button variant="ghost" className='text-xl md:w-auto text-primary'>
-              Call Us at +91 1234 5678
+              Call Us at +91 79849 86324
             </Button>
           </motion.div>
         </motion.div>

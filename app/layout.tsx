@@ -3,6 +3,7 @@ import { Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/sonner"
+import { Suspense } from "react";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -28,7 +29,9 @@ export default function RootLayout({
       >
         <main>
           <Navbar />
-          {children}
+          <Suspense>
+            {children}
+          </Suspense>
         </main>
         <Toaster />
       </body>

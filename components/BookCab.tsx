@@ -321,11 +321,11 @@ const BookCab = () => {
             {/* Right side image */}
             <div className="lg:w-1/2 flex items-center justify-center">
               <div className="relative">
-                <div className="bg-primary p-1 rounded-lg relative z-10">
+                <div className="bg-transparent p-1 rounded-lg relative z-10">
                   <img
-                    src="/cab-driver.jpg"
+                    src="/xl6.png"
                     alt="Happy driver in a car"
-                    className="rounded-lg w-full h-auto object-cover"
+                    className="rounded-lg w-full max-h-full h-full object-cover"
                   />
                 </div>
                 <div className="absolute right-64 -top-96 w-[200px] h-[3000px] bg-primary transform rotate-12 origin-bottom-right"></div>

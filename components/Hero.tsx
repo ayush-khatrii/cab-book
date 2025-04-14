@@ -4,12 +4,12 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative h-[80vh] bg-accent overflow-hidden">
+    <section className="relative h-[80vh] bg-transparent overflow-hidden">
       <div
         className={cn(
           "absolute inset-0 opacity-30",
           "[background-size:20px_20px]",
-          "[background-image:radial-gradient(#d4d4d4_1px,transparent_.5px)]",
+          "[background-image:radial-gradient(#F5F5DC_1px,transparent_.5px)]",
           "dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]",
         )}
       />
