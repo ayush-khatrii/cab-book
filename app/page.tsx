@@ -1,9 +1,13 @@
 import About from '@/components/About'
 import BookCab from '@/components/BookCab'
+import Cab from '@/components/Cab'
+import CabRoutes from '@/components/CabRoutes'
+import Cta from '@/components/Cta'
 import Features from '@/components/Features'
 import Footer from '@/components/Footer'
 import Hero from '@/components/Hero'
 import HowItWorks from '@/components/HowItWorks'
+import Packages from '@/components/Packages'
 import Testimonials from '@/components/Testimonials'
 import React from 'react'
 
@@ -11,12 +15,14 @@ const page = () => {
   return (
     <>
       <Hero />
-      <div className='bg-accent py-10'>
-        <BookCab />
-      </div>
-      <HowItWorks />
       <About />
-      <Testimonials />
+      <BookCab />
+      <Cab />
+      <CabRoutes />
+      <Packages />
+      <Cta />
+      {/* <HowItWorks />
+      <Testimonials /> */}
       <Footer />
     </>
   )

@@ -45,10 +45,10 @@ const OutOfStation = () => {
               <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 name="pickUp"
-                className="pl-10"
                 placeholder="Surat, Gujarat"
                 value={onewayData.pickUp}
                 onChange={handleChange(setOnewayData, 'pickUp')}
+                className="pl-10 rounded-lg border-accent-foreground/10"
 
               />
             </div>

@@ -8,15 +8,73 @@ export const navLinks = [
     path: "/cabs"
   },
   {
-    name: "About",
-    path: "#about"
-  },
-  {
     name: "Contact",
     path: "/contact"
   },
 ];
+export const cabs = [
+  {
+    id: 1,
+    name: 'Innova Crysta (SUV)',
+    image: '/innova-img.png',
+    background: '/city-road.png',
+    seats: 7,
+    bags: 4,
+    passengers: 6,
+    pricePerKm: 15,
+  },
+  {
+    id: 2,
+    name: 'Swift Dzire (Sedan)',
+    image: '/innova-img.png',
+    background: '/city-road.png',
+    seats: 4,
+    bags: 2,
+    passengers: 4,
+    pricePerKm: 11,
+  },
+  {
+    id: 3,
+    name: 'Ertiga (SUV)',
+    image: '/innova-img.png',
+    background: '/city-road.png',
+    seats: 6,
+    bags: 3,
+    passengers: 6,
+    pricePerKm: 13,
+  },
+  {
+    id: 4,
+    name: 'Ertiga (SUV)',
+    image: '/innova-img.png',
+    background: '/city-road.png',
+    seats: 6,
+    bags: 3,
+    passengers: 6,
+    pricePerKm: 13,
+  },
+  {
+    id: 5,
+    name: 'Ertiga (SUV)',
+    image: '/innova-img.png',
+    background: '/city-road.png',
+    seats: 6,
+    bags: 3,
+    passengers: 6,
+    pricePerKm: 13,
+  },
+  {
+    id: 6,
+    name: 'Ertiga (SUV)',
+    image: '/innova-img.png',
+    background: '/city-road.png',
+    seats: 6,
+    bags: 3,
+    passengers: 6,
+    pricePerKm: 13,
+  },
 
+];
 export const packages = [
   {
     id: "1",

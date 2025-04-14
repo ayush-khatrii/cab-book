@@ -1,28 +1,55 @@
-import React from "react";
-import { Button } from "./ui/button";
-import { ArrowRight } from "lucide-react";
+"use client";
+import { Button } from './ui/button';
+import { motion } from "framer-motion";
+import { Car } from 'lucide-react';
 
 const About = () => {
   return (
-    <section id="about" className="bg-accent py-16">
-      <div className="container max-w-7xl mx-auto px-5 flex flex-col lg:flex-row justify-between items-center">
-        {/* Image Section */}
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-          <img className="object-cover object-center rounded" alt="hero" src="logo.png" />
-        </div>
+    <section className='py-20 mt-10 overflow-hidden'>
+      <div className="container mx-auto flex flex-col md:flex-row items-center gap-10 md:px-0 px-6">
+        <motion.div
+          className="md:w-1/2 relative"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          <img
+            className='w-full h-full object-cover rounded-2xl'
+            src="/innova-img.png"
+            alt="Cab Image"
+          />
+        </motion.div>
 
-        <div className="lg:w-1/2 w-full lg:pl-10 text-center lg:text-left">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6">About Us</h2>
-          <p className="text-accent-foreground text-base md:text-lg leading-relaxed">
-            We are committed to providing top-notch cab booking services,
-            ensuring a seamless and comfortable journey. Our professional
-            drivers and well-maintained vehicles guarantee a safe and pleasant
-            travel experience. Your satisfaction is our priority!
+        <motion.div
+          className='flex flex-col gap-4 md:w-1/2'
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+        >
+          <h1 className='font-bold text-primary text-3xl'>About Us</h1>
+          <h2 className='font-bold text-2xl md:text-4xl leading-tight md:max-w-xl'>
+            Welcome to Shivay Safar
+            Best Cab Service in Gandhidham
+          </h2>
+          <p className='text-xl text-accent-foreground/80'>
+            Shivay Safar is proud to be recognized as the <span className='font-bold'>best cab service in Gandhidham</span>.
+            Experience the ease of 24/7 booking support and professional drivers who care about your journey.
+            Choose comfort. Choose reliability. Choose Shivay Safar!
           </p>
-          <Button className="mt-3 group">
-            Know More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform ease-in-out" />
-          </Button>
-        </div>
+          <motion.div
+            initial={{ opacity: 0, y: 90 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+            className='flex items-center gap-5 flex-col md:flex-row'>
+            <Button className="w-full md:w-auto">
+              Book Your Ride Now
+            </Button>
+            <Button variant="ghost" className='text-xl md:w-auto text-primary'>
+              Call Us at +91 1234 5678
+            </Button>
+          </motion.div>
+        </motion.div>
+
       </div>
     </section>
   );
