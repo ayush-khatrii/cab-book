@@ -276,7 +276,7 @@ const BookCab = () => {
                     </div>
                     <div className="space-y-2">
                       <Label className="text-sm font-medium text-gray-700">Total Passengers *</Label>
-                      <Select onValueChange={(p) => setTotalAdultPassengers(p)}>
+                      <Select onValueChange={(p) => setTotalAdultPassengers(Number(p) || 0)}>
                         <SelectTrigger className="w-full">
                           <SelectValue placeholder="Select total adults" />
                         </SelectTrigger>
