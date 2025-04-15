@@ -122,26 +122,8 @@ const BookCab = () => {
         travelTime: localCityTime || "",
         adultPassengers: totalAdultPassengers.toString(),
         childPassengers: totalChildPassengers.toString(),
-        package: localCityPackage || "",
+        tarvelPackage: localCityPackage || "",
         hours: localCityPackage?.includes("8") ? "8" : localCityPackage?.includes("4") ? "4" : "12",
-        mobile,
-        name,
-        email
-      };
-      router.push(`/cabs?${createQueryParams(params)}`);
-    }
-    else if (mainTab === "transfer") {
-      // Airport transfer parameters
-      const params = {
-        fromCity: transferPickUp || "",
-        toCity: transferDropLocation || "",
-        distance: "30", // Standard for airport transfers
-        travelType: "Airport Transfer",
-        travelDate: transferDate ? format(transferDate, 'yyyy-MM-dd') : "",
-        travelTime: transferTime || "",
-        adultPassengers: totalAdultPassengers.toString(),
-        childPassengers: totalChildPassengers.toString(),
-        isAirport: "true",
         mobile,
         name,
         email
@@ -152,11 +134,6 @@ const BookCab = () => {
       // self drive
     }
   };
-
-
-  const handleSendData = (data: any) => {
-    window.open(`https://wa.me/+918200450219?text=${encodeURIComponent(data)}`);
-  }
 
   return (
     <section id='booking' className="w-full relative overflow-hidden py-16">
@@ -199,7 +176,7 @@ const BookCab = () => {
                         }
                       }}
                     >
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
                         <label className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${mainTab === "outofstation" ? "bg-primary text-white shadow-lg shadow-primary/30" : "border hover:bg-accent-foreground/20"}`}>
                           <RadioGroupItem value="outofstation" className="sr-only" />
                           <FaRoute className="mr-2 w-4 h-4" />
@@ -210,12 +187,6 @@ const BookCab = () => {
                           <RadioGroupItem value="local" className="sr-only" />
                           <MapPin className="mr-2 w-4 h-4" />
                           <span className="text-sm font-medium">Local City</span>
-                        </label>
-
-                        <label className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${mainTab === "transfer" ? "bg-primary text-white shadow-lg shadow-primary/30" : "border hover:bg-accent-foreground/20"}`}>
-                          <RadioGroupItem value="transfer" className="sr-only" />
-                          <FaLocationArrow className="mr-2 w-4 h-4" />
-                          <span className="text-sm font-medium">Transfer</span>
                         </label>
 
                         <label className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${mainTab === "selfdrive" ? "bg-primary text-white shadow-lg shadow-primary/30" : "border hover:bg-accent-foreground/20"}`}>
@@ -255,7 +226,6 @@ const BookCab = () => {
                   <div className="space-y-6">
                     {mainTab === "outofstation" && <OutOfStation />}
                     {mainTab === "local" && <LocalCity />}
-                    {mainTab === "transfer" && <Transfer />}
                     {mainTab === "selfdrive" && (
                       <div className="space-y-6">
                         <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md">
@@ -335,6 +305,9 @@ const BookCab = () => {
                             <SelectItem value="2">2</SelectItem>
                             <SelectItem value="3">3</SelectItem>
                             <SelectItem value="4">4</SelectItem>
+                            <SelectItem value="5">5</SelectItem>
+                            <SelectItem value="6">6</SelectItem>
+                            <SelectItem value="7">7</SelectItem>
                           </SelectGroup>
                         </SelectContent>
                       </Select>
@@ -345,10 +318,12 @@ const BookCab = () => {
                         <SelectContent>
                           <SelectGroup>
                             <SelectLabel>Number of Children</SelectLabel>
+                            <SelectItem value="0">0</SelectItem>
                             <SelectItem value="1">1</SelectItem>
                             <SelectItem value="2">2</SelectItem>
                             <SelectItem value="3">3</SelectItem>
                             <SelectItem value="4">4</SelectItem>
+                            <SelectItem value="5">5</SelectItem>
                           </SelectGroup>
                         </SelectContent>
                       </Select>

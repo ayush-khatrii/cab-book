@@ -48,15 +48,15 @@ const Footer = () => {
           <div className="space-y-2 font-light">
             <div className="flex items-center space-x-3">
               <RiMapPin2Fill className="h-5 w-5 text-primary" />
-              <span>123 Travel Street, City, State</span>
+              <span className=''>DBZ-N.107 Khanna market near gandhidham typing, Gandhidham Kutch </span>
             </div>
             <div className="flex items-center space-x-3">
               <IoMdCall className="h-5 w-5 text-primary" />
-              <span>+91 99999 99999</span>
+              <span>+91 79849 86324</span>
             </div>
             <div className="flex items-center space-x-3">
               <MdMail className="h-5 w-5 text-primary" />
-              <span>support@shivaysafar.com</span>
+              <span>shivaysafar99@gmail.com</span>
             </div>
           </div>
         </div>
@@ -95,25 +95,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Social Links */}
-        {/* <div>
-          <h4 className="text-xl font-semibold mb-4">Connect With Us</h4>
-          <div className="flex space-x-4">
-            {socialLinks.map((social, index) => (
-              <a
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`
-                  h-10 w-10 rounded-full flex items-center justify-center 
-                  transition duration-300 ease-in-out transform hover:scale-125 hover:text-primary hover:border-primary border border-opacity-30`}
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
-        </div> */}
       </div>
 
       {/* Copyright */}

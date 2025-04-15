@@ -2,6 +2,7 @@
 import { Button } from './ui/button';
 import { motion } from "framer-motion";
 import { Car } from 'lucide-react';
+import Link from 'next/link';
 
 const About = () => {
   return (
@@ -42,10 +43,14 @@ const About = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
             className='flex items-center gap-5 flex-col md:flex-row'>
             <Button className="w-full md:w-auto">
-              Book Your Ride Now
+              <Link href="/cabs">
+                Explore Our Cabs
+              </Link>
             </Button>
             <Button variant="ghost" className='text-xl md:w-auto text-primary'>
-              Call Us at +91 79849 86324
+              <a href="tel:+917984986324">
+                Call Us at +91 79849 86324
+              </a>
             </Button>
           </motion.div>
         </motion.div>

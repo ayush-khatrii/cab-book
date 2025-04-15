@@ -74,6 +74,6 @@ export interface Cab {
   pricePerKm: number;
   background: string;
   image: string;
-  seats: number;
-  passengers: number;
+  seats: string;
+  passengers: string;
 }

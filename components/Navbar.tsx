@@ -27,7 +27,13 @@ export default function Navbar() {
                 </Link>
               ))
             }
-            <Button variant="default">Book Now</Button>
+            <Button
+              asChild
+            >
+              <a href="/#booking">
+                Book Now
+              </a>
+            </Button>
           </div>
 
           {/* Mobile Menu */}
@@ -58,7 +64,13 @@ export default function Navbar() {
                 </div>
                 <SheetFooter>
                   <SheetClose asChild>
-                    <Button>Book Now</Button>
+                    <Button
+                      asChild
+                    >
+                      <a href="/#booking">
+                        Book Now
+                      </a>
+                    </Button>
                   </SheetClose>
                 </SheetFooter>
               </SheetContent>

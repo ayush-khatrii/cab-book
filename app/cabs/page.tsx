@@ -26,16 +26,17 @@ import { GoPerson } from "react-icons/go";
 const Cabs = () => {
   const searchParams = useSearchParams();
   const [tripDetails, setTripDetails] = useState({
-    fromCity: "N/A",
-    toCity: "N/A",
-    travelType: "One-way",
-    travelDate: "N/A",
+    fromCity: "NOT SELECTED",
+    toCity: "NOT SELECTED",
+    travelType: "NOT SELECTED",
+    travelDate: "NOT SELECTED",
+    tarvelPackage: "NOT SELECTED",
     travelTime: "00:00",
     adultPassengers: "0",
     childPassengers: "0",
-    mobile: "N/A",
-    email: "N/A",
-    name: "N/A",
+    mobile: "NOT SELECTED",
+    email: "NOT SELECTED",
+    name: "NOT SELECTED",
   });
 
   useEffect(() => {
@@ -51,6 +52,7 @@ const Cabs = () => {
       const mobile = searchParams.get('mobile');
       const email = searchParams.get('email');
       const name = searchParams.get('name');
+      const tarvelPackage = searchParams.get('tarvelPackage');
 
       // Update state with URL parameters if they exist
       setTripDetails({
@@ -68,7 +70,8 @@ const Cabs = () => {
         childPassengers: childPassengers || tripDetails.childPassengers,
         mobile: mobile || tripDetails.mobile,
         email: email || tripDetails.email,
-        name: name || tripDetails.name
+        name: name || tripDetails.name,
+        tarvelPackage: tarvelPackage || tripDetails.tarvelPackage,
       });
     }
   }, [searchParams]);
@@ -130,7 +133,7 @@ const Cabs = () => {
                   <CardTitle className="text-xl">Trip Details</CardTitle>
                   <CardDescription>Your journey information</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 grid grid-cols-2">
                   <div className="flex items-center space-x-4">
                     <div className="bg-primary/10 p-2 rounded-full">
                       <User className="h-5 w-5 text-primary" />
@@ -174,6 +177,15 @@ const Cabs = () => {
                     <div className="flex-1">
                       <p className="text-sm text-muted-foreground">To City</p>
                       <p className="font-medium">{tripDetails.toCity}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <IoLocationOutline className="h-5 w-5 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-muted-foreground">Package</p>
+                      <p className="font-medium">{tripDetails.tarvelPackage}</p>
                     </div>
                   </div>
 
@@ -222,7 +234,7 @@ const Cabs = () => {
                       <p className="font-medium">{tripDetails.childPassengers}</p>
                     </div>
                   </div>
-                  <Button asChild className="w-full">
+                  <Button asChild className="w-full col-span-2">
                     <Link href="/#booking">
                       Modify Trip
                     </Link>
@@ -261,7 +273,7 @@ const Cabs = () => {
                       <div className="absolute inset-0 top-28 bg-accent -skew-[-40deg] w-[50rem] h-[50rem]" />
                     </div>
                     <CardHeader>
-                      <CardTitle className="text-2xl">
+                      <CardTitle className="text-2xl text-center">
                         <motion.h1
                           initial={{ opacity: 0, y: 10 }}
                           whileInView={{ opacity: 1, y: 0 }}
@@ -279,6 +291,16 @@ const Cabs = () => {
                         className="flex items-end justify-between gap-2 text-xl">
                         <div className="font-bold text-primary">
                           {handlePrice(cab)}
+                        </div>
+                      </motion.div>
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: 0.2 }}
+                        className="flex items-center justify-between gap-2 text-lg font-normal">
+                        {cab.name}
+                        <div>
+                          {`${cab.pricePerKm}/km`}
                         </div>
                       </motion.div>
                       <motion.div

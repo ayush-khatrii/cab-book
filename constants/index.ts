@@ -20,9 +20,9 @@ export const cabs: Cab[] = [
     name: 'XL6 (SUV)',
     image: '/xl6.png',
     background: '/city-road.png',
-    seats: 6,
+    seats: "6+1",
     type: "SUV",
-    passengers: 6,
+    passengers: "7 person",
     pricePerKm: 15,
   },
   {
@@ -30,8 +30,8 @@ export const cabs: Cab[] = [
     name: 'Ertiga (SUV)',
     image: '/ertiga.png',
     background: '/city-road.png',
-    seats: 6,
-    passengers: 6,
+    seats: "6+1",
+    passengers: "7 person",
     type: "SUV",
     pricePerKm: 13,
   },
@@ -40,8 +40,8 @@ export const cabs: Cab[] = [
     name: 'Swift (HatchBack)',
     image: '/swift-dzire.png',
     background: '/city-road.png',
-    seats: 4,
-    passengers: 4,
+    seats: "3+1",
+    passengers: "4 person",
     type: "HATCHBACK",
     pricePerKm: 11,
   },
@@ -50,11 +50,21 @@ export const cabs: Cab[] = [
     name: 'Swift Dzire (Sedan)',
     image: '/dzire.png',
     background: '/city-road.png',
-    seats: 4,
-    passengers: 4,
+    seats: "3+1",
+    passengers: "4 person",
     type: "SEDAN",
     pricePerKm: 11,
   },
+  {
+    id: 5,
+    name: 'Innova (SUV)',
+    image: '/innova-img.png',
+    background: '/city-road.png',
+    seats: "6+1",
+    type: "SUV",
+    passengers: "7 person",
+    pricePerKm: 18,
+  }
 ];
 export const packages = [
   {
@@ -65,20 +75,7 @@ export const packages = [
     id: "2",
     timeTravel: "12hr/120kms",
   },
-  {
-    id: "3",
-    timeTravel: "16hr/160kms",
-  },
-  {
-    id: "4",
-    timeTravel: "20hr/200kms",
-  },
-  {
-    id: "5",
-    timeTravel: "24hr/240kms",
-  }
 ];
-
 
 
 // constants/prices.ts
@@ -437,5 +434,16 @@ export const priceMatrix = {
     },
   },
 } as const;
+
+export const localPriceMatrix = {
+  "8hr,80/km": {
+    SUV: 3500,
+    SEDAN: 2500
+  },
+  "12hr,120/km": {
+    SUV: 4200,
+    SEDAN: 3200
+  }
+}
 
 
