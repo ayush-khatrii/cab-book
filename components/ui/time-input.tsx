@@ -35,14 +35,14 @@ const TimeInput = ({
   };
 
   return (
-    <div className="flex w-full items-center gap-2 rounded-md border border-accent text-black px-3 py-2 shadow-sm">
-      <FaRegClock size={16} className="text-muted-foreground" />
-      <div className="flex items-center gap-1">
+    <div className="relative flex w-full items-center gap-2 rounded-md border text-black px-3">
+      <FaRegClock size={14} className="absolute text-muted-foreground" />
+      <div className="flex items-center gap-1 pl-5">
         <Select name={name} value={hour} onValueChange={(val) => {
           setHour(val);
           updatedTime(val, minute, period);
         }}>
-          <SelectTrigger size="sm" className="cursor-pointer bg-transparent">
+          <SelectTrigger className=" cursor-pointer bg-transparent border-none">
             <SelectValue placeholder="HH" />
           </SelectTrigger>
           <SelectContent className=" border border-input">
@@ -57,7 +57,7 @@ const TimeInput = ({
           setMinute(val);
           updatedTime(hour, val, period);
         }}>
-          <SelectTrigger size="sm" className="cursor-pointer  bg-transparent ">
+          <SelectTrigger size="sm" className="cursor-pointer bg-transparent border-none">
             <SelectValue placeholder="MM" />
           </SelectTrigger>
           <SelectContent className="bg-popover">
@@ -72,7 +72,7 @@ const TimeInput = ({
           setPeriod(val);
           updatedTime(hour, minute, val);
         }}>
-          <SelectTrigger size="sm" className="cursor-pointer bg-transparent">
+          <SelectTrigger size="sm" className="cursor-pointer border-none">
             <SelectValue placeholder="AM/PM" className='' />
           </SelectTrigger>
           <SelectContent className="">

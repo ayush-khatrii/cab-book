@@ -43,7 +43,7 @@ const CabList = () => {
                   transition={{ duration: 0.3, delay: 0.1 }}
                   src={cab.image}
                   alt={cab.name}
-                  className="relative z-50 w-full h-64 md:h-72 top-10 object-cover"
+                  className="relative z-50 w-full h-64 top-10 object-cover"
                 />
                 <div className="absolute inset-0 top-28 bg-accent -skew-[-40deg] w-[50rem] h-[50rem]" />
                 <Badge

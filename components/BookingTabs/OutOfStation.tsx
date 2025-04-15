@@ -48,7 +48,7 @@ const OutOfStation = () => {
                 placeholder="Surat, Gujarat"
                 value={onewayData.pickUp}
                 onChange={handleChange(setOnewayData, 'pickUp')}
-                className="pl-10 rounded-lg border-accent-foreground/10"
+                className="pl-10"
 
               />
             </div>

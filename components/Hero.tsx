@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -24,9 +25,11 @@ const Hero = () => {
             Book Hassle-Free Rides with Shivay Safar — Comfort, Reliability, and Pride in Every Mile.
           </p>
         </div>
-        <Button size="lg">
-          Book Your Ride Now
-          <ArrowRight size={20} className='group-hover:translate-x-1.5 transition-all duration-150 ease-in-out' />
+        <Button size="lg" asChild>
+          <Link href={"/#booking"} className='flex items-center'>
+            Book Your Ride Now
+            <ArrowRight size={20} className='group-hover:translate-x-1.5 transition-all duration-150 ease-in-out' />
+          </Link>
         </Button>
       </div>
 
@@ -34,12 +37,12 @@ const Hero = () => {
         <div className="absolute top-0 -right-80 w-[1000px] h-[1000px] bg-primary transform rotate-12 origin-bottom-right"></div>
         <div className="absolute top-10 -right-96 w-[900px] h-[900px] bg-accent-foreground/90 transform rotate-12 origin-bottom-right"></div>
         <img
-          className="w-full h-auto object-contain scale-x-[-1] relative z-10 drop-shadow-2xl"
+          className="w-full h-auto object-cover relative z-10 drop-shadow-2xl"
           src="/xl6.png"
           alt="Luxury cab service vehicle"
         />
       </div>
-    </section>
+    </section >
   );
 };
 

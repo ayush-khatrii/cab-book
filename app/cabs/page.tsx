@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Navigation, Route, Calendar, ArrowUp, Clock } from "lucide-react";
+import { ArrowRight, Navigation, Route, Calendar, ArrowUp, Clock, User, PhoneCall, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { cabs } from "@/constants";
@@ -18,17 +18,21 @@ import { IoLocationOutline } from "react-icons/io5";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { GrGroup } from "react-icons/gr";
 import Link from "next/link";
+import { MdEmail } from "react-icons/md";
 
 const Cabs = () => {
   const searchParams = useSearchParams();
   const [tripDetails, setTripDetails] = useState({
     fromCity: "Ahmedabad",
     toCity: "Gandhinagar",
-    distance: "500",
     travelType: "One-way",
     travelDate: "May 15, 2023",
     travelTime: "5:00 PM",
-    passengers: "5"
+    adultPassengers: "5",
+    childPassengers: "0",
+    mobile: "",
+    email: "sample@example.com",
+    name: ""
   });
 
   useEffect(() => {
@@ -40,13 +44,16 @@ const Cabs = () => {
       const travelType = searchParams.get('travelType');
       const travelDate = searchParams.get('travelDate');
       const travelTime = searchParams.get('travelTime');
-      const passengers = searchParams.get('passengers');
+      const adultPassengers = searchParams.get('adultPassengers');
+      const childPassengers = searchParams.get('childPassengers');
+      const mobile = searchParams.get('mobile');
+      const email = searchParams.get('email');
+      const name = searchParams.get('name');
 
       // Update state with URL parameters if they exist
       setTripDetails({
         fromCity: fromCity || tripDetails.fromCity,
         toCity: toCity || tripDetails.toCity,
-        distance: distance || tripDetails.distance,
         travelType: travelType || tripDetails.travelType,
         // Format the date from yyyy-MM-dd to Month Day, Year
         travelDate: travelDate ? new Date(travelDate).toLocaleDateString('en-US', {
@@ -55,7 +62,11 @@ const Cabs = () => {
           year: 'numeric'
         }) : tripDetails.travelDate,
         travelTime: travelTime || tripDetails.travelTime,
-        passengers: passengers || tripDetails.passengers
+        adultPassengers: adultPassengers || tripDetails.adultPassengers,
+        childPassengers: childPassengers || tripDetails.childPassengers,
+        mobile: mobile || tripDetails.mobile,
+        email: email || tripDetails.email,
+        name: name || tripDetails.name
       });
     }
   }, [searchParams]);
@@ -63,16 +74,21 @@ const Cabs = () => {
   // Function to handle booking and redirect to WhatsApp
   const handleBookNow = (cab: any) => {
     const message = `🚖 *Booking Request*
+- *Name:* ${tripDetails.name}
+- *Email:* ${tripDetails.email}
+- *Mobile:* ${tripDetails.mobile}
+- *MY-TRIP-BOOKING-DETAILS:*
 - *From:* ${tripDetails.fromCity}
 - *To:* ${tripDetails.toCity}
 - *Travel Type:* ${tripDetails.travelType}
 - *Date:* ${tripDetails.travelDate}
 - *Time:* ${tripDetails.travelTime}
-- *Passengers:* ${tripDetails.passengers}
+- *Adults:* ${tripDetails.adultPassengers}
+- *Children:* ${tripDetails.childPassengers}
 - *Selected Cab:* ${cab.name}
 - *Price:* ₹${cab.pricePerKm}/km `;
 
-    window.open(`https://wa.me/+918200450219?text=${encodeURIComponent(message)}`);
+    window.open(`https://wa.me/+917984986324?text=${encodeURIComponent(message)}`);
   };
 
   return (
@@ -94,13 +110,40 @@ const Cabs = () => {
       <div className="container mx-auto py-8 px-4 ">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
           <div className="lg:col-span-1">
-            <div className="sticky top-20">
+            <div className="sticky top-18">
               <Card className="shadow-md border border-accent-foreground/20 bg-card ">
                 <CardHeader className="bg-accent/10 mt-5 border-b border-border">
                   <CardTitle className="text-xl">Trip Details</CardTitle>
                   <CardDescription>Your journey information</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <User className="h-5 w-5 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-muted-foreground">Name</p>
+                      <p className="font-medium">{tripDetails.name}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <PhoneCall className="h-5 w-5 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-muted-foreground">Phone Number</p>
+                      <p className="font-medium">{tripDetails.mobile}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <Mail className="h-5 w-5 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-muted-foreground">Phone Number</p>
+                      <p className="font-medium">{tripDetails.email}</p>
+                    </div>
+                  </div>
                   <div className="flex items-center space-x-4">
                     <div className="bg-primary/10 p-2 rounded-full">
                       <Navigation className="h-5 w-5 text-primary" />
@@ -117,16 +160,6 @@ const Cabs = () => {
                     <div className="flex-1">
                       <p className="text-sm text-muted-foreground">To City</p>
                       <p className="font-medium">{tripDetails.toCity}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-primary/10 p-2 rounded-full">
-                      <Route className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm text-muted-foreground">Distance</p>
-                      <p className="font-medium">{tripDetails.distance} kms</p>
                     </div>
                   </div>
 
@@ -162,8 +195,12 @@ const Cabs = () => {
                       <FaPeopleGroup className="h-5 w-5 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-muted-foreground">Total Passengers</p>
-                      <p className="font-medium">{tripDetails.passengers}</p>
+                      <p className="text-sm text-muted-foreground">Adult Passengers</p>
+                      <p className="font-medium">{tripDetails.adultPassengers}</p>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-muted-foreground">Child Passengers</p>
+                      <p className="font-medium">{tripDetails.childPassengers}</p>
                     </div>
                   </div>
                   <Button asChild className="w-full">
