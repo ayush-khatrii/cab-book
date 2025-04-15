@@ -64,3 +64,17 @@ export interface SELF_DRIVE {
 
   setTransferData: (data: Partial<TRANSFER>) => void;
 }
+
+export type CabType = "SEDAN" | "SUV" | "HATCHBACK";
+
+export interface Cab {
+  id: number;
+  name: string;
+  type: CabType;
+  pricePerKm: number;
+  background: string;
+  image: string;
+  seats: number;
+  bags: number;
+  passengers: number;
+}

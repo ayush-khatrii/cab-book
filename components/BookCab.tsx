@@ -109,6 +109,8 @@ const BookCab = () => {
         router.push(`/cabs?${createQueryParams(params)}`);
       }
     }
+
+
     else if (mainTab === "local") {
       // Local city parameters
       const params = {
@@ -259,7 +261,7 @@ const BookCab = () => {
                         <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md">
                           <div className="flex flex-col gap-2 text-center">
                             <p className="font-semibold">Self Drive Timing: <span className="font-bold">10:00 AM - 10:00 PM</span></p>
-                            <p className="font-semibold">Available Locations: <span className="font-bold">Kutch, Gandhidham, Anjar, Bhuj</span></p>
+                            <p className="font-semibold">Available Locations: <span className="font-bold">Gandhidham, Anjar, Bhuj, Bhachau, Adipur (All over in kutch)   </span></p>
                           </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

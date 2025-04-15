@@ -13,12 +13,15 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Navigation, Route, Calendar, ArrowUp, Clock, User, PhoneCall, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { cabs } from "@/constants";
-import { IoLocationOutline } from "react-icons/io5";
-import { FaPeopleGroup } from "react-icons/fa6";
+import { cabs, priceMatrix } from "@/constants";
+import { IoLocationOutline, IoPersonOutline } from "react-icons/io5";
+import { FaChild } from "react-icons/fa6";
 import { GrGroup } from "react-icons/gr";
 import Link from "next/link";
 import { MdEmail } from "react-icons/md";
+import { getFlatPrice } from "@/utils/getFlatPrice";
+import { Cab } from "@/types";
+import { GoPerson } from "react-icons/go";
 
 const Cabs = () => {
   const searchParams = useSearchParams();
@@ -39,8 +42,7 @@ const Cabs = () => {
     // Read URL parameters and update state
     if (searchParams) {
       const fromCity = searchParams.get('fromCity');
-      const toCity = searchParams.get('toCities');
-      const distance = searchParams.get('distance');
+      const toCity = searchParams.get('toCity');
       const travelType = searchParams.get('travelType');
       const travelDate = searchParams.get('travelDate');
       const travelTime = searchParams.get('travelTime');
@@ -73,24 +75,36 @@ const Cabs = () => {
 
   // Function to handle booking and redirect to WhatsApp
   const handleBookNow = (cab: any) => {
-    const message = `🚖 *Booking Request*
-- *Name:* ${tripDetails.name}
-- *Email:* ${tripDetails.email}
-- *Mobile:* ${tripDetails.mobile}
-- *MY-TRIP-BOOKING-DETAILS:*
-- *From:* ${tripDetails.fromCity}
-- *To:* ${tripDetails.toCity}
-- *Travel Type:* ${tripDetails.travelType}
-- *Date:* ${tripDetails.travelDate}
-- *Time:* ${tripDetails.travelTime}
-- *Adults:* ${tripDetails.adultPassengers}
-- *Children:* ${tripDetails.childPassengers}
-- *Selected Cab:* ${cab.name}
-- *Price:* ₹${cab.pricePerKm}/km `;
+    const message =
+      `🚖 *New Cab Booking Request*\n\n` +
+      `👤 *Customer Details:*\n` +
+      `• Name: ${tripDetails.name}\n` +
+      `• Email: ${tripDetails.email}\n` +
+      `• Mobile: ${tripDetails.mobile}\n\n` +
+      `🧳 *Trip Details:*\n` +
+      `• From: ${tripDetails.fromCity}\n` +
+      `• To: ${tripDetails.toCity}\n` +
+      `• Travel Type: ${tripDetails.travelType}\n` +
+      `• Date: ${tripDetails.travelDate}\n` +
+      `• Time: ${tripDetails.travelTime}\n` +
+      `• Adults: ${tripDetails.adultPassengers}\n` +
+      `• Children: ${tripDetails.childPassengers}\n\n` +
+      `🚗 *Selected Cab:*\n` +
+      `• ${cab.name}\n\n` +
+      `Please confirm the booking at your earliest convenience. Thank you!`;
 
     window.open(`https://wa.me/+917984986324?text=${encodeURIComponent(message)}`);
   };
 
+
+  const handlePrice = (cab: Cab) => {
+    return getFlatPrice(
+      tripDetails.fromCity,
+      tripDetails.toCity,
+      cab.type,
+      tripDetails.travelType
+    );
+  };
   return (
     <section className="min-h-screen bg-background">
       {/* Header Banner */}
@@ -192,11 +206,16 @@ const Cabs = () => {
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="bg-primary/10 p-2 rounded-full">
-                      <FaPeopleGroup className="h-5 w-5 text-primary" />
+                      <GoPerson className="h-5 w-5 text-primary" />
                     </div>
                     <div className="flex-1">
                       <p className="text-sm text-muted-foreground">Adult Passengers</p>
                       <p className="font-medium">{tripDetails.adultPassengers}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <FaChild className="h-5 w-5 text-primary" />
                     </div>
                     <div className="flex-1">
                       <p className="text-sm text-muted-foreground">Child Passengers</p>
@@ -240,11 +259,6 @@ const Cabs = () => {
                         className="relative z-50 w-full h-64 md:h-72 top-10 object-cover"
                       />
                       <div className="absolute inset-0 top-28 bg-accent -skew-[-40deg] w-[50rem] h-[50rem]" />
-                      <Badge
-                        variant={"default"}
-                        className="absolute font-medium text-base top-20 border right-5 md:top-24 md:right-12 p-2 z-20">
-                        ₹{cab.pricePerKm}/km
-                      </Badge>
                     </div>
                     <CardHeader>
                       <CardTitle className="text-2xl">
@@ -257,15 +271,14 @@ const Cabs = () => {
                         </motion.h1>
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="flex flex-col opacity-70 gap-2 ">
+                    <CardContent className="flex flex-col gap-2 ">
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: 0.1 }}
-                        className="flex items-center justify-between gap-2 text-lg font-normal">
-                        {cab.name}
-                        <div>
-                          ₹{cab.pricePerKm}/km
+                        className="flex items-end justify-between gap-2 text-xl">
+                        <div className="font-bold text-primary">
+                          {handlePrice(cab)}
                         </div>
                       </motion.div>
                       <motion.div
