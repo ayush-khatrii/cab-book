@@ -9,6 +9,7 @@ import {
 import { RiMapPin2Fill } from 'react-icons/ri';
 import { IoMdCall } from "react-icons/io";
 import { MdMail } from 'react-icons/md';
+import { FaLocationDot } from 'react-icons/fa6';
 
 const Footer = () => {
   const socialLinks = [
@@ -47,7 +48,7 @@ const Footer = () => {
           {/* Contact Info */}
           <div className="space-y-2 font-light">
             <div className="flex items-center space-x-3">
-              <RiMapPin2Fill className="h-5 w-5 text-primary" />
+              <FaLocationDot className="h-5 w-5 text-primary" />
               <span className=''>DBZ-N.107 Khanna market near gandhidham typing, Gandhidham Kutch </span>
             </div>
             <div className="flex items-center space-x-3">
