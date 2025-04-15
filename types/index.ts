@@ -75,6 +75,5 @@ export interface Cab {
   background: string;
   image: string;
   seats: number;
-  bags: number;
   passengers: number;
 }

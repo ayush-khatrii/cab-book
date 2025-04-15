@@ -294,16 +294,6 @@ const Cabs = () => {
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: 0.3 }}
-                        className="flex items-center justify-between gap-2 text-lg font-normal">
-                        Bags:
-                        <div>
-                          {cab.bags}
-                        </div>
-                      </motion.div>
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, delay: 0.4 }}
                         className="flex items-center justify-between gap-2 text-lg font-normal">
                         Passengers:

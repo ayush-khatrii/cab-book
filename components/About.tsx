@@ -15,7 +15,7 @@ const About = () => {
         >
           <img
             className='w-full h-full object-cover rounded-2xl'
-            src="/innova-img.png"
+            src="/swift-dzire.png"
             alt="Cab Image"
           />
         </motion.div>

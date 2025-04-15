@@ -22,7 +22,7 @@ const CabList = () => {
         <h1 className="text-2xl md:text-3xl font-bold">Book Your Trusted Cab Now</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:px-0 px-5">
-        {cabs.slice(0, 3).map((cab, idx) => (
+        {cabs.map((cab, idx) => (
           <motion.div
             key={cab.id}
             initial={{ opacity: 0, y: 10 }}
@@ -48,7 +48,7 @@ const CabList = () => {
                 <div className="absolute inset-0 top-28 bg-accent -skew-[-40deg] w-[50rem] h-[50rem]" />
                 <Badge
                   variant={"default"}
-                  className="absolute font-medium text-base top-20 border right-5 md:top-24 md:right-12 p-2 z-20">
+                  className="absolute font-medium text-base top-20 border right-5 md:top-0 md:right-0 p-2 z-20">
                   ₹{cab.pricePerKm}/km
                 </Badge>
               </div>
@@ -82,16 +82,6 @@ const CabList = () => {
                   Seats:
                   <div>
                     {cab.seats}
-                  </div>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.3 }}
-                  className="flex items-center justify-between gap-2 text-lg font-normal">
-                  Bags:
-                  <div>
-                    {cab.bags}
                   </div>
                 </motion.div>
                 <motion.div
