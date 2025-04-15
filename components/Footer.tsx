@@ -36,7 +36,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-foreground from-primary to-primary text-background py-16">
-      <div className="container mx-auto px-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 grid sm:grid-cols-2 lg:grid-cols-3 items-center gap-8">
         {/* Company Info */}
         <div className="space-y-4">
           <h3 className="text-2xl font-bold mb-4">Shivay Safar</h3>
@@ -96,7 +96,7 @@ const Footer = () => {
         </div>
 
         {/* Social Links */}
-        <div>
+        {/* <div>
           <h4 className="text-xl font-semibold mb-4">Connect With Us</h4>
           <div className="flex space-x-4">
             {socialLinks.map((social, index) => (
@@ -113,7 +113,7 @@ const Footer = () => {
               </a>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Copyright */}
@@ -122,7 +122,9 @@ const Footer = () => {
           © {new Date().getFullYear()} Shivay Safar. All Rights Reserved.
         </p>
         <p className="text-accent/50 font-light">
-          Developed by <a href='https://ayushkhatri.site' target="_blank" rel="noopener noreferrer" className='font-semibold text-primary'>Ayush Khatri</a>
+          <a href='https://ayushkhatri.site' target="_blank" rel="noopener noreferrer" className='font-semibold text-primary'>
+
+          </a>
         </p>
       </div>
     </footer>

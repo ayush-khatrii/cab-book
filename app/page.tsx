@@ -8,6 +8,7 @@ import Footer from '@/components/Footer'
 import Hero from '@/components/Hero'
 import HowItWorks from '@/components/HowItWorks'
 import Packages from '@/components/Packages'
+import Socials from '@/components/Socials'
 import Testimonials from '@/components/Testimonials'
 import React from 'react'
 
@@ -23,6 +24,7 @@ const page = () => {
       <Cta />
       {/* <HowItWorks />
       <Testimonials /> */}
+      <Socials />
       <Footer />
     </>
   )

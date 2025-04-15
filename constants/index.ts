@@ -48,7 +48,7 @@ export const cabs: Cab[] = [
   {
     id: 4,
     name: 'Swift Dzire (Sedan)',
-    image: '/swift-dzire.png',
+    image: '/dzire.png',
     background: '/city-road.png',
     seats: 4,
     passengers: 4,
@@ -85,6 +85,18 @@ export const packages = [
 export const priceMatrix = {
   // FROM GIMB TO DIFFERENT LOCATIONS & DIFFERENT LOCATIONS TO GIMB
   GANDHIDHAM: {
+    BHACHAU: {
+      "ONE-WAY": {
+        SUV: 2500,
+        SEDAN: 2000,
+      }
+    },
+    MUNDRA: {
+      "ONE-WAY": {
+        SUV: 2000,
+        SEDAN: 1500,
+      }
+    },
     BHUJ: {
       "ONE-WAY": {
         SUV: 2000,
@@ -152,7 +164,29 @@ export const priceMatrix = {
       },
     },
   },
+  BHACHAU: {
+    GANDHIDHAM: {
+      "ONE-WAY": {
+        SUV: 2500,
+        SEDAN: 2000,
+      }
+    },
+  },
+  MUNDRA: {
+    GANDHIDHAM: {
+      "ONE-WAY": {
+        SUV: 2000,
+        SEDAN: 1500,
+      }
+    },
+  },
   BHUJ: {
+    MUNDRA: {
+      "ONE-WAY": {
+        SUV: 2000,
+        SEDAN: 1500,
+      }
+    },
     AHMEDABAD: {
       "ONE-WAY": {
         SUV: 5000,
