@@ -23,16 +23,16 @@ import { MdEmail } from "react-icons/md";
 const Cabs = () => {
   const searchParams = useSearchParams();
   const [tripDetails, setTripDetails] = useState({
-    fromCity: "Ahmedabad",
-    toCity: "Gandhinagar",
+    fromCity: "N/A",
+    toCity: "N/A",
     travelType: "One-way",
-    travelDate: "May 15, 2023",
-    travelTime: "5:00 PM",
-    adultPassengers: "5",
+    travelDate: "N/A",
+    travelTime: "00:00",
+    adultPassengers: "0",
     childPassengers: "0",
-    mobile: "",
-    email: "sample@example.com",
-    name: ""
+    mobile: "N/A",
+    email: "N/A",
+    name: "N/A",
   });
 
   useEffect(() => {
@@ -140,7 +140,7 @@ const Cabs = () => {
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-muted-foreground">Phone Number</p>
+                      <p className="text-sm text-muted-foreground">Email</p>
                       <p className="font-medium">{tripDetails.email}</p>
                     </div>
                   </div>
