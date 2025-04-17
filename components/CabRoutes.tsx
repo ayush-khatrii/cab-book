@@ -47,11 +47,10 @@ const CabRoutes = () => {
     setMainTab("outofstation");
     setSelectedTab("oneway");
 
-    // ⬇️ Navigate to the #booking section after confirming booking
-    router.push(`/#booking`);
     toast.success("Route selected. Please fill your details to book.");
-    console.log(route);
-
+    setTimeout(() => {
+      router.push(`/#booking`);
+    }, 500);
   }
   return (
     <section className="py-12 max-w-7xl mx-auto px-5 lg:px-3">
