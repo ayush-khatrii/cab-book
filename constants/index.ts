@@ -81,6 +81,45 @@ export const packages = [
   },
 ];
 
+export const cabRoutes = [
+  {
+    id: 1,
+    from: "Gandhidham",
+    to: "Ahmedabad Airport",
+    description: "Need to catch a flight? Let us take you from Gandhidham to Ahmedabad Airport safely and on time.",
+    image: "/ahm-airport.png",
+  },
+  {
+    id: 2,
+    from: "Gandhidham",
+    to: "Rajkot",
+    description: "Planning a quick trip to Rajkot? Sit back and relax — we’ll handle the driving.",
+    image: "/rajkot.jpg"
+  },
+  {
+    id: 3,
+    from: "Ahmedabad",
+    to: "Rajkot",
+    description: "Traveling between Ahmedabad and Rajkot? Enjoy a smooth, comfy cab ride without the hassle.",
+    image: "/ahmedabad.jpg"
+  },
+  {
+    id: 4,
+    from: "Bhuj",
+    to: "Ahmedabad",
+    description: "Going from Bhuj to Ahmedabad? Book your ride in seconds and leave the rest to us.",
+    image: "/bhuj-img.jpg",
+  },
+  {
+    id: 5,
+    from: "Bhuj",
+    to: "Rajkot",
+    description: "Need a cab to Rajkot from Bhuj? Quick, easy, and always on time.",
+    image: "/rajkot.jpg"
+  },
+];
+
+
 
 // constants/prices.ts
 export const priceMatrix = {

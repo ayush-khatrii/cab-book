@@ -38,9 +38,9 @@ const About = () => {
             Choose comfort. Choose reliability. Choose Shivay Safar!
           </p>
           <motion.div
-            initial={{ opacity: 0, y: 90 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+            transition={{ duration: 0.3, ease: "easeOut", delay: 0.5 }}
             className='flex items-center gap-5 flex-col md:flex-row'>
             <Button className="w-full md:w-auto">
               <Link href="/cabs">

@@ -35,7 +35,7 @@ export default function RootLayout({
           </Suspense>
           <Footer />
         </main>
-        <Toaster />
+        <Toaster position="top-center" />
       </body>
     </html>
   );

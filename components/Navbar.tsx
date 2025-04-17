@@ -9,7 +9,7 @@ import { navLinks } from "@/constants";
 
 export default function Navbar() {
   return (
-    <nav className="bg-background/30 backdrop-blur border-b sticky top-0 z-[200]">
+    <nav className="bg-background/60 backdrop-blur shadow border-b sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between h-16 relative">
           <Link href="/" className="flex items-center">

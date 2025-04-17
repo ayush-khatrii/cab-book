@@ -12,7 +12,7 @@ const packages = [
   },
   {
     title: 'Udaipur | Mount Abu | Ambaji',
-    image: 'https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcT2ixf9f5lqqzRjitu-cdrfi8rdFiWVj0gs5TsO4d4wimkoj3HFPZiCBjTbvpb3L9VNmJ1NWKCCx6k3ZNVuhBfy58pfpk_EvU7D1FbFnQ',
+    image: "/mount-abu.jpg"
   },
   {
     title: 'Statue of  Unity',
@@ -20,7 +20,7 @@ const packages = [
   },
   {
     title: 'Jaipur | Ajmer | Pushkar',
-    image: 'https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcT2ixf9f5lqqzRjitu-cdrfi8rdFiWVj0gs5TsO4d4wimkoj3HFPZiCBjTbvpb3L9VNmJ1NWKCCx6k3ZNVuhBfy58pfpk_EvU7D1FbFnQ',
+    image: "/jaipur.webp"
   },
 ]
 
