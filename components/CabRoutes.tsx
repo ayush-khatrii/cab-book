@@ -11,14 +11,15 @@ import {
 } from "@/components/ui/carousel";
 import { TbTransfer } from "react-icons/tb";
 import { Button } from "./ui/button";
+import { ArrowRight } from "lucide-react";
 
 const cabRoutes = [
   {
     id: 1,
     from: "Gandhidham",
-    to: "Ahmedabad",
+    to: "Ahmedabad Airport",
     description: "Smooth highway rides between two major cities.",
-    image: "/gandhidham.png",
+    image: "/ahm-airport.png",
   },
   {
     id: 2,
@@ -77,7 +78,9 @@ const CabRoutes = () => {
                     <h3 className="text-lg font-semibold">{route.to}</h3>
                   </div>
                   <div>
-                    {/*  */}
+                    <Button className="group ">
+                      Book Now <ArrowRight className="group-hover:translate-x-1.5 transition-all duration-150 ease-in-out" />
+                    </Button>
                   </div>
                 </CardContent>
               </Card>

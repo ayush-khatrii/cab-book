@@ -51,7 +51,6 @@ const Packages = () => {
                 />
                 <CardContent className="">
                   <h3 className="text-lg font-semibold">{pkg.title}</h3>
-                  <Button variant="outline" className="mt-4">Read More</Button>
                 </CardContent>
               </Card>
             </CarouselItem>

@@ -1,6 +1,5 @@
 'use client'
-
-import { motion } from "framer-motion"
+import { motion } from "motion/react"
 import { Phone, Mail, Instagram } from "lucide-react"
 import Link from "next/link"
 import { FaInstagram } from "react-icons/fa";
@@ -43,7 +42,7 @@ const Socials = () => {
 
           >
             <div className="mb-4 p-5 rounded-xl transition-colors duration-300">
-              <Mail size={40} className="text-primary" />
+              <Mail size={20} className="text-primary" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Email Us</h3>
             <Link href="mailto:shivaysafar99@gmail.com"

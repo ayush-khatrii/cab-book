@@ -47,7 +47,7 @@ const Contact = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="rounded-lg shadow-md p-6 border h-fit"
+          className="rounded-lg shadow-md p-6 border h-fit  bg-accent"
         >
           <h2 className="text-xl font-bold mb-6 text-accent-foreground">Send Us a Message</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -95,6 +95,24 @@ const Contact = () => {
               Send Message <IoIosSend className='ml-2' />
             </Button>
           </form>
+          <div className="grid grid-cols-1 w-full md:grid-cols-2 gap-4 mt-5">
+            <div className="flex items-center space-x-2 w-full">
+              <div className="rounded-full p-2 bg-primary/10">
+                <IoCallOutline className="h-6 w-6 text-primary" />
+              </div>
+              <a href="tel:+917984986324" className="text-primary">+91 79849 86324</a>
+            </div>
+
+            <div className="flex items-center space-x-2 w-full">
+              <div className="rounded-full p-2 bg-primary/10">
+                <IoMailOutline className="h-6 w-6 text-primary" />
+              </div>
+              {/* <h3 className="font-medium mb-1">Email</h3> */}
+              <a href="mailto:shivaysafar99@gmail.com" className="text-primary">
+                shivaysafar99@gmail.com
+              </a>
+            </div>
+          </div>
         </motion.div>
 
         <motion.div
@@ -104,7 +122,7 @@ const Contact = () => {
           className="flex flex-col space-y-6"
         >
           {/* Map Card */}
-          <Card className="overflow-hidden shadow-md h-[350px]">
+          <Card className="overflow-hidden shadow-md h-full">
             <CardContent className="p-0 h-full">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.6904804117426!2d70.1354349750933!3d23.071806479139358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3950b98eea5ad791%3A0x269cf4e73036ec47!2s400%20Quarter%20Vegetable%20Market!5e0!3m2!1sen!2sin!4v1744616698373!5m2!1sen!2sin" width="600" height="450" allowFullScreen loading="lazy">
               </iframe>
@@ -113,27 +131,7 @@ const Contact = () => {
           </Card>
 
           {/* Contact Info Cards */}
-          <div className="grid grid-cols-1 w-full md:grid-cols-2 gap-4">
-            <Card className="shadow-sm hover:shadow-md transition-all duration-300">
-              <CardContent className="flex flex-col items-center p-4 text-center">
-                <div className="rounded-full bg-primary/10 p-3 mb-3">
-                  <IoCallOutline className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="font-medium mb-1">Phone</h3>
-                <a href="tel:+919999999999" className="text-primary">+91 9999 999 999</a>
-              </CardContent>
-            </Card>
 
-            <Card className="shadow-sm hover:shadow-md transition-all duration-300">
-              <CardContent className="flex flex-col items-center p-4 text-center">
-                <div className="rounded-full bg-primary/10 p-3 mb-3">
-                  <IoMailOutline className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="font-medium mb-1">Email</h3>
-                <a href="mailto:info@cabservice.com" className="text-primary">info@cabservice.com</a>
-              </CardContent>
-            </Card>
-          </div>
         </motion.div>
       </div>
     </section>

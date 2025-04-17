@@ -20,12 +20,12 @@ const page = () => {
       <BookCab />
       <Cab />
       <CabRoutes />
+      <Features />
       <Packages />
       <Cta />
       {/* <HowItWorks />
       <Testimonials /> */}
       <Socials />
-      <Footer />
     </>
   )
 }

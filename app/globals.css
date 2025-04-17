@@ -6,7 +6,7 @@ html {
 }
 :root {
   --radius: 1rem;
-  --background: #F5F5DC;
+  --background: #f5f5dc;
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);

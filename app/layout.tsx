@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/sonner"
 import { Suspense } from "react";
+import Footer from "@/components/Footer";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -32,6 +33,7 @@ export default function RootLayout({
           <Suspense>
             {children}
           </Suspense>
+          <Footer />
         </main>
         <Toaster />
       </body>

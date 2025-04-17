@@ -31,6 +31,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { FaLocationArrow, FaRoute } from 'react-icons/fa6';
+import { createQueryParams } from '@/utils/helpers';
 
 const BookCab = () => {
   const [date, setDate] = useState<Value>(new Date());
@@ -46,14 +47,6 @@ const BookCab = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const createQueryParams = (params: Record<string, string>) => {
-      const queryParams = new URLSearchParams();
-      Object.entries(params).forEach(([key, value]) => {
-        if (value) queryParams.append(key, value);
-      });
-      return queryParams.toString();
-    };
 
     if (mainTab === "outofstation") {
       if (selectedTab === "oneway") {

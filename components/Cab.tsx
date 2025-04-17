@@ -48,7 +48,7 @@ const CabList = () => {
                 <div className="absolute inset-0 top-28 bg-accent -skew-[-40deg] w-[50rem] h-[50rem]" />
                 <Badge
                   variant={"default"}
-                  className="absolute font-medium text-base top-20 border right-5 md:top-0 md:right-0 p-2 z-20">
+                  className="absolute rounded-l-none font-medium text-base bottom-0 border left-0 p-2 z-20">
                   ₹{cab.pricePerKm}/km
                 </Badge>
               </div>
