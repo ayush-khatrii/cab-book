@@ -122,7 +122,7 @@ const Cabs = () => {
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary"
+              className="relative text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary"
             >
               Premium Cab Selection
             </motion.h1>
@@ -130,7 +130,7 @@ const Cabs = () => {
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-accent/90 text-base md:text-lg mt-4 max-w-2xl"
+              className="text-accent/90 text-sm w-2xs sm:w-full sm:text-base  md:text-lg mt-4 max-w-2xl"
             >
               Choose from our luxury fleet for a comfortable and reliable journey experience
             </motion.p>
@@ -140,14 +140,14 @@ const Cabs = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-wrap items-center justify-center mt-6 gap-4"
             >
-              <Badge variant="outline" className="bg-primary/10 border-accent/50 backdrop-blur text-primary px-4 py-2 text-sm rounded-lg flex items-center gap-2">
+              <Badge variant="outline" className="text-xs sm:text-base bg-primary/10 border-accent/50 backdrop-blur text-primary px-2 py-1 rounded-lg flex items-center gap-2">
                 <Check size={16} /> 24/7 Support
               </Badge>
-              <Badge variant="outline" className="bg-primary/10 border-accent/50 backdrop-blur text-primary px-4 py-2 text-sm rounded-lg flex items-center gap-2">
-                <Check size={16} /> Professional Drivers
+              <Badge variant="outline" className="text-xs sm:text-base bg-primary/10 border-accent/50 backdrop-blur text-primary px-2 py-1 rounded-lg flex items-center gap-2">
+                <Check size={16} /> On-Time Pickup
               </Badge>
-              <Badge variant="outline" className="bg-primary/10 border-accent/50 backdrop-blur text-primary px-4 py-2 text-sm rounded-lg flex items-center gap-2">
-                <Check size={16} /> Sanitized Vehicles
+              <Badge variant="outline" className="text-xs sm:text-base bg-primary/10 border-accent/50 backdrop-blur text-primary px-2 py-1 rounded-lg flex items-center gap-2">
+                <Check size={16} /> Clean & AC Cabs
               </Badge>
             </motion.div>
           </div>
@@ -175,13 +175,12 @@ const Cabs = () => {
               >
                 <Card className="shadow-lg border-0 bg-card/95 backdrop-blur-sm overflow-hidden">
                   <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="bg-card p-5 border-b">
+                  <div className="pl-8 py-4 border-b">
                     <div className="flex items-center justify-between">
                       <div>
                         <CardTitle className="text-xl font-bold">Your Trip Details</CardTitle>
                         <CardDescription>Review your journey information</CardDescription>
                       </div>
-                      <Shield className="h-6 w-6 text-primary/80" />
                     </div>
                   </div>
                   <CardContent className="space-y-6 pt-6">
@@ -403,7 +402,7 @@ const Cabs = () => {
                           <div className="mt-auto space-y-4">
                             <div className="p-3  rounded-md">
                               <p className="text-sm font-medium border border-primary p-3 rounded-md text-primary/70 flex items-center gap-2">
-                                <InfoIcon size={16} />
+                                <InfoIcon size={25} />
                                 <span>Non-refundable booking with advance payment required. All fares are subject to our terms and conditions.</span>
                               </p>
                             </div>
