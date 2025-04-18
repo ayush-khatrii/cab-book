@@ -13,12 +13,11 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Navigation, Route, Calendar, ArrowUp, Clock, User, PhoneCall, Mail, Check, Shield, InfoIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { cabs, priceMatrix } from "@/constants";
+import { cabs, } from "@/constants";
 import { IoLocationOutline, IoPersonOutline } from "react-icons/io5";
 import { FaChild } from "react-icons/fa6";
 import { GrGroup } from "react-icons/gr";
 import Link from "next/link";
-import { MdEmail } from "react-icons/md";
 import { getFlatPrice } from "@/utils/getFlatPrice";
 import { Cab } from "@/types";
 import { GoPerson } from "react-icons/go";
@@ -39,6 +38,12 @@ const Cabs = () => {
     name: "NOT SELECTED",
   });
 
+  const filteredCabs = tripDetails.travelType === "Self Drive"
+    ? cabs.filter((cab) =>
+      cab.name === "Ertiga" || cab.name === "Swift"
+    )
+    : cabs;
+
   useEffect(() => {
     if (searchParams) {
       const fromCity = searchParams.get('fromCity');
@@ -52,7 +57,6 @@ const Cabs = () => {
       const email = searchParams.get('email');
       const name = searchParams.get('name');
       const tarvelPackage = searchParams.get('tarvelPackage');
-
       setTripDetails({
         fromCity: fromCity || tripDetails.fromCity,
         toCity: toCity || tripDetails.toCity,
@@ -106,9 +110,11 @@ const Cabs = () => {
       cab.type,
       tripDetails.travelType
     );
+    console.log(price);
     return price;
   };
 
+  console.log(tripDetails)
   return (
     <section className="min-h-screen bg-gradient-to-b from-background to-background/90">
       <div className="relative w-full overflow-hidden">
@@ -198,15 +204,19 @@ const Cabs = () => {
                             <p className="font-medium">{tripDetails.fromCity}</p>
                           </div>
                         </div>
-                        <div className="flex items-start gap-3">
-                          <div className="bg-primary/10 p-1.5 rounded-md mt-0.5">
-                            <IoLocationOutline className="h-4 w-4 text-primary" />
-                          </div>
-                          <div>
-                            <p className="text-xs text-muted-foreground">To</p>
-                            <p className="font-medium">{tripDetails.toCity}</p>
-                          </div>
-                        </div>
+                        {
+                          tripDetails.travelType === "Self Drive" ?
+                            null :
+                            <div className="flex items-start gap-3">
+                              <div className="bg-primary/10 p-1.5 rounded-md mt-0.5">
+                                <IoLocationOutline className="h-4 w-4 text-primary" />
+                              </div>
+                              <div>
+                                <p className="text-xs text-muted-foreground">To</p>
+                                <p className="font-medium">{tripDetails.toCity}</p>
+                              </div>
+                            </div>
+                        }
                         <div className="flex items-start gap-3">
                           <div className="bg-primary/10 p-1.5 rounded-md mt-0.5">
                             <Calendar className="h-4 w-4 text-primary" />
@@ -319,7 +329,7 @@ const Cabs = () => {
             </div>
 
             <div className="grid grid-cols-1 gap-8">
-              {cabs.map((cab, idx) => (
+              {filteredCabs.map((cab, idx) => (
                 <motion.div
                   key={cab.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -426,7 +436,7 @@ const Cabs = () => {
         </div>
       </div>
 
-    </section>
+    </section >
   );
 };
 

@@ -107,10 +107,10 @@ const BookCab = () => {
 
     else if (mainTab === "selfdrive") {
       const params = {
-        deliverAddress: (selfDriveData.deliverAdress).trim() || "",
+        fromCity: (selfDriveData.deliverAdress).trim() || "",
         travelType: "Self Drive",
-        driveDate: (selfDriveData.driveDate) ? format(selfDriveData.driveDate, 'yyyy-MM-dd') : "",
-        driveTime: (selfDriveData.driveTime) || "",
+        travelDate: (selfDriveData.driveDate) ? format(selfDriveData.driveDate, 'yyyy-MM-dd') : "",
+        travelTime: (selfDriveData.driveTime) || "",
         adultPassengers: totalAdultPassengers.toString(),
         childPassengers: totalChildPassengers.toString(),
         multiCity: "false",
@@ -224,34 +224,36 @@ const BookCab = () => {
 
                           <div className="space-y-2 col-span-2">
                             <Label className="text-sm font-medium">Delivery Address</Label>
-                            <div className="relative">
-                              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
-                              <Input
-                                onChange={(e) =>
-                                  setSelfDriveData((prev) => ({
-                                    ...prev,
-                                    deliverAdress: e.target.value.trim(),
-                                  }))
-                                }
-                                value={selfDriveData.deliverAdress}
-                                className="pl-10 w-full"
-                                placeholder="Pickup Location" />
-                            </div>
                           </div>
 
                           <div className="space-y-2 w-full col-span-2 ">
-                            <Label className="text-sm font-medium">Drive Date</Label>
+                            <Label className="text-sm font-medium">Select City</Label>
                             <div className="relative">
-                              <DatePickerInput
-                                name="date"
-                                onChange={(dt) =>
-                                  setSelfDriveData((prev) => ({
-                                    ...prev,
-                                    driveDate: dt,
-                                  }))
-                                }
-                                value={selfDriveData.driveDate}
-                              />
+                              <Select onValueChange={(value) => setSelfDriveData({ ...selfDriveData, deliverAdress: value })}>
+                                <SelectTrigger className="w-full">
+                                  <SelectValue placeholder="Select city  for self drive" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectGroup>
+                                    <SelectLabel>Number of Adults</SelectLabel>
+                                    <SelectItem value="Gandhidham">
+                                      Gandhidham
+                                    </SelectItem>
+                                    <SelectItem value="Anjar">
+                                      Anjar
+                                    </SelectItem>
+                                    <SelectItem value="Bhuj">
+                                      Bhuj
+                                    </SelectItem>
+                                    <SelectItem value="Adipur">
+                                      Adipur
+                                    </SelectItem>
+                                    <SelectItem value="Bhachau">
+                                      Bhachau
+                                    </SelectItem>
+                                  </SelectGroup>
+                                </SelectContent>
+                              </Select>
                             </div>
                           </div>
                           <div className="space-y-2 col-span-2">

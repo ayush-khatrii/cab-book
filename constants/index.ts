@@ -21,7 +21,7 @@ export const navLinks = [
 export const cabs: Cab[] = [
   {
     id: 1,
-    name: 'XL6 (SUV)',
+    name: 'XL6',
     image: '/xl6.png',
     background: '/city-road.png',
     seats: "6+1",
@@ -31,7 +31,7 @@ export const cabs: Cab[] = [
   },
   {
     id: 2,
-    name: 'Ertiga (SUV)',
+    name: 'Ertiga',
     image: '/ertiga.png',
     background: '/city-road.png',
     seats: "6+1",
@@ -41,7 +41,7 @@ export const cabs: Cab[] = [
   },
   {
     id: 3,
-    name: 'Innova (SUV)',
+    name: 'Innova',
     image: '/innova-img.png',
     background: '/city-road.png',
     seats: "6+1",
@@ -51,7 +51,7 @@ export const cabs: Cab[] = [
   },
   {
     id: 4,
-    name: 'Swift (HatchBack)',
+    name: 'Swift',
     image: '/swift-dzire.png',
     background: '/city-road.png',
     seats: "3+1",
@@ -61,7 +61,7 @@ export const cabs: Cab[] = [
   },
   {
     id: 5,
-    name: 'Swift Dzire (Sedan)',
+    name: 'Swift Dzire',
     image: '/dzire.png',
     background: '/city-road.png',
     seats: "3+1",
@@ -123,8 +123,25 @@ export const cabRoutes = [
 
 // constants/prices.ts
 export const priceMatrix = {
-  // FROM GIMB TO DIFFERENT LOCATIONS & DIFFERENT LOCATIONS TO GIMB
+  //  ahm - gimb : suv 4700 , sedan 3700, hatchback 3700
+  //  self drive : suv 4000 , sedan 3000,
+  AHMEDABAD_AIRPORT: {
+    "GANDHIDHAM": {
+      "ONE-WAY": {
+        SUV: 4700,
+        SEDAN: 3700,
+        HATCHBACK: 3700
+      }
+    }
+  },
   GANDHIDHAM: {
+    AHMEDABAD_AIRPORT: {
+      "ONE-WAY": {
+        SUV: 4500,
+        SEDAN: 3500,
+        HATCHBACK: 3500
+      },
+    },
     BHACHAU: {
       "ONE-WAY": {
         SUV: 2500,

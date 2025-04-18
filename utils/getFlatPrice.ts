@@ -6,10 +6,16 @@ export const getFlatPrice = (
   cabType: string,
   travelType: string
 ): string => {
-  const from = fromCity.toUpperCase() as keyof typeof priceMatrix;
+  if (travelType === "Self Drive") {
+    if (cabType.toUpperCase() === "SUV") return "₹4000";
+    if (cabType.toUpperCase() === "SEDAN") return "₹3000";
+    if (cabType.toUpperCase() === "HATCHBACK") return "₹3000";
+  }
+  const from = fromCity.toUpperCase().trim().split(" ").join("_") as keyof typeof priceMatrix;
+  console.log(from);
   if (!priceMatrix[from]) return "To Book Call on +917984986324";
 
-  const to = toCity.toUpperCase() as keyof (typeof priceMatrix)[typeof from];
+  const to = toCity.toUpperCase().trim().split(" ").join("_") as keyof (typeof priceMatrix)[typeof from];
   if (!priceMatrix[from][to]) return "To Book Call on +917984986324";
 
   const trip = travelType.toUpperCase() as keyof (typeof priceMatrix)[typeof from][typeof to];
