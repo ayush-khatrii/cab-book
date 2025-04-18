@@ -13,12 +13,9 @@ import { useOutOfStationStore } from '@/store/outofstation';
 import { format } from "date-fns";
 import { MainTab, SELF_DRIVE } from '@/types';
 import LocalCity from './BookingTabs/LocalCity';
-import { useLocalCityStore } from '@/store/localcity';
-import Transfer from './BookingTabs/Transfer';
-import { useTransferStore } from '@/store/transfer';
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
-import { FaCarSide } from "react-icons/fa";
+import { FaCarSide } from "react-icons/fa"; ``
 import { useRouter } from 'next/navigation';
 
 import {
