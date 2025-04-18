@@ -166,7 +166,7 @@ const Cabs = () => {
 
       <div className="container mx-auto py-10 px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-1 order-2 lg:order-1">
+          <div className="lg:col-span-1 lg:order-1">
             <div className="sticky top-20">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -188,7 +188,7 @@ const Cabs = () => {
                       <h3 className="font-medium text-primary mb-2 flex items-center gap-2">
                         <Route className="h-4 w-4" /> Route Information
                       </h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 gap-4">
                         <div className="flex items-start gap-3">
                           <div className="bg-primary/10 p-1.5 rounded-md mt-0.5">
                             <Navigation className="h-4 w-4 text-primary" />
@@ -232,7 +232,7 @@ const Cabs = () => {
                       <h3 className="font-medium text-primary mb-2 flex items-center gap-2">
                         <User className="h-4 w-4" /> Passenger Details
                       </h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 gap-4">
                         <div className="flex items-start gap-3">
                           <div className="bg-primary/10 p-1.5 rounded-md mt-0.5">
                             <User className="h-4 w-4 text-primary" />
@@ -256,7 +256,7 @@ const Cabs = () => {
                             <Mail className="h-4 w-4 text-primary" />
                           </div>
                           <div>
-                            <p className="text-xs text-muted-foreground">Email</p>
+                            <p className="text-xs text-muted-foreground ">Email</p>
                             <p className="font-medium">{tripDetails.email}</p>
                           </div>
                         </div>
@@ -276,7 +276,7 @@ const Cabs = () => {
                       <h3 className="font-medium text-primary mb-2 flex items-center gap-2">
                         <GrGroup className="h-4 w-4" /> Group Size
                       </h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 gap-4">
                         <div className="flex items-start gap-3">
                           <div className="bg-primary/10 p-1.5 rounded-md mt-0.5">
                             <GoPerson className="h-4 w-4 text-primary" />

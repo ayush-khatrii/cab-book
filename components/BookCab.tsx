@@ -11,7 +11,7 @@ import DatePickerInput, { Value } from './ui/DatePicker';
 import OutOfStation from './BookingTabs/OutOfStation';
 import { useOutOfStationStore } from '@/store/outofstation';
 import { format } from "date-fns";
-import { MainTab } from '@/types';
+import { MainTab, SELF_DRIVE } from '@/types';
 import LocalCity from './BookingTabs/LocalCity';
 import { useLocalCityStore } from '@/store/localcity';
 import Transfer from './BookingTabs/Transfer';
@@ -36,14 +36,17 @@ import { createQueryParams } from '@/utils/helpers';
 const BookCab = () => {
   const [date, setDate] = useState<Value>(new Date());
   const { setSelectedTab, selectedTab, mainTab, setMainTab, onewayData, roundtripData, multicityData } = useOutOfStationStore();
-  const { date: localCityDate, package: localCityPackage, pickUp: localCityPickUp, time: localCityTime } = useLocalCityStore();
-  const { date: transferDate, pickUp: transferPickUp, dropLocation: transferDropLocation, time: transferTime } = useTransferStore();
   const router = useRouter();
   const [totalAdultPassengers, setTotalAdultPassengers] = useState(0);
   const [totalChildPassengers, setTotalChildPassengers] = useState(0);
   const [mobile, setMobile] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [selfDriveData, setSelfDriveData] = useState<SELF_DRIVE>({
+    deliverAdress: "",
+    driveDate: new Date(),
+    driveTime: ""
+  })
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,8 +55,8 @@ const BookCab = () => {
       if (selectedTab === "oneway") {
         // One-way trip parameters
         const params = {
-          fromCity: onewayData.pickUp || "",
-          toCity: onewayData.dropOff || "",
+          fromCity: (onewayData.pickUp || "").trim(),
+          toCity: (onewayData.dropOff || "").trim(),
           travelType: "One-way",
           travelDate: onewayData.date ? format(onewayData.date, 'yyyy-MM-dd') : "",
           travelTime: onewayData.time || "",
@@ -68,8 +71,8 @@ const BookCab = () => {
       else if (selectedTab === "roundtrip") {
         // Round trip parameters
         const params = {
-          fromCity: roundtripData.pickUp || "",
-          toCity: roundtripData.dropOff || "",
+          fromCity: (roundtripData.pickUp || "").trim(),
+          toCity: (roundtripData.dropOff || "").trim(),
           travelType: "Round Trip",
           travelDateStart: roundtripData.fromDate ? format(roundtripData.fromDate, 'yyyy-MM-dd') : "",
           travelDateEnd: roundtripData.toDate ? format(roundtripData.toDate, 'yyyy-MM-dd') : "",
@@ -86,8 +89,10 @@ const BookCab = () => {
       else if (selectedTab === "multicity") {
         // Multi-city trip parameters
         const params = {
-          fromCity: multicityData.pickUp || "",
-          toCities: multicityData.cities ? multicityData.cities.join("|") : "",
+          fromCity: (multicityData.pickUp).trim() || "",
+          toCities: multicityData.cities
+            ? multicityData.cities.map(city => city.trim()).join("|")
+            : "",
           travelType: "Multi City",
           travelDateStart: multicityData.fromDate ? format(multicityData.fromDate, 'yyyy-MM-dd') : "",
           travelDateEnd: multicityData.toDate ? format(multicityData.toDate, 'yyyy-MM-dd') : "",
@@ -103,27 +108,20 @@ const BookCab = () => {
       }
     }
 
-
-    else if (mainTab === "local") {
-      // Local city parameters
+    else if (mainTab === "selfdrive") {
       const params = {
-        fromCity: localCityPickUp || "",
-        toCity: localCityPickUp || "", 
-        travelType: "Local",
-        travelDate: localCityDate ? format(localCityDate, 'yyyy-MM-dd') : "",
-        travelTime: localCityTime || "",
+        deliverAddress: (selfDriveData.deliverAdress).trim() || "",
+        travelType: "Self Drive",
+        driveDate: (selfDriveData.driveDate) ? format(selfDriveData.driveDate, 'yyyy-MM-dd') : "",
+        driveTime: (selfDriveData.driveTime) || "",
         adultPassengers: totalAdultPassengers.toString(),
         childPassengers: totalChildPassengers.toString(),
-        tarvelPackage: localCityPackage || "",
-        hours: localCityPackage?.includes("8") ? "8" : localCityPackage?.includes("4") ? "4" : "12",
+        multiCity: "false",
         mobile,
         name,
         email
       };
       router.push(`/cabs?${createQueryParams(params)}`);
-    }
-    else if (mainTab === "selfdrive") {
-      // self drive
     }
   };
 
@@ -219,28 +217,43 @@ const BookCab = () => {
                     {mainTab === "local" && <LocalCity />}
                     {mainTab === "selfdrive" && (
                       <div className="space-y-6">
-                        <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md">
+                        <div className="bg-accent border border-l-4 border-primary text-primary p-4 rounded-md">
                           <div className="flex flex-col gap-2 text-center">
                             <p className="font-semibold">Self Drive Timing: <span className="font-bold">10:00 AM - 10:00 PM</span></p>
                             <p className="font-semibold">Available Locations: <span className="font-bold">Gandhidham, Anjar, Bhuj, Bhachau, Adipur (All over in kutch)   </span></p>
                           </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="space-y-2">
+
+                          <div className="space-y-2 col-span-2">
                             <Label className="text-sm font-medium">Delivery Address</Label>
                             <div className="relative">
-                              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                              <Input className="pl-10" placeholder="Pickup Location" />
+                              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
+                              <Input
+                                onChange={(e) =>
+                                  setSelfDriveData((prev) => ({
+                                    ...prev,
+                                    deliverAdress: e.target.value.trim(),
+                                  }))
+                                }
+                                value={selfDriveData.deliverAdress}
+                                className="pl-10 w-full"
+                                placeholder="Pickup Location" />
                             </div>
                           </div>
 
-                          <div className="space-y-2">
-                            <Label className="text-sm font-medium text-gray-700">Drive Date</Label>
+                          <div className="space-y-2 w-full col-span-2 ">
+                            <Label className="text-sm font-medium">Drive Date</Label>
                             <div className="relative">
                               <DatePickerInput
                                 name="date"
-                                onChange={setDate}
-                                value={date}
+                                onChange={(dt) =>
+                                  setSelfDriveData((prev) => ({
+                                    ...prev,
+                                    driveDate: dt,
+                                  }))
+                                }
+                                value={selfDriveData.driveDate}
                               />
                             </div>
                           </div>
@@ -249,6 +262,11 @@ const BookCab = () => {
                             <div className="relative">
                               <TimeInput
                                 name='time'
+                                onChange={(time) =>
+                                  setSelfDriveData((prev) => ({
+                                    ...prev,
+                                    driveTime: time,
+                                  }))}
                               />
                             </div>
                           </div>

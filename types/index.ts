@@ -1,5 +1,5 @@
 export type OutOfStationTab = 'oneway' | 'roundtrip' | 'multicity';
-export type MainTab = 'outofstation' | 'local' | 'transfer' | 'selfdrive';
+export type MainTab = 'outofstation' | 'local' | 'selfdrive';
 
 export type OUTOFSTATION = {
   mainTab: MainTab;
@@ -49,20 +49,11 @@ export interface LOCAL_CITY {
 
   setLocalData: (data: Partial<LOCAL_CITY>) => void;
 }
-export interface TRANSFER {
-  pickUp: string;
-  dropLocation: string;
-  date: Date;
-  time: string;
 
-  setTransferData: (data: Partial<TRANSFER>) => void;
-}
 export interface SELF_DRIVE {
-  handoverLocation: string;
-  time: string;
-  date: Date;
-
-  setTransferData: (data: Partial<TRANSFER>) => void;
+  deliverAdress: string;
+  driveDate: Date;
+  driveTime: string;
 }
 
 export type CabType = "SEDAN" | "SUV" | "HATCHBACK";
