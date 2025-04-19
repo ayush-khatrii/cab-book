@@ -154,14 +154,12 @@ const Footer = () => {
               className="flex items-center justify-center flex-col space-x-2 group"
             >
               <span className="text-accent/70 mt-5 mb-2 text-sm group-hover:text-primary transition-colors duration-300">
-                Designed & Developed by
+                Developed by
               </span>
-              <Badge className="flex text-sm items-center bg-primary/10 group-hover:bg-primary px-3 py-1 rounded-full transition-all duration-300">
-                <FaCode className="text-primary group-hover:text-background mr-1.5 transition-colors duration-300" />
-                <span className="font-semibold text-primary group-hover:text-background transition-colors duration-300">
-                  Ayush Khatri
+              <Badge className="flex text-xs justify-end px-3 py-1 rounded-full transition-all duration-300">
+                <span className="font-semibold group-hover:text-background transition-colors duration-300">
+                  AK
                 </span>
-                <FaHeart className="mx-2 text-primary h-3 w-3 group-hover:scale-125  group-hover:text-accent shadow-accent transition-transform duration-300" />
               </Badge>
             </a>
           </div>

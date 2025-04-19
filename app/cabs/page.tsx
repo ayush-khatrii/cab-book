@@ -40,7 +40,7 @@ const Cabs = () => {
 
   const filteredCabs = tripDetails.travelType === "Self Drive"
     ? cabs.filter((cab) =>
-      cab.name === "Ertiga" || cab.name === "Swift"
+      cab.name === "XL6" || cab.name === "Swift"
     )
     : cabs;
 
