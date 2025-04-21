@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-const Hero = () => {
+export default function Hero() {
   return (
     <section className="relative h-[80vh] bg-transparent overflow-hidden">
       <div
@@ -45,5 +45,3 @@ const Hero = () => {
     </section >
   );
 };
-
-export default Hero;

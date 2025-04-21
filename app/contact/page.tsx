@@ -9,7 +9,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 
-const Contact = () => {
+export const metadata = {
+  title: "Contact Shivay Safar | Book a Cab or Get Support",
+  description: "Get in touch with Shivay Safar for cab bookings, support, or general inquiries. Call us or fill the contact form.",
+  keywords: "contact shivay safar, cab booking phone, gandhidham taxi contact, shivay safar",
+};
+
+export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -27,26 +33,19 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    window.open(`https://wa.me/+917984986324?text=${encodeURIComponent(`Name: ${formData.name}\nPhone: ${formData.phone}\nSubject: ${formData.subject}\nMessage: ${formData.message}`)}`);
     console.log(formData);
   };
 
   return (
     <section className="max-w-7xl mx-auto py-12 px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="mb-12 text-center"
-      >
+      <div className="mb-12 text-center">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-accent-foreground">Get in Touch</h1>
         <p className="text-muted-foreground mx-auto max-w-2xl">Have questions about our cab services? Need to make a special booking? Our team is here to help you with all your transportation needs.</p>
-      </motion.div>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+        <div
           className="rounded-lg shadow-md p-6 border h-fit  bg-accent"
         >
           <h2 className="text-xl font-bold mb-6 text-accent-foreground">Send Us a Message</h2>
@@ -73,6 +72,7 @@ const Contact = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
+                  required
                   placeholder="+91 99999 99999"
                 />
               </div>
@@ -113,15 +113,11 @@ const Contact = () => {
               </a>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+        <div
           className="flex flex-col space-y-6"
         >
-          {/* Map Card */}
           <Card className="overflow-hidden shadow-md h-full">
             <CardContent className="p-0 h-full">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.6904804117426!2d70.1354349750933!3d23.071806479139358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3950b98eea5ad791%3A0x269cf4e73036ec47!2s400%20Quarter%20Vegetable%20Market!5e0!3m2!1sen!2sin!4v1744616698373!5m2!1sen!2sin" width="600" height="450" allowFullScreen loading="lazy">
@@ -132,10 +128,8 @@ const Contact = () => {
 
           {/* Contact Info Cards */}
 
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 };
-
-export default Contact;

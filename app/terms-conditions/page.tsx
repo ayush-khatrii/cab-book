@@ -1,4 +1,4 @@
-const page = () => {
+export const page = () => {
   return (
     <section className="max-w-5xl mx-auto p-6">
       <div className="">
