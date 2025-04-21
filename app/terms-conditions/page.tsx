@@ -1,4 +1,11 @@
-export const page = () => {
+export const metadata = {
+  title: "Terms & Conditions | Shivay Safar",
+  description: "Read our terms and conditions before booking your cab with Shivay Safar. Know your rights and responsibilities.",
+  keywords: "shivay safar terms, cab service policy, taxi terms gandhidham",
+};
+
+
+export default function page() {
   return (
     <section className="max-w-5xl mx-auto p-6">
       <div className="">
@@ -80,5 +87,3 @@ export const page = () => {
     </section>
   )
 }
-
-export default page
