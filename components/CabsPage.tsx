@@ -121,7 +121,7 @@ export default function CabsPage() {
         <div className="w-full relative h-80">
           <div className="absolute inset-0">
             <img src="/road.jpg" alt="Road background" className="object-cover object-bottom brightness-50 grayscale-100 w-full h-full" />
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] bg-black"></div>
           </div>
           <div className="container relative z-10 mx-auto flex flex-col items-center text-center justify-center h-full px-4">
             <motion.h1

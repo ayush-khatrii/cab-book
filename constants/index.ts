@@ -26,7 +26,7 @@ export const cabs: Cab[] = [
     background: '/city-road.png',
     seats: "6+1",
     type: "SUV",
-    passengers: "7 person",
+    passengers: "6 person",
     pricePerKm: 15,
   },
   {
@@ -35,7 +35,7 @@ export const cabs: Cab[] = [
     image: '/ertiga.png',
     background: '/city-road.png',
     seats: "6+1",
-    passengers: "7 person",
+    passengers: "6 person",
     type: "SUV",
     pricePerKm: 13,
   },

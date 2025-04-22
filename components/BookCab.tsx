@@ -127,12 +127,12 @@ const BookCab = () => {
       <div
         className={cn(
           "absolute inset-0 -z-50",
-          "[background-size:20px_20px]",
-          "[background-image:linear-gradient(to_right,rgba(228,228,231,0.1)_1px,transparent_0.5px),linear-gradient(to_bottom,rgba(228,228,231,0.1)_1px,transparent_0.5px)]",
+          "[background-size:50px_50px]",
+          "[background-image:linear-gradient(to_right,rgba(228,228,231,0.1),transparent_0.5px),linear-gradient(to_bottom,rgba(228,228,231,0.1)_1px,transparent_0.5px)]",
           "dark:[background-image:linear-gradient(to_right,rgba(38,38,38,0.1)_1px,transparent_0.5px),linear-gradient(to_bottom,rgba(38,38,38,0.1)_1px,transparent_0.5px)]",
         )}
       />
-      <div className="pointer-events-none -z-50 absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,0.5))] dark:bg-white"></div>
+      <div className="pointer-events-none -z-50 absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,white)] bg-white"></div>
 
       <motion.div
         initial={{ x: "-10%" }}
@@ -145,7 +145,6 @@ const BookCab = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col justify-center lg:flex-row gap-12 items-center">
-            {/* Left side booking form */}
             <div className="lg:w-1/2 z-10">
               <h1 className="text-4xl font-bold text-accent-foreground mb-6">Start Your Travel Booking</h1>
               <div className=" shadow-lg rounded-2xl p-6 bg-white border border-accent-foreground/20">
