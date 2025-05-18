@@ -331,7 +331,23 @@ export const priceMatrix = {
       }
     },
   },
+  NARAYAN_SAROVAR: {
+    NARAYAN_SAROVAR: {
+      "ONE-WAY": {
+        SUV: 9500,
+        SEDAN: 8500,
+        HATCHBACK: 8500
+      }
+    },
+  },
   AHMEDABAD: {
+    NARAYAN_SAROVAR: {
+      "ONE-WAY": {
+        SUV: 9600,
+        SEDAN: 8500,
+        HATCHBACK: 8500
+      },
+    },
     GANDHIDHAM: {
       "ONE-WAY": {
         SUV: 4500,

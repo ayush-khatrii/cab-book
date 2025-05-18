@@ -50,14 +50,14 @@ const Footer = () => {
       </div>
 
       <div className="container mx-auto pt-20 pb-10 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="space-y-6">
             <div>
               <h3 className="text-2xl font-bold mb-2 text-primary">Shivay Safar</h3>
               <div className="h-1 w-16 bg-primary rounded-full"></div>
             </div>
             <p className="text-accent/90 leading-relaxed">
-              Your trusted travel partner for safe and comfortable rides across cities. We provide premium transportation services with exceptional customer experience.
+              Safe, comfortable, and reliable city-to-city cab services with a premium experience
             </p>
 
             <div className="flex space-x-4 mt-6">
@@ -74,13 +74,6 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-          </div>
-
-          <div className="space-y-6">
-            <div>
-              <h4 className="text-xl font-semibold mb-2">Contact Us</h4>
-              <div className="h-1 w-16 bg-primary/60 rounded-full"></div>
-            </div>
             <div className="space-y-4">
               <div className="flex items-start space-x-3 group">
                 <div className="bg-primary/20 p-2 rounded-md mt-1 group-hover:bg-primary transition-colors duration-300">
@@ -95,6 +88,55 @@ const Footer = () => {
                 <span className="text-accent/90">+91 79849 86324</span>
               </div>
               <div className="flex items-start space-x-3 group">
+                <div className="bg-primary/20 p-2 rounded-md mt-1 group-hover:bg-primary transition-colors duration-300">
+                  <MdMail className="h-4 w-4 text-primary group-hover:text-background transition-colors duration-300" />
+                </div>
+                <span className="text-accent/90">shivaysafar99@gmail.com</span>
+              </div>
+            </div>
+          </div>
+
+          {/* New "Routes" Section */}
+          <div className="space-y-6">
+            <div>
+              <h4 className="text-xl font-semibold mb-2">Routes</h4>
+              <div className="h-1 w-16 bg-primary/60 rounded-full"></div>
+            </div>
+            <ul className="space-y-3">
+              {[
+                { name: 'Gandhidham to Ahmedabad', href: '/routes/gandhidham-to-ahmedabad' },
+                // { name: 'Gandhidham to Bhuj', href: '/routes/gandhidham-to-bhuj' },
+              ].map((route) => (
+                <li key={route.name} className="transform hover:translate-x-2 transition-transform duration-300">
+                  <Link href={route.href} className="flex items-center space-x-2 text-accent/90 hover:text-primary">
+                    <span className="text-primary">&raquo;</span>
+                    <span>{route.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+
+          <div className="space-y-6">
+            <div>
+              <h4 className="text-xl font-semibold mb-2">Contact Us</h4>
+              <div className="h-1 w-16 bg-primary/60 rounded-full"></div>
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3 group">
+                <div className="bg-primary/20 p-2 rounded-md mt-1 group-hover:bg-primary transition-colors duration-300">
+                  <FaLocationDot className="h-4 w-4 text-primary group-hover:text-background transition-colors duration-300" />
+                </div>
+                <span className="text-accent/90">DBZ-N.107 Khanna market near gandhidham typing, Gandhidham Kutch</span>
+              </div>
+              <div className="flex items-center space-x-3 group">
+                <div className="bg-primary/20 p-2 rounded-md mt-1 group-hover:bg-primary transition-colors duration-300">
+                  <IoMdCall className="h-4 w-4 text-primary group-hover:text-background transition-colors duration-300" />
+                </div>
+                <span className="text-accent/90">+91 79849 86324</span>
+              </div>
+              <div className="flex items-center space-x-3 group">
                 <div className="bg-primary/20 p-2 rounded-md mt-1 group-hover:bg-primary transition-colors duration-300">
                   <MdMail className="h-4 w-4 text-primary group-hover:text-background transition-colors duration-300" />
                 </div>
@@ -148,16 +190,16 @@ const Footer = () => {
               href="https://ayushkhatri.site"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center flex-col space-x-2 group"
+              className="flex items-center gap-2 justify-center group text-accent/70 text-sm group-hover:text-primary transition-colors duration-300"
             >
-              <span className="text-accent/70 mt-5 mb-2 text-sm group-hover:text-primary transition-colors duration-300">
+              <span className="">
                 Developed by
               </span>
-              <Badge className="flex text-xs justify-end px-3 py-1 rounded-full transition-all duration-300">
-                <span className="font-semibold group-hover:text-background transition-colors duration-300">
-                  AK
-                </span>
-              </Badge>
+              {/* <Badge className="flex text-xs justify-end px-3 py-1 rounded-full transition-all duration-300"> */}
+              <span className="font-semibold group-hover:bg-primary/20 text-primary group-hover:underline transition-all duration-300 ease-in-out">
+                Ayush Khatri
+              </span>
+              {/* </Badge> */}
             </a>
           </div>
         </div>
