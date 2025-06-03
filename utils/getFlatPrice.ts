@@ -7,9 +7,9 @@ export const getFlatPrice = (
   travelType: string
 ): string => {
   if (travelType === "Self Drive") {
-    if (cabType.toUpperCase() === "SUV") return "₹4000";
+    if (cabType.toUpperCase() === "SUV") return "3500";
     if (cabType.toUpperCase() === "SEDAN") return "₹3000";
-    if (cabType.toUpperCase() === "HATCHBACK") return "₹3000";
+    if (cabType.toUpperCase() === "HATCHBACK") return "2500";
   }
   const from = fromCity.toUpperCase().trim().split(" ").join("_") as keyof typeof priceMatrix;
   if (!priceMatrix[from]) return "To Book Call on +917984986324";
