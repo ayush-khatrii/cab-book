@@ -45,9 +45,9 @@ const Socials = () => {
               <Mail size={20} className="text-primary" />
             </div>
             <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-            <Link href="mailto:shivaysafar99@gmail.com"
+            <Link href="mailto:shivaysafar@gmail.com"
               className="text-primary hover:text-primary/70 transition-colors duration-300">
-              shivaysafar99@gmail.com
+              shivaysafar@gmail.com
             </Link>
           </motion.div>
 

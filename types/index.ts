@@ -56,7 +56,7 @@ export interface SELF_DRIVE {
   driveTime: string;
 }
 
-export type CabType = "SEDAN" | "SUV" | "HATCHBACK";
+export type CabType = "SEDAN" | "SUV" | "HATCHBACK" | "INNOVA";
 
 export interface Cab {
   id: number;

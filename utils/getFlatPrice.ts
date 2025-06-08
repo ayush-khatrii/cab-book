@@ -11,6 +11,7 @@ export const getFlatPrice = (
     if (cabType.toUpperCase() === "SEDAN") return "₹3000";
     if (cabType.toUpperCase() === "HATCHBACK") return "2500";
   }
+  
   const from = fromCity.toUpperCase().trim().split(" ").join("_") as keyof typeof priceMatrix;
   if (!priceMatrix[from]) return "To Book Call on +917984986324";
 

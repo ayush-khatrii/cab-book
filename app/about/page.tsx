@@ -58,7 +58,7 @@ const About = () => {
               <div className="flex flex-col md:flex-row justify-center items-start space-y-4 md:space-y-0 md:space-x-12 text-primary">
                 <div className="flex items-center ease-in-out hover:underline transitiona-all duration-300 hover:-translate-y-2.5">
                   <Mail className="size-5 mr-2" />
-                  <a href="mailto:shivaysafar99@gmail">shivaysafar99@gmail.com</a>
+                  <a href="mailto:shivaysafar99@gmail">shivaysafar@gmail.com</a>
                 </div>
 
                 <div className="flex items-center ease-in-out hover:underline transitiona-all duration-300 hover:-translate-y-2.5">

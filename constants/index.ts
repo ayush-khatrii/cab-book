@@ -45,7 +45,7 @@ export const cabs: Cab[] = [
     image: '/innova-img.png',
     background: '/city-road.png',
     seats: "6+1",
-    type: "SUV",
+    type: "INNOVA",
     passengers: "7 person",
     pricePerKm: 18,
   },
@@ -167,7 +167,8 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 4500,
         SEDAN: 3500,
-        HATCHBACK: 3500
+        HATCHBACK: 3500,
+        INNOVA: 7000
       },
     },
     RAJKOT: {
@@ -352,7 +353,8 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 4500,
         SEDAN: 3500,
-        HATCHBACK: 3500
+        HATCHBACK: 3500,
+        INNOVA: 7000
       },
     },
     RAJKOT: {

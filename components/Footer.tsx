@@ -91,7 +91,7 @@ const Footer = () => {
                 <div className="bg-primary/20 p-2 rounded-md mt-1 group-hover:bg-primary transition-colors duration-300">
                   <MdMail className="h-4 w-4 text-primary group-hover:text-background transition-colors duration-300" />
                 </div>
-                <span className="text-accent/90">shivaysafar99@gmail.com</span>
+                <span className="text-accent/90">shivaysafar@gmail.com</span>
               </div>
             </div>
           </div>
@@ -140,7 +140,7 @@ const Footer = () => {
                 <div className="bg-primary/20 p-2 rounded-md mt-1 group-hover:bg-primary transition-colors duration-300">
                   <MdMail className="h-4 w-4 text-primary group-hover:text-background transition-colors duration-300" />
                 </div>
-                <span className="text-accent/90">shivaysafar99@gmail.com</span>
+                <span className="text-accent/90">shivaysafar@gmail.com</span>
               </div>
             </div>
           </div>
@@ -195,11 +195,12 @@ const Footer = () => {
               <span className="">
                 Developed by
               </span>
-              {/* <Badge className="flex text-xs justify-end px-3 py-1 rounded-full transition-all duration-300"> */}
-              <span className="font-semibold group-hover:bg-primary/20 text-primary group-hover:underline transition-all duration-300 ease-in-out">
+              <Badge className="flex text-xs justify-end px-3 py-1 rounded-full transition-all duration-300">
+                AK
+                {/* <span className="font-semibold group-hover:bg-primary/20 text-primary group-hover:underline transition-all duration-300 ease-in-out">
                 Ayush Khatri
-              </span>
-              {/* </Badge> */}
+              </span> */}
+              </Badge>
             </a>
           </div>
         </div>

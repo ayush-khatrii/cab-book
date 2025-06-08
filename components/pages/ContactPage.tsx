@@ -102,8 +102,8 @@ export default function ContactPage() {
               <div className="rounded-full p-2 bg-primary/10">
                 <IoMailOutline className="h-6 w-6 text-primary" />
               </div>
-              <a href="mailto:shivaysafar99@gmail.com" className="text-primary">
-                shivaysafar99@gmail.com
+              <a href="mailto:shivaysafar@gmail.com" className="text-primary">
+                shivaysafar@gmail.com
               </a>
             </div>
           </div>
