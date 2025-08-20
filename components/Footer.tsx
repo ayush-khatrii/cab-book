@@ -187,7 +187,7 @@ const Footer = () => {
 
           <div className="mt-4 md:mt-0 text-sm">
             <a
-              href="https://ayushkhatri.site"
+              href="https://ayushkhatri.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 justify-center group text-accent/70 text-sm group-hover:text-primary transition-colors duration-300"
