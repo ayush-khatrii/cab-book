@@ -114,9 +114,7 @@ export default function ContactPage() {
         >
           <Card className="overflow-hidden shadow-md h-full">
             <CardContent className="p-0 h-full">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.6904804117426!2d70.1354349750933!3d23.071806479139358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3950b98eea5ad791%3A0x269cf4e73036ec47!2s400%20Quarter%20Vegetable%20Market!5e0!3m2!1sen!2sin!4v1744616698373!5m2!1sen!2sin" width="600" height="450" allowFullScreen loading="lazy">
-              </iframe>
-
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.7301265357637!2d70.1380366745416!3d23.070353614544853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x83e6e55bab176cd7%3A0x5f246b94b21e86f9!2sSHIVAY%20SAFAR!5e0!3m2!1sen!2sin!4v1758131261959!5m2!1sen!2sin" width="600" height="450" allowFullScreen loading="lazy"></iframe>
             </CardContent>
           </Card>
         </div>

@@ -229,9 +229,9 @@ export const priceMatrix = {
     },
     BHAVNAGAR: {
       "ONE-WAY": {
-        SUV: 5600,
-        SEDAN: 4600,
-        HATCHBACK: 4600
+        SUV: 7100,
+        SEDAN: 6100,
+        HATCHBACK: 6100
       },
     },
   },
