@@ -192,15 +192,15 @@ const BookCab = () => {
                         setSelectedTab(value as "oneway" | "roundtrip" | "multicity");
                       }}
                     >
-                      <label className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${selectedTab === "oneway" ? "bg-accent-foreground/90" : ""}`}>
+                      <label className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${selectedTab === "oneway" ? "bg-accent-foreground/90 text-background" : ""}`}>
                         <RadioGroupItem value="oneway" className="sr-only" />
                         <span className="text-sm font-medium">Oneway</span>
                       </label>
-                      <label className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${selectedTab === "roundtrip" ? "bg-accent-foreground/90 " : ""}`}>
+                      <label className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${selectedTab === "roundtrip" ? "bg-accent-foreground/90 text-background" : ""}`}>
                         <RadioGroupItem value="roundtrip" className="sr-only" />
                         <span className="text-sm font-medium">Roundtrip</span>
                       </label>
-                      <label className={` cursor-pointer py-2 px-4 text-center border  rounded-md transition ${selectedTab === "multicity" ? "bg-accent-foreground/90 " : ""}`}>
+                      <label className={` cursor-pointer py-2 px-4 text-center border  rounded-md transition ${selectedTab === "multicity" ? "bg-accent-foreground/90 text-background" : ""}`}>
                         <RadioGroupItem value="multicity" className="sr-only" />
                         <span className="text-sm font-medium">Multiple Cities</span>
                       </label>
