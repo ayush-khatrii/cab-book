@@ -16,7 +16,7 @@ const LocalCity = () => {
 
   return (
     <>
-      <p className="text-accent-foreground text-center">Find a quick local ride nearby.</p>
+      <p className=" text-center">Find a quick local ride nearby.</p>
       <div className="grid grid-cols-1 md:grid-cols-2 col-span-2 mt-10 gap-4">
         <div className="space-y-2">
           <Label className="text-sm font-medium">Pick-up City</Label>

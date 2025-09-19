@@ -14,15 +14,15 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <main>
         {/* Hero Section */}
-        <div className="bg-primary relative flex justify-center items-center  text-primary-foreground h-60">
+        <div className="bg-primary relative flex justify-center items-center h-60">
           <div className="container relative z-10 mx-auto flex flex-col items-center text-center justify-center h-full px-4">
             <h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-accent"
+              className="text-4xl  md:text-5xl lg:text-6xl font-bold"
             >
               Discover Our Story
             </h1>
             <p
-              className="text-accent/90 text-base md:text-lg mt-4 max-w-2xl">
+              className="text-base  /80 md:text-lg mt-4 max-w-2xl">
               At Shivay Safar, we transform ordinary trips into extraordinary journeys.
             </p>
           </div>
@@ -33,7 +33,7 @@ const About = () => {
             <div className="max-w-3xl mx-auto">
               <h2
                 className="text-3xl font-bold text-center mb-8 text-foreground">About Shivay Safar</h2>
-              <div className="prose text-accent-foreground mb-10">
+              <div className="prose mb-10">
                 <p
                   className="mb-4">
                   At Shivay Safar, we believe that every journey has the power to transform lives. Founded with a passion for creating meaningful travel experiences, we're not just another travel company—we're your companions in discovery.

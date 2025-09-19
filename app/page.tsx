@@ -29,8 +29,6 @@ export default function page() {
       <Features />
       <Packages />
       <Cta />
-      {/* <HowItWorks />
-      <Testimonials /> */}
       <Socials />
     </>
   )
