@@ -14,14 +14,14 @@ export default function Hero() {
           "dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]",
         )}
       />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,white)] dark:bg-white"></div>
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,white)] dark:bg-white"></div>
 
       <div className="relative z-10 container mx-auto h-full flex flex-col items-start justify-center px-4 md:px-8">
         <div className="">
-          <h1 className="text-accent-foreground text-4xl md:text-6xl max-w-2xl md:leading-tight font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl max-w-2xl md:leading-tight font-bold mb-6">
             Drive the City in Style with Shivay Safar
           </h1>
-          <p className="text-lg md:text-xl max-w-xl font-normal mb-8 text-accent-foreground">
+          <p className="text-lg md:text-xl max-w-xl font-normal mb-8">
             Book Hassle-Free Rides with Shivay Safar — Comfort, Reliability, and Pride in Every Mile.
           </p>
         </div>

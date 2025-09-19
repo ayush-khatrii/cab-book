@@ -32,7 +32,7 @@ const AboutAnimated = () => {
             Welcome to Shivay Safar
             Best Cab Service in Gandhidham
           </h2>
-          <p className='text-xl text-accent-foreground/80'>
+          <p className='text-xl text-foreground/80'>
             Shivay Safar is proud to be recognized as the <span className='font-bold'>best cab service in Gandhidham</span>.
             Experience the ease of 24/7 booking support and professional drivers who care about your journey.
             Choose comfort. Choose reliability. Choose Shivay Safar!

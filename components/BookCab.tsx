@@ -146,7 +146,7 @@ const BookCab = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col justify-center lg:flex-row gap-12 items-center">
             <div className="lg:w-1/2 z-10">
-              <h1 className="text-4xl font-bold text-accent-foreground mb-6">Start Your Travel Booking</h1>
+              <h1 className="text-4xl font-bold text-primary  mb-6">Start Your Travel Booking</h1>
               <div className=" shadow-lg rounded-2xl p-6 bg-white border border-accent-foreground/20">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Main Tab Selection */}
@@ -192,15 +192,15 @@ const BookCab = () => {
                         setSelectedTab(value as "oneway" | "roundtrip" | "multicity");
                       }}
                     >
-                      <label className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${selectedTab === "oneway" ? "bg-accent-foreground/90 text-white" : "text-accent-foreground"}`}>
+                      <label className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${selectedTab === "oneway" ? "bg-accent-foreground/90" : ""}`}>
                         <RadioGroupItem value="oneway" className="sr-only" />
                         <span className="text-sm font-medium">Oneway</span>
                       </label>
-                      <label className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${selectedTab === "roundtrip" ? "bg-accent-foreground/90 text-white" : "text-accent-foreground"}`}>
+                      <label className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${selectedTab === "roundtrip" ? "bg-accent-foreground/90 " : ""}`}>
                         <RadioGroupItem value="roundtrip" className="sr-only" />
                         <span className="text-sm font-medium">Roundtrip</span>
                       </label>
-                      <label className={` cursor-pointer py-2 px-4 text-center border  rounded-md transition ${selectedTab === "multicity" ? "bg-accent-foreground/90 text-white" : "text-accent-foreground"}`}>
+                      <label className={` cursor-pointer py-2 px-4 text-center border  rounded-md transition ${selectedTab === "multicity" ? "bg-accent-foreground/90 " : ""}`}>
                         <RadioGroupItem value="multicity" className="sr-only" />
                         <span className="text-sm font-medium">Multiple Cities</span>
                       </label>

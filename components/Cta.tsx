@@ -8,10 +8,10 @@ const Cta = () => {
     <section className="relative bg-primary overflow-hidden mx-auto my-12 md:rounded-xl shadow-lg max-w-7xl">
       <div className="relative flex px-6 py-10 md:py-12 md:min-h-[320px]">
         <div className="relative z-10 max-w-md">
-          <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold  mb-4">
             Your Journey, Our Priority 🚕
           </h2>
-          <p className="text-accent/90 text-base mb-6">
+          <p className=" text-base mb-6">
             Book your ride in seconds and enjoy a comfortable travel experience to any destination. Safe, reliable, and always on time.
           </p>
           <Button
@@ -35,7 +35,7 @@ const Cta = () => {
         <div className="hidden md:block absolute top-44 -right-60 transform -translate-y-1/2 md:w-[70%] h-auto z-20">
           <img
             src="/dzire.png"
-            alt="Luxury blue car"
+            alt="Cab Image"
             className="w-full h-auto object-contain"
           />
         </div>

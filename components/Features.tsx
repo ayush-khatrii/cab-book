@@ -41,7 +41,7 @@ const Features = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: .1, delay: idx * 0.1 }}
-              className="p-6 border border-primary rounded-xl flex flex-col items-center text-center hover:shadow-md transition-all duration-300"
+              className="p-6 hover:bg-secondary border border-primary/50 rounded-xl flex flex-col items-center text-center hover:shadow-md transition-all duration-300"
             >
               <div className="bg-primary/10 p-4 rounded-full mb-4">
                 {feature.icon}

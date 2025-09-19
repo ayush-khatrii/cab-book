@@ -35,19 +35,19 @@ export default function ContactPage() {
   return (
     <section className="max-w-7xl mx-auto py-12 px-4">
       <div className="mb-12 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-accent-foreground">Get in Touch</h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-4 ">Get in Touch</h1>
         <p className="text-muted-foreground mx-auto max-w-2xl">Have questions about our cab services? Need to make a special booking? Our team is here to help you with all your transportation needs.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div
-          className="rounded-lg shadow-md p-6 border h-fit  bg-accent"
+          className="rounded-lg shadow-md p-6 border h-fit"
         >
-          <h2 className="text-xl font-bold mb-6 text-accent-foreground">Send Us a Message</h2>
+          <h2 className="text-xl font-bold mb-6 ">Send Us a Message</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-accent-foreground">Full Name</label>
+                <label className="text-sm font-medium ">Full Name</label>
                 <Input
                   type="text"
                   name="name"
@@ -60,7 +60,7 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-accent-foreground">Phone Number</label>
+                <label className="text-sm font-medium ">Phone Number</label>
                 <Input
                   type="tel"
                   className='mt-1'
@@ -73,7 +73,7 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-2 md:col-span-2">
-                <label className="text-sm font-medium text-accent-foreground">Your Message</label>
+                <label className="text-sm font-medium ">Your Message</label>
                 <Textarea
                   name="message"
                   value={formData.message}
