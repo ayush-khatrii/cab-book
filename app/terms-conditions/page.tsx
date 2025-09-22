@@ -143,7 +143,7 @@ export default function TermsConditions() {
   ];
 
   return (
-    <div className="mx-auto max-w-4xl py-10">
+    <div className="mx-auto p-5 max-w-4xl py-10">
       <div className="border-none">
         <div className="flex flex-row items-center justify-between">
           <div className="my-5">
