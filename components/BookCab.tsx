@@ -1,22 +1,22 @@
-
 "use client";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "./ui/label";
 import { ArrowRight, MapPin, Calendar, Clock, Car, Shield } from "lucide-react";
 import { Input } from "./ui/input";
-import TimeInput from './ui/time-input';
-import DatePickerInput, { Value } from './ui/DatePicker';
-import OutOfStation from './BookingTabs/OutOfStation';
-import { useOutOfStationStore } from '@/store/outofstation';
+import TimeInput from "./ui/time-input";
+import DatePickerInput, { Value } from "./ui/DatePicker";
+import OutOfStation from "./BookingTabs/OutOfStation";
+import { useOutOfStationStore } from "@/store/outofstation";
 import { format } from "date-fns";
-import { MainTab, SELF_DRIVE } from '@/types';
-import LocalCity from './BookingTabs/LocalCity';
-import { cn } from '@/lib/utils';
-import { motion } from 'motion/react';
-import { FaCarSide } from "react-icons/fa"; ``
-import { useRouter } from 'next/navigation';
+import { MainTab, SELF_DRIVE } from "@/types";
+import LocalCity from "./BookingTabs/LocalCity";
+import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
+import { FaCarSide } from "react-icons/fa";
+``;
+import { useRouter } from "next/navigation";
 
 import {
   Select,
@@ -26,13 +26,21 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { FaLocationArrow, FaRoute } from 'react-icons/fa6';
-import { createQueryParams } from '@/utils/helpers';
+} from "@/components/ui/select";
+import { FaLocationArrow, FaRoute } from "react-icons/fa6";
+import { createQueryParams } from "@/utils/helpers";
 
 const BookCab = () => {
   const [date, setDate] = useState<Value>(new Date());
-  const { setSelectedTab, selectedTab, mainTab, setMainTab, onewayData, roundtripData, multicityData } = useOutOfStationStore();
+  const {
+    setSelectedTab,
+    selectedTab,
+    mainTab,
+    setMainTab,
+    onewayData,
+    roundtripData,
+    multicityData,
+  } = useOutOfStationStore();
   const router = useRouter();
   const [totalAdultPassengers, setTotalAdultPassengers] = useState(0);
   const [totalChildPassengers, setTotalChildPassengers] = useState(0);
@@ -42,8 +50,8 @@ const BookCab = () => {
   const [selfDriveData, setSelfDriveData] = useState<SELF_DRIVE>({
     deliverAdress: "",
     driveDate: new Date(),
-    driveTime: ""
-  })
+    driveTime: "",
+  });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,85 +63,91 @@ const BookCab = () => {
           fromCity: (onewayData.pickUp || "").trim(),
           toCity: (onewayData.dropOff || "").trim(),
           travelType: "One-way",
-          travelDate: onewayData.date ? format(onewayData.date, 'yyyy-MM-dd') : "",
+          travelDate: onewayData.date
+            ? format(onewayData.date, "yyyy-MM-dd")
+            : "",
           travelTime: onewayData.time || "",
           adultPassengers: totalAdultPassengers.toString(),
           childPassengers: totalChildPassengers.toString(),
           mobile,
           name,
-          email
+          email,
         };
         router.push(`/cabs?${createQueryParams(params)}`);
-      }
-      else if (selectedTab === "roundtrip") {
+      } else if (selectedTab === "roundtrip") {
         // Round trip parameters
         const params = {
           fromCity: (roundtripData.pickUp || "").trim(),
           toCity: (roundtripData.dropOff || "").trim(),
           travelType: "Round Trip",
-          travelDateStart: roundtripData.fromDate ? format(roundtripData.fromDate, 'yyyy-MM-dd') : "",
-          travelDateEnd: roundtripData.toDate ? format(roundtripData.toDate, 'yyyy-MM-dd') : "",
+          travelDateStart: roundtripData.fromDate
+            ? format(roundtripData.fromDate, "yyyy-MM-dd")
+            : "",
+          travelDateEnd: roundtripData.toDate
+            ? format(roundtripData.toDate, "yyyy-MM-dd")
+            : "",
           travelTime: roundtripData.time || "",
           adultPassengers: totalAdultPassengers.toString(),
           childPassengers: totalChildPassengers.toString(),
           returnJourney: "true",
           mobile,
           name,
-          email
+          email,
         };
         router.push(`/cabs?${createQueryParams(params)}`);
-      }
-      else if (selectedTab === "multicity") {
+      } else if (selectedTab === "multicity") {
         // Multi-city trip parameters
         const params = {
-          fromCity: (multicityData.pickUp).trim() || "",
+          fromCity: multicityData.pickUp.trim() || "",
           toCities: multicityData.cities
-            ? multicityData.cities.map(city => city.trim()).join("|")
+            ? multicityData.cities.map((city) => city.trim()).join("|")
             : "",
           travelType: "Multi City",
-          travelDateStart: multicityData.fromDate ? format(multicityData.fromDate, 'yyyy-MM-dd') : "",
-          travelDateEnd: multicityData.toDate ? format(multicityData.toDate, 'yyyy-MM-dd') : "",
+          travelDateStart: multicityData.fromDate
+            ? format(multicityData.fromDate, "yyyy-MM-dd")
+            : "",
+          travelDateEnd: multicityData.toDate
+            ? format(multicityData.toDate, "yyyy-MM-dd")
+            : "",
           travelTime: multicityData.time || "",
           adultPassengers: totalAdultPassengers.toString(),
           childPassengers: totalChildPassengers.toString(),
           multiCity: "true",
           mobile,
           name,
-          email
+          email,
         };
         router.push(`/cabs?${createQueryParams(params)}`);
       }
-    }
-
-    else if (mainTab === "selfdrive") {
+    } else if (mainTab === "selfdrive") {
       const params = {
-        fromCity: (selfDriveData.deliverAdress).trim() || "",
+        fromCity: selfDriveData.deliverAdress.trim() || "",
         travelType: "Self Drive",
-        travelDate: (selfDriveData.driveDate) ? format(selfDriveData.driveDate, 'yyyy-MM-dd') : "",
-        travelTime: (selfDriveData.driveTime) || "",
+        travelDate: selfDriveData.driveDate
+          ? format(selfDriveData.driveDate, "yyyy-MM-dd")
+          : "",
+        travelTime: selfDriveData.driveTime || "",
         adultPassengers: totalAdultPassengers.toString(),
         childPassengers: totalChildPassengers.toString(),
         multiCity: "false",
         mobile,
         name,
-        email
+        email,
       };
       router.push(`/cabs?${createQueryParams(params)}`);
     }
   };
 
   return (
-    <section id='booking' className="w-full relative overflow-hidden py-16">
+    <section id="booking" className="w-full relative overflow-hidden py-16">
       <div
         className={cn(
           "absolute inset-0 -z-50",
-          "[background-size:50px_50px]",
-          "[background-image:linear-gradient(to_right,rgba(228,228,231,0.1),transparent_0.5px),linear-gradient(to_bottom,rgba(228,228,231,0.1)_1px,transparent_0.5px)]",
-          "dark:[background-image:linear-gradient(to_right,rgba(38,38,38,0.1)_1px,transparent_0.5px),linear-gradient(to_bottom,rgba(38,38,38,0.1)_1px,transparent_0.5px)]",
+          "[background-size:20px_20px]",
+          "[background-image:radial-gradient(#d4d4d4_1px,transparent_1px)]",
+          "dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]"
         )}
       />
-      <div className="pointer-events-none -z-50 absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,white)] bg-white"></div>
-
       <motion.div
         initial={{ x: "-10%" }}
         animate={{ x: "110%" }}
@@ -146,7 +160,9 @@ const BookCab = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col justify-center lg:flex-row gap-12 items-center">
             <div className="lg:w-1/2 z-10">
-              <h1 className="text-4xl font-bold text-primary  mb-6">Start Your Travel Booking</h1>
+              <h1 className="text-4xl font-bold text-primary  mb-6">
+                Start Your Travel Booking
+              </h1>
               <div className=" shadow-lg rounded-2xl p-6 bg-white border border-accent-foreground/20">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Main Tab Selection */}
@@ -162,22 +178,52 @@ const BookCab = () => {
                       }}
                     >
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
-                        <label className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${mainTab === "outofstation" ? "bg-primary text-white shadow-lg shadow-primary/30" : "border hover:bg-accent-foreground/20"}`}>
-                          <RadioGroupItem value="outofstation" className="sr-only" />
+                        <label
+                          className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${
+                            mainTab === "outofstation"
+                              ? "bg-primary text-white shadow-lg shadow-primary/30"
+                              : "border hover:bg-accent-foreground/20"
+                          }`}
+                        >
+                          <RadioGroupItem
+                            value="outofstation"
+                            className="sr-only"
+                          />
                           <FaRoute className="mr-2 w-4 h-4" />
-                          <span className="text-sm font-medium">Outstation</span>
+                          <span className="text-sm font-medium">
+                            Outstation
+                          </span>
                         </label>
 
-                        <label className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${mainTab === "local" ? "bg-primary text-white shadow-lg shadow-primary/30" : "border hover:bg-accent-foreground/20"}`}>
+                        <label
+                          className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${
+                            mainTab === "local"
+                              ? "bg-primary text-white shadow-lg shadow-primary/30"
+                              : "border hover:bg-accent-foreground/20"
+                          }`}
+                        >
                           <RadioGroupItem value="local" className="sr-only" />
                           <MapPin className="mr-2 w-4 h-4" />
-                          <span className="text-sm font-medium">Local City</span>
+                          <span className="text-sm font-medium">
+                            Local City
+                          </span>
                         </label>
 
-                        <label className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${mainTab === "selfdrive" ? "bg-primary text-white shadow-lg shadow-primary/30" : "border hover:bg-accent-foreground/20"}`}>
-                          <RadioGroupItem value="selfdrive" className="sr-only" />
+                        <label
+                          className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${
+                            mainTab === "selfdrive"
+                              ? "bg-primary text-white shadow-lg shadow-primary/30"
+                              : "border hover:bg-accent-foreground/20"
+                          }`}
+                        >
+                          <RadioGroupItem
+                            value="selfdrive"
+                            className="sr-only"
+                          />
                           <Car className="mr-2 w-4 h-4" />
-                          <span className="text-sm font-medium">Self Drive</span>
+                          <span className="text-sm font-medium">
+                            Self Drive
+                          </span>
                         </label>
                       </div>
                     </RadioGroup>
@@ -189,20 +235,42 @@ const BookCab = () => {
                       defaultValue="oneway"
                       className="grid grid-cols-3 w-full border rounded-lg p-1 mb-4"
                       onValueChange={(value) => {
-                        setSelectedTab(value as "oneway" | "roundtrip" | "multicity");
+                        setSelectedTab(
+                          value as "oneway" | "roundtrip" | "multicity"
+                        );
                       }}
                     >
-                      <label className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${selectedTab === "oneway" ? "bg-accent-foreground/90 text-background" : ""}`}>
+                      <label
+                        className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${
+                          selectedTab === "oneway"
+                            ? "bg-accent-foreground/90 text-background"
+                            : ""
+                        }`}
+                      >
                         <RadioGroupItem value="oneway" className="sr-only" />
                         <span className="text-sm font-medium">Oneway</span>
                       </label>
-                      <label className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${selectedTab === "roundtrip" ? "bg-accent-foreground/90 text-background" : ""}`}>
+                      <label
+                        className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${
+                          selectedTab === "roundtrip"
+                            ? "bg-accent-foreground/90 text-background"
+                            : ""
+                        }`}
+                      >
                         <RadioGroupItem value="roundtrip" className="sr-only" />
                         <span className="text-sm font-medium">Roundtrip</span>
                       </label>
-                      <label className={` cursor-pointer py-2 px-4 text-center border  rounded-md transition ${selectedTab === "multicity" ? "bg-accent-foreground/90 text-background" : ""}`}>
+                      <label
+                        className={` cursor-pointer py-2 px-4 text-center border  rounded-md transition ${
+                          selectedTab === "multicity"
+                            ? "bg-accent-foreground/90 text-background"
+                            : ""
+                        }`}
+                      >
                         <RadioGroupItem value="multicity" className="sr-only" />
-                        <span className="text-sm font-medium">Multiple Cities</span>
+                        <span className="text-sm font-medium">
+                          Multiple Cities
+                        </span>
                       </label>
                     </RadioGroup>
                   )}
@@ -215,20 +283,41 @@ const BookCab = () => {
                       <div className="space-y-6">
                         <div className="bg-accent border border-l-4 border-primary text-primary p-4 rounded-md">
                           <div className="flex flex-col gap-2 text-center">
-                            <p className="font-semibold">Self Drive Timing: <span className="font-bold">10:00 AM - 10:00 PM</span></p>
-                            <p className="font-semibold">Available Locations: <span className="font-bold">Gandhidham, Anjar, Bhuj, Bhachau, Adipur (All over in kutch)   </span></p>
+                            <p className="font-semibold">
+                              Self Drive Timing:{" "}
+                              <span className="font-bold">
+                                10:00 AM - 10:00 PM
+                              </span>
+                            </p>
+                            <p className="font-semibold">
+                              Available Locations:{" "}
+                              <span className="font-bold">
+                                Gandhidham, Anjar, Bhuj, Bhachau, Adipur (All
+                                over in kutch){" "}
+                              </span>
+                            </p>
                           </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
                           <div className="space-y-2 col-span-2">
-                            <Label className="text-sm font-medium">Delivery Address</Label>
+                            <Label className="text-sm font-medium">
+                              Delivery Address
+                            </Label>
                           </div>
 
                           <div className="space-y-2 w-full col-span-2 ">
-                            <Label className="text-sm font-medium">Select City</Label>
+                            <Label className="text-sm font-medium">
+                              Select City
+                            </Label>
                             <div className="relative">
-                              <Select onValueChange={(value) => setSelfDriveData({ ...selfDriveData, deliverAdress: value })}>
+                              <Select
+                                onValueChange={(value) =>
+                                  setSelfDriveData({
+                                    ...selfDriveData,
+                                    deliverAdress: value,
+                                  })
+                                }
+                              >
                                 <SelectTrigger className="w-full">
                                   <SelectValue placeholder="Select city  for self drive" />
                                 </SelectTrigger>
@@ -238,12 +327,8 @@ const BookCab = () => {
                                     <SelectItem value="Gandhidham">
                                       Gandhidham
                                     </SelectItem>
-                                    <SelectItem value="Anjar">
-                                      Anjar
-                                    </SelectItem>
-                                    <SelectItem value="Bhuj">
-                                      Bhuj
-                                    </SelectItem>
+                                    <SelectItem value="Anjar">Anjar</SelectItem>
+                                    <SelectItem value="Bhuj">Bhuj</SelectItem>
                                     <SelectItem value="Adipur">
                                       Adipur
                                     </SelectItem>
@@ -256,15 +341,18 @@ const BookCab = () => {
                             </div>
                           </div>
                           <div className="space-y-2 col-span-2">
-                            <Label className="text-sm font-medium">Drive Time</Label>
+                            <Label className="text-sm font-medium">
+                              Drive Time
+                            </Label>
                             <div className="relative">
                               <TimeInput
-                                name='time'
+                                name="time"
                                 onChange={(time) =>
                                   setSelfDriveData((prev) => ({
                                     ...prev,
                                     driveTime: time,
-                                  }))}
+                                  }))
+                                }
                               />
                             </div>
                           </div>
@@ -272,36 +360,48 @@ const BookCab = () => {
                       </div>
                     )}
                     <div className="space-y-2">
-                      <Label className="text-sm font-medium text-gray-700">Your Name *</Label>
+                      <Label className="text-sm font-medium text-gray-700">
+                        Your Name *
+                      </Label>
                       <Input
-                        name='name'
+                        name="name"
                         onChange={(e) => setName(e.target.value)}
-                        type='text'
+                        type="text"
                         className=""
                         placeholder="Your Name"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label className="text-sm font-medium text-gray-700">Mobile Number *</Label>
+                      <Label className="text-sm font-medium text-gray-700">
+                        Mobile Number *
+                      </Label>
                       <Input
-                        type='number'
+                        type="number"
                         onChange={(e) => setMobile(e.target.value)}
                         className=""
                         placeholder="Your Mobile Number"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label className="text-sm font-medium text-gray-700">Email Address *</Label>
+                      <Label className="text-sm font-medium text-gray-700">
+                        Email Address *
+                      </Label>
                       <Input
-                        type='email'
+                        type="email"
                         onChange={(e) => setEmail(e.target.value)}
                         className=""
                         placeholder="Your Email Address"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label className="text-sm font-medium text-gray-700">Total Passengers *</Label>
-                      <Select onValueChange={(p) => setTotalAdultPassengers(Number(p) || 0)}>
+                      <Label className="text-sm font-medium text-gray-700">
+                        Total Passengers *
+                      </Label>
+                      <Select
+                        onValueChange={(p) =>
+                          setTotalAdultPassengers(Number(p) || 0)
+                        }
+                      >
                         <SelectTrigger className="w-full">
                           <SelectValue placeholder="Select total adults" />
                         </SelectTrigger>
@@ -318,7 +418,11 @@ const BookCab = () => {
                           </SelectGroup>
                         </SelectContent>
                       </Select>
-                      <Select onValueChange={(p) => setTotalChildPassengers(Number(p) || 0)}>
+                      <Select
+                        onValueChange={(p) =>
+                          setTotalChildPassengers(Number(p) || 0)
+                        }
+                      >
                         <SelectTrigger className="w-full">
                           <SelectValue placeholder="Select total children" />
                         </SelectTrigger>
@@ -376,7 +480,8 @@ const BookCab = () => {
             </div>
           </div>
         </div>
-      </div >
+      </div>
+      <div className="pointer-events-none -z-40 absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
     </section>
   );
 };

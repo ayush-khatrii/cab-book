@@ -17,12 +17,12 @@ const About = () => {
         <div className="bg-primary relative flex justify-center items-center h-60">
           <div className="container relative z-10 mx-auto flex flex-col items-center text-center justify-center h-full px-4">
             <h1
-              className="text-4xl  md:text-5xl lg:text-6xl font-bold"
+              className="text-4xl text-background  md:text-5xl lg:text-6xl font-bold"
             >
               Discover Our Story
             </h1>
             <p
-              className="text-base  /80 md:text-lg mt-4 max-w-2xl">
+              className="text-base text-muted md:text-lg mt-4 max-w-xl">
               At Shivay Safar, we transform ordinary trips into extraordinary journeys.
             </p>
           </div>
