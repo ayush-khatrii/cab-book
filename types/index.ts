@@ -1,5 +1,5 @@
-export type OutOfStationTab = 'oneway' | 'roundtrip' | 'multicity';
-export type MainTab = 'outofstation' | 'local' | 'selfdrive';
+export type OutOfStationTab = "oneway" | "roundtrip" | "multicity";
+export type MainTab = "outofstation" | "local" | "selfdrive";
 
 export type OUTOFSTATION = {
   mainTab: MainTab;
@@ -18,28 +18,28 @@ export type OUTOFSTATION = {
 
   addCity: (city: string) => void;
   removeCity: (city: string) => void;
-}
+};
 
 export type OUTOFSTATION_ONEWAY = {
   pickUp: string;
   dropOff: string;
   time: string;
   date: Date;
-}
+};
 export type OUTOFSTATION_ROUNDTRIP = {
   pickUp: string;
   dropOff: string;
   fromDate: Date;
   toDate: Date;
   time: string;
-}
+};
 export type OUTOFSTATION_MULTICITY = {
   pickUp: string;
   fromDate: Date;
   toDate: Date;
   time: string;
   cities: string[];
-}
+};
 
 export interface LOCAL_CITY {
   pickUp: string;
@@ -66,5 +66,7 @@ export interface Cab {
   background: string;
   image: string;
   seats: string;
+  selfDrivePrice?: number;
   passengers: string;
+  selfDrive?: boolean;
 }

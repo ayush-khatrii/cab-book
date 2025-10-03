@@ -3,37 +3,39 @@ import { Cab } from "@/types";
 export const navLinks = [
   {
     name: "Home",
-    path: "/"
+    path: "/",
   },
   {
     name: "About",
-    path: "/about"
+    path: "/about",
   },
   {
     name: "Cabs",
-    path: "/cabs"
+    path: "/cabs",
   },
   {
     name: "Contact",
-    path: "/contact"
+    path: "/contact",
   },
 ];
 export const cabs: Cab[] = [
   {
     id: 1,
-    name: 'XL6',
-    image: '/xl6.png',
-    background: '/city-road.png',
+    name: "XL6",
+    image: "/xl6.png",
+    background: "/city-road.png",
     seats: "6+1",
+    selfDrive: true,
     type: "SUV",
     passengers: "6 person",
     pricePerKm: 15,
+    selfDrivePrice: 4000,
   },
   {
     id: 2,
-    name: 'Ertiga',
-    image: '/ertiga.png',
-    background: '/city-road.png',
+    name: "Ertiga",
+    image: "/ertiga.png",
+    background: "/city-road.png",
     seats: "6+1",
     passengers: "6 person",
     type: "SUV",
@@ -41,9 +43,9 @@ export const cabs: Cab[] = [
   },
   {
     id: 3,
-    name: 'Innova',
-    image: '/innova-img.png',
-    background: '/city-road.png',
+    name: "Innova",
+    image: "/innova-img.png",
+    background: "/city-road.png",
     seats: "6+1",
     type: "INNOVA",
     passengers: "7 person",
@@ -51,19 +53,21 @@ export const cabs: Cab[] = [
   },
   {
     id: 4,
-    name: 'Swift',
-    image: '/swift-dzire.png',
-    background: '/city-road.png',
+    name: "Swift",
+    image: "/swift-dzire.png",
+    background: "/city-road.png",
     seats: "3+1",
     passengers: "4 person",
+    selfDrivePrice: 3000,
+    selfDrive: true,
     type: "HATCHBACK",
     pricePerKm: 11,
   },
   {
     id: 5,
-    name: 'Swift Dzire',
-    image: '/dzire.png',
-    background: '/city-road.png',
+    name: "Swift Dzire",
+    image: "/dzire.png",
+    background: "/city-road.png",
     seats: "3+1",
     passengers: "4 person",
     type: "SEDAN",
@@ -86,152 +90,155 @@ export const cabRoutes = [
     id: 1,
     from: "Gandhidham",
     to: "Ahmedabad Airport",
-    description: "Need to catch a flight? Let us take you from Gandhidham to Ahmedabad Airport safely and on time.",
+    description:
+      "Need to catch a flight? Let us take you from Gandhidham to Ahmedabad Airport safely and on time.",
     image: "/ahm-airport.png",
   },
   {
     id: 2,
     from: "Gandhidham",
     to: "Rajkot",
-    description: "Planning a quick trip to Rajkot? Sit back and relax — we’ll handle the driving.",
-    image: "/rajkot.jpg"
+    description:
+      "Planning a quick trip to Rajkot? Sit back and relax — we’ll handle the driving.",
+    image: "/rajkot.jpg",
   },
   {
     id: 3,
     from: "Ahmedabad",
     to: "Rajkot",
-    description: "Traveling between Ahmedabad and Rajkot? Enjoy a smooth, comfy cab ride without the hassle.",
-    image: "/ahmedabad.jpg"
+    description:
+      "Traveling between Ahmedabad and Rajkot? Enjoy a smooth, comfy cab ride without the hassle.",
+    image: "/ahmedabad.jpg",
   },
   {
     id: 4,
     from: "Bhuj",
     to: "Ahmedabad",
-    description: "Going from Bhuj to Ahmedabad? Book your ride in seconds and leave the rest to us.",
+    description:
+      "Going from Bhuj to Ahmedabad? Book your ride in seconds and leave the rest to us.",
     image: "/bhuj-img.jpg",
   },
   {
     id: 5,
     from: "Bhuj",
     to: "Rajkot",
-    description: "Need a cab to Rajkot from Bhuj? Quick, easy, and always on time.",
-    image: "/rajkot.jpg"
+    description:
+      "Need a cab to Rajkot from Bhuj? Quick, easy, and always on time.",
+    image: "/rajkot.jpg",
   },
 ];
-
-
 
 // constants/prices.ts
 export const priceMatrix = {
   //  ahm - gimb : suv 4700 , sedan 3700, hatchback 3700
   //  self drive : suv 4000 , sedan 3000,
   AHMEDABAD_AIRPORT: {
-    "GANDHIDHAM": {
+    GANDHIDHAM: {
       "ONE-WAY": {
         SUV: 4700,
         SEDAN: 3700,
-        HATCHBACK: 3700
-      }
-    }
+        HATCHBACK: 3700,
+      },
+    },
   },
   GANDHIDHAM: {
     AHMEDABAD_AIRPORT: {
       "ONE-WAY": {
         SUV: 4500,
         SEDAN: 3500,
-        HATCHBACK: 3500
+        HATCHBACK: 3500,
       },
     },
     BHACHAU: {
       "ONE-WAY": {
         SUV: 2500,
         SEDAN: 2000,
-        HATCHBACK: 2000
-      }
+        HATCHBACK: 2000,
+      },
     },
     MUNDRA: {
       "ONE-WAY": {
         SUV: 2000,
         SEDAN: 1500,
-        HATCHBACK: 1500
-      }
+        HATCHBACK: 1500,
+      },
     },
     BHUJ: {
       "ONE-WAY": {
         SUV: 2000,
         SEDAN: 1500,
-        HATCHBACK: 1500
-      }
+        HATCHBACK: 1500,
+      },
     },
     AHMEDABAD: {
       "ONE-WAY": {
         SUV: 4500,
         SEDAN: 3500,
         HATCHBACK: 3500,
-        INNOVA: 7000
+        INNOVA: 7000,
       },
     },
     RAJKOT: {
       "ONE-WAY": {
         SUV: 4000,
         SEDAN: 3000,
-        HATCHBACK: 3000
+        HATCHBACK: 3000,
       },
     },
     JAMNAGAR: {
       "ONE-WAY": {
         SUV: 5500,
         SEDAN: 4500,
-        HATCHBACK: 4500
+        HATCHBACK: 4500,
       },
     },
     SOMNATH: {
       "ONE-WAY": {
         SUV: 8500,
         SEDAN: 7500,
-        HATCHBACK: 7500
+        HATCHBACK: 7500,
       },
     },
     DWARKA: {
       "ONE-WAY": {
         SUV: 8500,
         SEDAN: 7500,
-        HATCHBACK: 7500
+        HATCHBACK: 7500,
       },
     },
     JUNAGADH: {
       "ONE-WAY": {
         SUV: 5700,
         SEDAN: 4700,
-        HATCHBACK: 4700
+        HATCHBACK: 4700,
       },
     },
     PALANPUR: {
       "ONE-WAY": {
         SUV: 5000,
         SEDAN: 4000,
-        HATCHBACK: 4000
+        HATCHBACK: 4000,
       },
     },
     BARODA: {
       "ONE-WAY": {
         SUV: 5500,
         SEDAN: 4500,
-        HATCHBACK: 4500
+        HATCHBACK: 4500,
       },
     },
     SURAT: {
       "ONE-WAY": {
         SUV: 12000,
         SEDAN: 11000,
-        HATCHBACK: 11000
+        HATCHBACK: 11000,
       },
     },
     BHAVNAGAR: {
       "ONE-WAY": {
         SUV: 7100,
         SEDAN: 6100,
-        HATCHBACK: 6100
+        HATCHBACK: 6100,
       },
     },
   },
@@ -240,8 +247,8 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 2500,
         SEDAN: 2000,
-        HATCHBACK: 2000
-      }
+        HATCHBACK: 2000,
+      },
     },
   },
   MUNDRA: {
@@ -249,8 +256,8 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 2000,
         SEDAN: 1500,
-        HATCHBACK: 1500
-      }
+        HATCHBACK: 1500,
+      },
     },
   },
   BHUJ: {
@@ -258,78 +265,78 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 2000,
         SEDAN: 1500,
-        HATCHBACK: 1500
-      }
+        HATCHBACK: 1500,
+      },
     },
     AHMEDABAD: {
       "ONE-WAY": {
         SUV: 5000,
         SEDAN: 4000,
-        HATCHBACK: 4000
-      }
+        HATCHBACK: 4000,
+      },
     },
     RAJKOT: {
       "ONE-WAY": {
         SUV: 4500,
         SEDAN: 3500,
-        HATCHBACK: 3500
-      }
+        HATCHBACK: 3500,
+      },
     },
     BHAVNAGAR: {
       "ONE-WAY": {
         SUV: 7000,
         SEDAN: 8500,
-        HATCHBACK: 8500
-      }
+        HATCHBACK: 8500,
+      },
     },
     DWARKA: {
       "ONE-WAY": {
         SUV: 9500,
         SEDAN: 8500,
-        HATCHBACK: 8500
-      }
+        HATCHBACK: 8500,
+      },
     },
     SOMNATH: {
       "ONE-WAY": {
         SUV: 9000,
         SEDAN: 8000,
-        HATCHBACK: 8000
-      }
+        HATCHBACK: 8000,
+      },
     },
     JUNAGADH: {
       "ONE-WAY": {
         SUV: 6100,
         SEDAN: 5100,
-        HATCHBACK: 5100
-      }
+        HATCHBACK: 5100,
+      },
     },
     SURAT: {
       "ONE-WAY": {
         SUV: 14000,
         SEDAN: 13000,
-        HATCHBACK: 13000
-      }
+        HATCHBACK: 13000,
+      },
     },
     BARODA: {
       "ONE-WAY": {
         SUV: 6000,
         SEDAN: 5000,
-        HATCHBACK: 5000
-      }
+        HATCHBACK: 5000,
+      },
     },
     PALANPUR: {
       "ONE-WAY": {
         SUV: 5600,
         SEDAN: 4600,
-        HATCHBACK: 4600
-      }
+        HATCHBACK: 4600,
+      },
     },
     GANDHIDHAM: {
       "ONE-WAY": {
         SUV: 2000,
         SEDAN: 1500,
-        HATCHBACK: 1500
-      }
+        HATCHBACK: 1500,
+      },
     },
   },
   NARAYAN_SAROVAR: {
@@ -337,8 +344,8 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 9500,
         SEDAN: 8500,
-        HATCHBACK: 8500
-      }
+        HATCHBACK: 8500,
+      },
     },
   },
   AHMEDABAD: {
@@ -346,7 +353,7 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 9600,
         SEDAN: 8500,
-        HATCHBACK: 8500
+        HATCHBACK: 8500,
       },
     },
     GANDHIDHAM: {
@@ -354,70 +361,70 @@ export const priceMatrix = {
         SUV: 4500,
         SEDAN: 3500,
         HATCHBACK: 3500,
-        INNOVA: 7000
+        INNOVA: 7000,
       },
     },
     RAJKOT: {
       "ONE-WAY": {
         SUV: 3500,
         SEDAN: 2500,
-        HATCHBACK: 2500
+        HATCHBACK: 2500,
       },
     },
     BARODA: {
       "ONE-WAY": {
         SUV: 3500,
         SEDAN: 2500,
-        HATCHBACK: 2500
+        HATCHBACK: 2500,
       },
     },
     SURAT: {
       "ONE-WAY": {
         SUV: 5800,
         SEDAN: 4800,
-        HATCHBACK: 4800
+        HATCHBACK: 4800,
       },
     },
     JAMNAGAR: {
       "ONE-WAY": {
         SUV: 5000,
         SEDAN: 4000,
-        HATCHBACK: 4000
+        HATCHBACK: 4000,
       },
     },
     BHAVNAGAR: {
       "ONE-WAY": {
         SUV: 4500,
         SEDAN: 3500,
-        HATCHBACK: 3500
+        HATCHBACK: 3500,
       },
     },
     SOMNATH: {
       "ONE-WAY": {
         SUV: 9500,
         SEDAN: 8500,
-        HATCHBACK: 8500
+        HATCHBACK: 8500,
       },
     },
     DWARKA: {
       "ONE-WAY": {
         SUV: 9700,
         SEDAN: 8700,
-        HATCHBACK: 8700
+        HATCHBACK: 8700,
       },
     },
     PALANPUR: {
       "ONE-WAY": {
         SUV: 3500,
         SEDAN: 2500,
-        HATCHBACK: 2500
+        HATCHBACK: 2500,
       },
     },
     JUNAGADH: {
       "ONE-WAY": {
         SUV: 6000,
         SEDAN: 5000,
-        HATCHBACK: 5000
+        HATCHBACK: 5000,
       },
     },
   },
@@ -426,14 +433,14 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 3500,
         SEDAN: 2500,
-        HATCHBACK: 2500
+        HATCHBACK: 2500,
       },
     },
     GANDHIDHAM: {
       "ONE-WAY": {
         SUV: 4000,
         SEDAN: 3000,
-        HATCHBACK: 3000
+        HATCHBACK: 3000,
       },
     },
   },
@@ -442,14 +449,14 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 5000,
         SEDAN: 4000,
-        HATCHBACK: 4000
+        HATCHBACK: 4000,
       },
     },
     GANDHIDHAM: {
       "ONE-WAY": {
         SUV: 5500,
         SEDAN: 4500,
-        HATCHBACK: 4500
+        HATCHBACK: 4500,
       },
     },
   },
@@ -458,14 +465,14 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 9500,
         SEDAN: 8500,
-        HATCHBACK: 8500
+        HATCHBACK: 8500,
       },
     },
     GANDHIDHAM: {
       "ONE-WAY": {
         SUV: 8500,
         SEDAN: 7500,
-        HATCHBACK: 7500
+        HATCHBACK: 7500,
       },
     },
   },
@@ -474,14 +481,14 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 9700,
         SEDAN: 8700,
-        HATCHBACK: 8700
+        HATCHBACK: 8700,
       },
     },
     GANDHIDHAM: {
       "ONE-WAY": {
         SUV: 8500,
         SEDAN: 7500,
-        HATCHBACK: 7500
+        HATCHBACK: 7500,
       },
     },
   },
@@ -490,14 +497,14 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 6000,
         SEDAN: 5000,
-        HATCHBACK: 5000
+        HATCHBACK: 5000,
       },
     },
     GANDHIDHAM: {
       "ONE-WAY": {
         SUV: 5700,
         SEDAN: 4700,
-        HATCHBACK: 4700
+        HATCHBACK: 4700,
       },
     },
   },
@@ -506,14 +513,14 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 3500,
         SEDAN: 2500,
-        HATCHBACK: 2500
+        HATCHBACK: 2500,
       },
     },
     GANDHIDHAM: {
       "ONE-WAY": {
         SUV: 5000,
         SEDAN: 4000,
-        HATCHBACK: 4000
+        HATCHBACK: 4000,
       },
     },
   },
@@ -522,14 +529,14 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 3500,
         SEDAN: 2500,
-        HATCHBACK: 2500
+        HATCHBACK: 2500,
       },
     },
     GANDHIDHAM: {
       "ONE-WAY": {
         SUV: 5500,
         SEDAN: 4500,
-        HATCHBACK: 4500
+        HATCHBACK: 4500,
       },
     },
   },
@@ -538,14 +545,14 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 5800,
         SEDAN: 4800,
-        HATCHBACK: 4800
+        HATCHBACK: 4800,
       },
     },
     GANDHIDHAM: {
       "ONE-WAY": {
         SUV: 12000,
         SEDAN: 11000,
-        HATCHBACK: 11000
+        HATCHBACK: 11000,
       },
     },
   },
@@ -554,14 +561,14 @@ export const priceMatrix = {
       "ONE-WAY": {
         SUV: 4500,
         SEDAN: 3500,
-        HATCHBACK: 3500
+        HATCHBACK: 3500,
       },
     },
     GANDHIDHAM: {
       "ONE-WAY": {
         SUV: 5600,
         SEDAN: 4600,
-        HATCHBACK: 4600
+        HATCHBACK: 4600,
       },
     },
   },
@@ -571,14 +578,11 @@ export const localPriceMatrix = {
   "8hr,80/km": {
     SUV: 3500,
     SEDAN: 2500,
-    HATCHBACK: 2500
-
+    HATCHBACK: 2500,
   },
   "12hr,120/km": {
     SUV: 4200,
     SEDAN: 3200,
-    HATCHBACK: 3200
-  }
-}
-
-
+    HATCHBACK: 3200,
+  },
+};

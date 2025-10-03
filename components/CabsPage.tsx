@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Navigation, Route, Calendar, ArrowUp, Clock, User, PhoneCall, Mail, Check, Shield, InfoIcon } from "lucide-react";
+import { ArrowRight, Navigation, Route, Calendar, ArrowUp, Clock, User, PhoneCall, Mail, Check, Shield, InfoIcon, Sparkles, TrendingUp, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { cabs, } from "@/constants";
@@ -321,116 +321,174 @@ export default function CabsPage() {
             </div>
           </div>
 
-          {/* Available Cabs */}
           <div className="lg:col-span-2 order-1 lg:order-2">
             <div className="mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Select Your Perfect Ride</h2>
               <p className="text-muted-foreground">Choose from our premium fleet for your journey from {tripDetails.fromCity} to {tripDetails.toCity}</p>
             </div>
-
             <div className="grid grid-cols-1 gap-8">
-              {filteredCabs.map((cab, idx) => (
-                <motion.div
-                  key={cab.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className="group"
-                >
-                  <div className="overflow-hidden bg-accent rounded-md border-0 shadow-md transition-all duration-300 hover:shadow-xl relative">
-                    <div className="absolute top-2 left-2 z-20">
-                      <Badge className="bg-primary text-primary-foreground font-semibold px-3 py-1">
-                        Top Rated
-                      </Badge>
-                    </div>
+              {filteredCabs.map((cab, idx) => {
+                const isSelfDrive = cab.selfDrive;
+                return (
+                  <motion.div
+                    key={cab.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: idx * 0.1 }}
+                    className="group relative"
+                  >
 
-                    <div className="grid grid-cols-1 md:grid-cols-12 items-center">
-                      <div className="md:col-span-5 relative overflow-hidden h-60 md:h-full">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-white/80 via-white/50 to-transparent z-10"></div>
-                        <div className="absolute inset-0 bg-gradient-to-tr from-white/80 via-white/50 to-transparent z-10"></div>
-                        <img
-                          src={cab.background}
-                          alt="background"
-                          className="absolute inset-0 w-full h-full object-cover opacity-80"
-                        />
-                        <img
-                          src={cab.image}
-                          alt={cab.name}
-                          className="relative z-10 w-full h-60 md:h-full object-contain p-4 transform group-hover:scale-105 transition-transform duration-500"
-                        />
+                    <div className={`overflow-hidden bg-card border rounded-md shadow-md transition-all duration-300 hover:shadow-xl relative ${isSelfDrive
+                      ? 'ring-4 ring-primary/50 shadow-2xl shadow-primary/20 hover:ring-primary/70 hover:shadow-primary/30'
+                      : ''
+                      }`}>
+                      {isSelfDrive && (
+                        <>
+                          <div className="absolute top-0 left-0 w-24 h-24 bg-primary/10 rounded-br-full animate-pulse"></div>
+                          <div className="absolute bottom-0 right-0 w-24 h-24 bg-primary/10 rounded-tl-full animate-pulse"></div>
+                        </>
+                      )}
+
+                      <div className="absolute top-2 left-2 z-20">
+                        {isSelfDrive ? (
+                          <Badge className="bg-primary text-primary-foreground font-bold px-4 py-2 shadow-lg flex items-center gap-1.5">
+                            <Star className="w-4 h-4 fill-current" />
+                            Self Drive Available
+                          </Badge>
+                        ) : (
+                          <Badge className="bg-primary text-primary-foreground font-semibold px-3 py-1">
+                            Top Rated
+                          </Badge>
+                        )}
                       </div>
 
-                      <div className="md:col-span-7 p-6">
-                        <div className="flex flex-col h-full">
-                          <div className="flex justify-between items-start mb-4">
-                            <h3 className="text-lg sm:text-xl md:text-2xl font-bold">{cab.name}</h3>
-                            <div className="text-2xl font-bold text-primary">{handlePrice(cab)}</div>
-                          </div>
+                      <div className="grid grid-cols-1 md:grid-cols-12 items-center">
+                        <div className="md:col-span-5 relative overflow-hidden h-60 md:h-full">
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/80 via-white/50 to-transparent z-10"></div>
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/80 via-white/50 to-transparent z-10"></div>
+                          <img
+                            src={cab.background}
+                            alt="background"
+                            className="absolute inset-0 w-full h-full object-cover opacity-80"
+                          />
+                          <img
+                            src={cab.image}
+                            alt={cab.name}
+                            className="relative z-10 w-full h-60 md:h-full object-contain p-4 transform group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
 
-                          <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-6">
-                            <div className="flex items-center gap-2">
-                              <div className="bg-primary/10 p-1.5 rounded-md">
-                                <GoPerson className="h-4 w-4 text-primary" />
+                        <div className="md:col-span-7 p-6 relative z-10">
+                          <div className="flex flex-col h-full">
+                            <div className="flex justify-between items-start mb-4">
+                              <div className="flex items-center gap-2">
+                                <h3 className="text-lg sm:text-xl md:text-2xl font-bold">{cab.name}</h3>
+                                {isSelfDrive && (
+                                  <Badge variant="outline" className="bg-primary/10 text-primary border-primary/30 font-bold text-xs px-2 py-0.5">
+                                    HOT 🔥
+                                  </Badge>
+                                )}
                               </div>
-                              <div>
-                                <p className="text-xs text-muted-foreground">Passengers</p>
-                                <p className="font-medium">{cab.passengers}</p>
+                              <div className="text-2xl font-bold text-primary">{handlePrice(cab)}</div>
+                            </div>
+                            {isSelfDrive && cab.selfDrivePrice && (
+                              <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.3 }}
+                                className="mb-4 relative"
+                              >
+                                <div className="absolute inset-0 bg-primary/20 rounded-lg blur-sm"></div>
+                                <div className="relative bg-primary/5 border-2 border-primary/30 p-4 rounded-lg">
+                                  <div className="flex items-center justify-between mb-2">
+                                    <span className="text-xs font-bold text-primary uppercase tracking-wide flex items-center gap-1">
+                                      <Sparkles className="w-3 h-3" />
+                                      Limited Time Offer
+                                    </span>
+                                    <Badge className="bg-destructive text-destructive-foreground font-bold text-xs px-2 py-0.5 animate-pulse">
+                                      SAVE 20%
+                                    </Badge>
+                                  </div>
+                                  <div className="flex items-center justify-between">
+                                    <span className="font-bold text-foreground flex items-center gap-2">
+                                      🚗 Self Drive Price:
+                                    </span>
+                                    <div className="flex flex-col items-end">
+                                      <div className="text-2xl font-black text-primary">
+                                        ₹{cab.selfDrivePrice}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </motion.div>
+                            )}
+                            <div className="grid grid-cols-2 gap-x-6 gap-y-4 mb-6">
+                              <div className="flex items-center gap-2">
+                                <div className="bg-primary/10 p-1.5 rounded-md">
+                                  <GoPerson className="h-4 w-4 text-primary" />
+                                </div>
+                                <div>
+                                  <p className="text-xs text-muted-foreground">Passengers</p>
+                                  <p className="font-medium">{cab.passengers}</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-center gap-2">
+                                <div className="bg-primary/10 p-1.5 rounded-md">
+                                  <IoPersonOutline className="h-4 w-4 text-primary" />
+                                </div>
+                                <div>
+                                  <p className="text-xs text-muted-foreground">Seats</p>
+                                  <p className="font-medium">{cab.seats}</p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-center gap-2">
+                                <div className="bg-primary/10 p-1.5 rounded-md">
+                                  <Route className="h-4 w-4 text-primary" />
+                                </div>
+                                <div>
+                                  <p className="text-xs text-muted-foreground">{isSelfDrive ? 'With Driver' : 'Price per km'}</p>
+                                  <p className={`font-medium ${isSelfDrive ? 'opacity-70' : ''}`}>{cab.pricePerKm}/km</p>
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <div className="bg-primary/10 p-1.5 rounded-md">
+                                  <ArrowUp className="h-4 w-4 text-primary" />
+                                </div>
+                                <div>
+                                  <p className="text-xs text-muted-foreground">Type</p>
+                                  <p className="font-medium capitalize">{cab.type}</p>
+                                </div>
                               </div>
                             </div>
 
-                            <div className="flex items-center gap-2">
-                              <div className="bg-primary/10 p-1.5 rounded-md">
-                                <IoPersonOutline className="h-4 w-4 text-primary" />
+                            <div className="mt-auto space-y-4">
+                              <div className="p-3 rounded-md">
+                                <p className="text-sm font-medium border border-primary p-3 rounded-md text-primary/70 flex items-center gap-2">
+                                  <InfoIcon size={25} />
+                                  <span>Non-refundable booking with advance payment required. All fares are subject to our terms and conditions.</span>
+                                </p>
                               </div>
-                              <div>
-                                <p className="text-xs text-muted-foreground">Seats</p>
-                                <p className="font-medium">{cab.seats}</p>
-                              </div>
-                            </div>
 
-                            <div className="flex items-center gap-2">
-                              <div className="bg-primary/10 p-1.5 rounded-md">
-                                <Route className="h-4 w-4 text-primary" />
-                              </div>
-                              <div>
-                                <p className="text-xs text-muted-foreground">Price per km</p>
-                                <p className="font-medium">{cab.pricePerKm}/km</p>
-                              </div>
+                              <Button
+                                variant="default"
+                                className={`w-full py-6 text-base transition-all duration-300 font-bold ${isSelfDrive
+                                  ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02]'
+                                  : 'bg-primary hover:bg-primary/90 text-primary-foreground'
+                                  }`}
+                                onClick={() => handleBookNow(cab)}
+                              >
+                                {isSelfDrive ? '🔥 Book Self Drive Now' : 'Book Now and Pay'}
+                              </Button>
                             </div>
-
-                            <div className="flex items-center gap-2">
-                              <div className="bg-primary/10 p-1.5 rounded-md">
-                                <ArrowUp className="h-4 w-4 text-primary" />
-                              </div>
-                              <div>
-                                <p className="text-xs text-muted-foreground">Type</p>
-                                <p className="font-medium capitalize">{cab.type}</p>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="mt-auto space-y-4">
-                            <div className="p-3  rounded-md">
-                              <p className="text-sm font-medium border border-primary p-3 rounded-md text-primary/70 flex items-center gap-2">
-                                <InfoIcon size={25} />
-                                <span>Non-refundable booking with advance payment required. All fares are subject to our terms and conditions.</span>
-                              </p>
-                            </div>
-
-                            <Button
-                              variant="default"
-                              className="w-full py-6 text-base bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300"
-                              onClick={() => handleBookNow(cab)}
-                            >
-                              Book Now and Pay
-                            </Button>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
