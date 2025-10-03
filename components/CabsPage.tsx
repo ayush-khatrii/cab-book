@@ -405,9 +405,6 @@ export default function CabsPage() {
                                       <Sparkles className="w-3 h-3" />
                                       Limited Time Offer
                                     </span>
-                                    <Badge className="bg-destructive text-destructive-foreground font-bold text-xs px-2 py-0.5 animate-pulse">
-                                      SAVE 20%
-                                    </Badge>
                                   </div>
                                   <div className="flex items-center justify-between">
                                     <span className="font-bold text-foreground flex items-center gap-2">
