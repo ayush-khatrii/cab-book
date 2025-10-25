@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Navigation, Route, Calendar, ArrowUp, Clock, User, PhoneCall, Mail, Check, Shield, InfoIcon, Sparkles, TrendingUp, Star } from "lucide-react";
+import { ArrowRight, Navigation, Route, Calendar, ArrowUp, Clock, User, PhoneCall, Mail, Check, Shield, InfoIcon, Sparkles, TrendingUp, Star, Award, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { cabs, } from "@/constants";
@@ -108,7 +108,8 @@ export default function CabsPage() {
       tripDetails.fromCity,
       tripDetails.toCity,
       cab.type,
-      tripDetails.travelType
+      tripDetails.travelType,
+      cab.name
     );
     console.log(price);
     return price;
@@ -118,25 +119,47 @@ export default function CabsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/90">
       <div className="relative w-full overflow-hidden">
-        <div className="w-full relative h-80">
+        <div className="w-full relative md:h-[500px] py-10">
           <div className="absolute inset-0">
-            <img src="/road.jpg" alt="Road background" className="object-cover object-bottom brightness-50 grayscale-100 w-full h-full" />
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] bg-black"></div>
+            <img
+              src="/road.jpg"
+              alt="Road background"
+              className="object-cover object-bottom w-full h-full"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/90"></div>
+            <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black)]"></div>
           </div>
-          <div className="container relative z-10 mx-auto flex flex-col items-center text-center justify-center h-full px-4">
+          <div className="absolute top-0 left-0 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="container md:pt-20 relative z-10 mx-auto flex flex-col items-center text-center justify-center h-full px-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-md border border-border shadow-lg"
+            >
+              <Star className="w-4 h-4 fill-primary text-primary" />
+              <span className="text-sm font-medium text-foreground">Premium Service</span>
+              <Award className="w-4 h-4 text-primary" />
+            </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="relative text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary"
+              className="relative text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground mb-6 tracking-tight"
             >
-              Premium Cab Selection
+              <span className="inline-block">Premium Cab</span>
+              <br />
+              <span className="inline-block bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+                Selection
+              </span>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-primary/80 to-primary rounded-full"></div>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-accent/90 text-sm w-2xs sm:w-full sm:text-base  md:text-lg mt-4 max-w-2xl"
+              className="text-base sm:text-lg md:text-xl mt-8 max-w-xl leading-relaxed font-medium"
             >
               Choose from our luxury fleet for a comfortable and reliable journey experience
             </motion.p>
@@ -144,19 +167,77 @@ export default function CabsPage() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap items-center justify-center mt-6 gap-4"
+              className="flex flex-wrap items-center justify-center mt-10 gap-4"
             >
-              <Badge variant="outline" className="text-xs sm:text-base bg-primary/10 border-accent/50 backdrop-blur text-primary px-2 py-1 rounded-lg flex items-center gap-2">
-                <Check size={16} /> 24/7 Support
-              </Badge>
-              <Badge variant="outline" className="text-xs sm:text-base bg-primary/10 border-accent/50 backdrop-blur text-primary px-2 py-1 rounded-lg flex items-center gap-2">
-                <Check size={16} /> On-Time Pickup
-              </Badge>
-              <Badge variant="outline" className="text-xs sm:text-base bg-primary/10 border-accent/50 backdrop-blur text-primary px-2 py-1 rounded-lg flex items-center gap-2">
-                <Check size={16} /> Clean & AC Cabs
-              </Badge>
+              <div className="group relative overflow-hidden px-6 py-3 rounded-xl bg-card/50 backdrop-blur-md border border-border hover:bg-card/80 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20">
+                {/* Shimmer Effect */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+
+                <div className="relative flex items-center gap-3">
+                  <div className="p-1.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-all">
+                    <Clock className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-foreground font-medium text-sm sm:text-base whitespace-nowrap">
+                    24/7 Support
+                  </span>
+                  <Check className="w-4 h-4 text-primary ml-1" />
+                </div>
+              </div>
+
+              <div className="group relative overflow-hidden px-6 py-3 rounded-xl bg-card/50 backdrop-blur-md border border-border hover:bg-card/80 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20">
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+
+                <div className="relative flex items-center gap-3">
+                  <div className="p-1.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-all">
+                    <Zap className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-foreground font-medium text-sm sm:text-base whitespace-nowrap">
+                    On-Time Pickup
+                  </span>
+                  <Check className="w-4 h-4 text-primary ml-1" />
+                </div>
+              </div>
+
+              <div className="group relative overflow-hidden px-6 py-3 rounded-xl bg-card/50 backdrop-blur-md border border-border hover:bg-card/80 hover:border-primary/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/20">
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+
+                <div className="relative flex items-center gap-3">
+                  <div className="p-1.5 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-all">
+                    <Shield className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="text-foreground font-medium text-sm sm:text-base whitespace-nowrap">
+                    Clean & AC Cabs
+                  </span>
+                  <Check className="w-4 h-4 text-primary ml-1" />
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-muted-foreground text-sm"
+            >
+              <div className="flex items-center gap-2">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/70 border-2 border-background"></div>
+                  ))}
+                </div>
+                <span className="font-medium">500+ Happy Customers</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                  ))}
+                </div>
+                <span className="font-medium">4.9 Rating</span>
+              </div>
             </motion.div>
           </div>
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
         </div>
       </div>
 

@@ -165,7 +165,6 @@ const BookCab = () => {
               </h1>
               <div className=" shadow-lg rounded-2xl p-6 bg-white border border-accent-foreground/20">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Main Tab Selection */}
                   <div className="flex">
                     <RadioGroup
                       defaultValue="outofstation"
@@ -179,11 +178,10 @@ const BookCab = () => {
                     >
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
                         <label
-                          className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${
-                            mainTab === "outofstation"
-                              ? "bg-primary text-white shadow-lg shadow-primary/30"
-                              : "border hover:bg-accent-foreground/20"
-                          }`}
+                          className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${mainTab === "outofstation"
+                            ? "bg-primary text-white shadow-lg shadow-primary/30"
+                            : "border hover:bg-accent-foreground/20"
+                            }`}
                         >
                           <RadioGroupItem
                             value="outofstation"
@@ -196,11 +194,10 @@ const BookCab = () => {
                         </label>
 
                         <label
-                          className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${
-                            mainTab === "local"
-                              ? "bg-primary text-white shadow-lg shadow-primary/30"
-                              : "border hover:bg-accent-foreground/20"
-                          }`}
+                          className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${mainTab === "local"
+                            ? "bg-primary text-white shadow-lg shadow-primary/30"
+                            : "border hover:bg-accent-foreground/20"
+                            }`}
                         >
                           <RadioGroupItem value="local" className="sr-only" />
                           <MapPin className="mr-2 w-4 h-4" />
@@ -210,11 +207,10 @@ const BookCab = () => {
                         </label>
 
                         <label
-                          className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${
-                            mainTab === "selfdrive"
-                              ? "bg-primary text-white shadow-lg shadow-primary/30"
-                              : "border hover:bg-accent-foreground/20"
-                          }`}
+                          className={`group relative flex cursor-pointer items-center justify-center py-3 px-4 rounded-xl transition-all duration-200 ${mainTab === "selfdrive"
+                            ? "bg-primary text-white shadow-lg shadow-primary/30"
+                            : "border hover:bg-accent-foreground/20"
+                            }`}
                         >
                           <RadioGroupItem
                             value="selfdrive"
@@ -241,31 +237,28 @@ const BookCab = () => {
                       }}
                     >
                       <label
-                        className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${
-                          selectedTab === "oneway"
-                            ? "bg-accent-foreground/90 text-background"
-                            : ""
-                        }`}
+                        className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${selectedTab === "oneway"
+                          ? "bg-accent-foreground/90 text-background"
+                          : ""
+                          }`}
                       >
                         <RadioGroupItem value="oneway" className="sr-only" />
                         <span className="text-sm font-medium">Oneway</span>
                       </label>
                       <label
-                        className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${
-                          selectedTab === "roundtrip"
-                            ? "bg-accent-foreground/90 text-background"
-                            : ""
-                        }`}
+                        className={`flex-1 cursor-pointer py-2 px-4 text-center rounded-md transition  border ${selectedTab === "roundtrip"
+                          ? "bg-accent-foreground/90 text-background"
+                          : ""
+                          }`}
                       >
                         <RadioGroupItem value="roundtrip" className="sr-only" />
                         <span className="text-sm font-medium">Roundtrip</span>
                       </label>
                       <label
-                        className={` cursor-pointer py-2 px-4 text-center border  rounded-md transition ${
-                          selectedTab === "multicity"
-                            ? "bg-accent-foreground/90 text-background"
-                            : ""
-                        }`}
+                        className={` cursor-pointer py-2 px-4 text-center border  rounded-md transition ${selectedTab === "multicity"
+                          ? "bg-accent-foreground/90 text-background"
+                          : ""
+                          }`}
                       >
                         <RadioGroupItem value="multicity" className="sr-only" />
                         <span className="text-sm font-medium">
