@@ -131,7 +131,7 @@ export default function CabsPage() {
           </div>
           <div className="absolute top-0 left-0 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="container md:pt-20 relative z-10 mx-auto flex flex-col items-center text-center justify-center h-full px-4">
+          <div className="container md:py-20 relative z-10 mx-auto flex flex-col items-center text-center justify-center h-full px-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -210,30 +210,6 @@ export default function CabsPage() {
                   </span>
                   <Check className="w-4 h-4 text-primary ml-1" />
                 </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-muted-foreground text-sm"
-            >
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-primary/70 border-2 border-background"></div>
-                  ))}
-                </div>
-                <span className="font-medium">500+ Happy Customers</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="flex">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <span className="font-medium">4.9 Rating</span>
               </div>
             </motion.div>
           </div>

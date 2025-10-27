@@ -28,7 +28,8 @@ export const getFlatPrice = (
   if (!priceMatrix[from][to]) return "To Book Call on +917984986324";
 
   if (
-    (from === "GANDHIDHAM" && to === "AHMEDABAD" && cabName === "XL6") ||
+    (from === "GANDHIDHAM" && to === "AHMEDABAD" 
+      && cabName === "XL6") ||
     (from === "AHMEDABAD" && to === "GANDHIDHAM" && cabName === "XL6")
   ) {
     return "₹5500";
