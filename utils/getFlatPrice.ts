@@ -8,9 +8,9 @@ export const getFlatPrice = (
   cabName?: string
 ): string => {
   if (travelType === "Self Drive") {
-    if (cabType.toUpperCase() === "SUV") return "3500";
+    if (cabType.toUpperCase() === "SUV") return "";
     if (cabType.toUpperCase() === "SEDAN") return "₹3000";
-    if (cabType.toUpperCase() === "HATCHBACK") return "2500";
+    if (cabType.toUpperCase() === "HATCHBACK") return "";
   }
 
   const from = fromCity
