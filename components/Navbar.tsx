@@ -14,7 +14,7 @@ export default function Navbar() {
         <div className="flex justify-between h-16 relative">
           <Link href="/" className="flex items-center">
             <div className="w-32 h-32 absolute -top-[33px]">
-              <img src="/shivay-safar-logo.png" alt="logo-image" />
+              <img src="/shivay-safar.png" alt="logo-image" />
             </div>
           </Link>
 
@@ -48,7 +48,7 @@ export default function Navbar() {
                 <SheetHeader className="relative">
                   <SheetTitle></SheetTitle>
                   <Link href="/" className="size-24 absolute -top-4 left-2">
-                    <img src="/shivay-safar-logo.png" alt="logo-image" className="w-full h-full" />
+                    <img src="/shivay-safar.png" alt="logo-image" className="w-full h-full" />
                   </Link>
                   <SheetDescription>
                   </SheetDescription>

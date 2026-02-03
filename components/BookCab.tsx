@@ -163,7 +163,7 @@ const BookCab = () => {
               <h1 className="text-4xl font-bold text-primary  mb-6">
                 Start Your Travel Booking
               </h1>
-              <div className=" shadow-lg rounded-2xl p-6 bg-white border border-accent-foreground/20">
+              <div className=" shadow-lg rounded-2xl p-6 bg-background border border-accent-foreground/20">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="flex">
                     <RadioGroup
@@ -474,7 +474,7 @@ const BookCab = () => {
           </div>
         </div>
       </div>
-      <div className="pointer-events-none -z-40 absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
+      <div className="pointer-events-none -z-40 absolute inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
     </section>
   );
 };

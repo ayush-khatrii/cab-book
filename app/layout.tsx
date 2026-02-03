@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import Footer from "@/components/Footer";
 import { siteMetadata } from "@/lib/sitemetadata";
 import Script from "next/script";
+import { ThemeProvider } from "next-themes";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -24,12 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${sora.className} antialiased`}>
-        <main>
-          <Navbar />
-          <Suspense>{children}</Suspense>
-          <Footer />
-        </main>
-
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <main>
+            <Navbar />
+            <Suspense>{children}</Suspense>
+            <Footer />
+          </main>
+        </ThemeProvider>
         <Toaster position="top-center" />
 
         <Script id="openwidget-init" strategy="afterInteractive">
