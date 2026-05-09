@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
+// @ts-ignore
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
@@ -8,7 +9,7 @@ import Footer from "@/components/Footer";
 import { siteMetadata } from "@/lib/sitemetadata";
 import Script from "next/script";
 import { ThemeProvider } from "next-themes";
-
+import { Analytics } from '@vercel/analytics/next';
 const sora = Sora({
   variable: "--font-sora",
   subsets: ["latin"],
@@ -73,6 +74,7 @@ export default function RootLayout({
             OpenWidget
           </a>.
         </noscript>
+        <Analytics />
       </body>
     </html>
   );
