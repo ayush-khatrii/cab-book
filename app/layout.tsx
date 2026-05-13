@@ -10,10 +10,12 @@ import { siteMetadata } from "@/lib/sitemetadata";
 import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from '@vercel/analytics/next';
+
 const sora = Sora({
-  variable: "--font-sora",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  display: "swap",
+  weight: ["300", "400", "600", "700"],
+  variable: "--font-sora",
 });
 
 export const metadata = siteMetadata;
@@ -24,18 +26,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={sora.variable}>
       <body className={`${sora.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <main>
             <Navbar />
-            <Suspense>{children}</Suspense>
+            <Suspense fallback={<div className="h-screen bg-black" />}>
+              {children}
+            </Suspense>
             <Footer />
           </main>
         </ThemeProvider>
         <Toaster position="top-center" />
-
-        <Script id="openwidget-init" strategy="afterInteractive">
+        <Script id="openwidget-init" strategy="lazyOnload">
           {`
             window.__ow = window.__ow || {};
             window.__ow.organizationId = "0593e38f-9862-4743-821f-2e361ff8ae86";
@@ -63,17 +66,6 @@ export default function RootLayout({
             }(window,document,[].slice));
           `}
         </Script>
-
-        <noscript>
-          You need to{" "}
-          <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">
-            enable JavaScript
-          </a>{" "}
-          to use the communication tool powered by{" "}
-          <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">
-            OpenWidget
-          </a>.
-        </noscript>
         <Analytics />
       </body>
     </html>
