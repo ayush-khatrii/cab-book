@@ -12,6 +12,7 @@ import { Button } from "./ui/button";
 import { motion } from "framer-motion";
 import { cabs } from "@/constants";
 import Link from "next/link";
+import Image from "next/image";
 
 
 const CabList = () => {
@@ -42,15 +43,14 @@ const CabList = () => {
               )}
               <div className="relative w-full h-80 overflow-hidden border-b border-foreground/10">
                 <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent dark:from-black/100 dark:via-black/80 dark:to-transparent"></div>
-                <img
+                <Image
+                  fill
                   src={cab.background}
                   alt="background"
                   className="absolute inset-0 z-0 w-full h-full object-cover opacity-75"
                 />
-                <motion.img
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.1 }}
+                <Image
+                  fill
                   src={cab.image}
                   alt={cab.name}
                   className="relative z-10 w-full h-64 top-10 object-cover"

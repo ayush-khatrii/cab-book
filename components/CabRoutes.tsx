@@ -25,6 +25,7 @@ import {
 import { cabRoutes } from "@/constants";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner"
+import Image from "next/image";
 
 interface CabRoutesProps {
   id: number,
@@ -66,7 +67,9 @@ const CabRoutes = () => {
           {cabRoutes.map((route) => (
             <CarouselItem key={route.id} className="md:basis-1/3">
               <Card className="overflow-hidden border shadow">
-                <img
+                <Image
+                  width={400}
+                  height={320}
                   src={route.image}
                   alt={route.from}
                   className="w-full h-[320px] object-cover"

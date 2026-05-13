@@ -4,10 +4,11 @@ import { Button } from "./ui/button";
 import { motion } from "framer-motion";
 import { Car } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const AboutAnimated = () => {
   return (
-    <section className="py-20 mt-10 relative overflow-hidden bg-background">
+    <section className="py-20 max-w-7xl mx-auto mt-10 relative overflow-hidden bg-background">
       <div
         className={cn(
           "absolute inset-0 -z-50 opacity-50",
@@ -23,7 +24,9 @@ const AboutAnimated = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <img
+          <Image
+            width={500}
+            height={400}
             className="w-full h-full object-cover rounded-2xl border border-border shadow-sm"
             src="/swift-dzire.png"
             alt="Cab Image"

@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/select";
 import { FaLocationArrow, FaRoute } from "react-icons/fa6";
 import { createQueryParams } from "@/utils/helpers";
+import Image from "next/image";
 
 const BookCab = () => {
   const [date, setDate] = useState<Value>(new Date());
@@ -455,7 +456,9 @@ const BookCab = () => {
 
               {/* Main Image */}
               <div className="relative z-10">
-                <img
+                <Image
+                  width={500}
+                  height={400}
                   className="w-full h-auto object-contain drop-shadow-2xl"
                   src="/innova-img.png"
                   alt="Luxury cab service vehicle"
