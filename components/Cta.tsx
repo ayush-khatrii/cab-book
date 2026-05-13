@@ -30,7 +30,8 @@ const Cta = () => {
 
         <div className="hidden md:block absolute top-44 -right-60 transform -translate-y-1/2 md:w-[70%] h-auto z-20">
           <Image
-            fill
+            width={500}
+            height={300}
             src="/dzire.png"
             alt="Cab Image"
             className="w-full h-auto object-contain"
