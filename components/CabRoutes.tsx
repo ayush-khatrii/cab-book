@@ -59,7 +59,7 @@ const CabRoutes = () => {
         <p className="text-primary text-base md:text-xl font-semibold">
           One-Way Rides, Top Routes
         </p>
-        <h1 className="text-2xl md:text-3xl font-bold">Ride Gujarat's best cab routes </h1>
+        <h1 className="text-2xl md:text-4xl font-bold">Ride Gujarat's best cab routes </h1>
       </div>
 
       <Carousel className="w-full">

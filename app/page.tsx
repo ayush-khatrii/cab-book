@@ -1,17 +1,13 @@
-import About from '@/components/About'
-import BookCab from '@/components/BookCab'
-import Cab from '@/components/Cab'
-import CabRoutes from '@/components/CabRoutes'
-import Cta from '@/components/Cta'
-import Features from '@/components/Features'
-import Footer from '@/components/Footer'
-import Hero from '@/components/Hero'
-import HowItWorks from '@/components/HowItWorks'
-import Packages from '@/components/Packages'
-import Socials from '@/components/Socials'
-import Testimonials from '@/components/Testimonials'
-import React from 'react'
-
+import dynamic from 'next/dynamic'
+const Hero = dynamic(() => import('@/components/Hero'))
+const About = dynamic(() => import('@/components/About'))
+const BookCab = dynamic(() => import('@/components/BookCab'))
+const Cab = dynamic(() => import('@/components/Cab'))
+const CabRoutes = dynamic(() => import('@/components/CabRoutes'))
+const Features = dynamic(() => import('@/components/Features'))
+const Packages = dynamic(() => import('@/components/Packages'))
+const Cta = dynamic(() => import('@/components/Cta'))
+const Socials = dynamic(() => import('@/components/Socials'))
 
 export const metadata = {
   title: "Shivay Safar | Best Cab Service in Gandhidham",
@@ -20,7 +16,7 @@ export const metadata = {
 };
 export default function page() {
   return (
-    <>
+    <main>
       <Hero />
       <About />
       <BookCab />
@@ -30,6 +26,6 @@ export default function page() {
       <Packages />
       <Cta />
       <Socials />
-    </>
+    </main>
   )
 }

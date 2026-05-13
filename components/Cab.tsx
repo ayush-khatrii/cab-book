@@ -20,7 +20,7 @@ const CabList = () => {
     <section className="py-12 max-w-7xl mx-auto">
       <div className="flex flex-col items-center text-center justify-center py-10">
         <p className="text-primary text-base md:text-xl font-semibold ">Your Ride, Your Choice</p>
-        <h1 className="text-2xl md:text-3xl font-bold">Book Your Trusted Cab Now</h1>
+        <h1 className="text-2xl md:text-4xl font-bold">Book Your Trusted Cab Now</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:px-0 px-5">
         {cabs.map((cab, idx) => (

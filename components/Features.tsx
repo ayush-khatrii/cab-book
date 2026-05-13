@@ -9,7 +9,7 @@ const Features = () => {
     <div className="bg-card/50 border-t border-b border-border/50 py-12 mt-12" >
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Why Choose Our Premium Cab Service</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">Why Choose Our Premium Cab Service</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">Experience the perfect blend of comfort, reliability and luxury with our premium transportation service</p>
         </div>
 

@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
@@ -7,7 +8,7 @@ import Image from "next/image"
 const packages = [
   {
     title: 'Dwarka | Somnath | Mata No Madh',
-    image: "/somnath.png"
+    image: "/somnath.png" // Ensure this is lowercase in your /public folder
   },
   {
     title: 'Udaipur | Mount Abu | Ambaji',
@@ -25,18 +26,20 @@ const packages = [
 
 const Packages = () => {
   return (
-    <section className="py-16 px-4 md:px-10 ">
+    <section className="py-16 px-4 md:px-10 bg-background" aria-labelledby="packages-title">
       <div className="flex flex-col items-center text-center justify-center py-10">
-        <p className="text-primary text-base md:text-xl font-semibold">
+        <p className="text-primary text-base md:text-xl font-semibold tracking-wide">
           Sacred places, smooth travel.
         </p>
-        <h1 className="text-2xl md:text-4xl font-bold mt-2">Explore Our Cab Packages</h1>
+        <h2 id="packages-title" className="text-2xl md:text-4xl font-extrabold mt-2 tracking-tight">
+          Explore Our Cab Packages
+        </h2>
       </div>
 
       <div className="max-w-7xl mx-auto">
         <Carousel
           opts={{
-            align: "center",
+            align: "start",
             loop: true,
           }}
           className="w-full"
@@ -47,18 +50,20 @@ const Packages = () => {
                 key={index}
                 className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
               >
-                <Card className="overflow-hidden border shadow-md hover:shadow-lg transition-shadow duration-300 h-full group cursor-pointer">
-                  <div className="relative w-full h-64 md:h-72 overflow-hidden bg-muted">
+                <Card className="overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-500 h-full group cursor-pointer bg-card">
+                  <div className="relative w-full h-64 md:h-80 overflow-hidden">
                     <Image
-                      width={400}
-                      height={300}
+                      fill // Fills the container for better responsive control
                       src={pkg.image}
-                      alt={pkg.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      alt={`Travel package for ${pkg.title}`}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                      loading="lazy"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                  <CardContent className="p-4 bg-background">
-                    <h3 className="text-lg md:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors duration-300 leading-snug">
                       {pkg.title}
                     </h3>
                   </CardContent>
@@ -66,9 +71,16 @@ const Packages = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-center gap-3 mt-8">
-            <CarouselPrevious className="static translate-y-0 h-10 w-10" />
-            <CarouselNext className="static translate-y-0 h-10 w-10" />
+
+          <div className="flex justify-center gap-4 mt-10">
+            <CarouselPrevious
+              className="static translate-y-0 h-12 w-12 border-primary text-primary hover:bg-primary hover:text-white"
+              aria-label="Previous package"
+            />
+            <CarouselNext
+              className="static translate-y-0 h-12 w-12 border-primary text-primary hover:bg-primary hover:text-white"
+              aria-label="Next package"
+            />
           </div>
         </Carousel>
       </div>

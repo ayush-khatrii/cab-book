@@ -161,7 +161,7 @@ const BookCab = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col justify-center lg:flex-row gap-12 items-center">
             <div className="lg:w-1/2 z-10">
-              <h1 className="text-4xl font-bold text-primary  mb-6">
+              <h1 className="text-2xl md:text-4xl font-bold text-primary  mb-6">
                 Start Your Travel Booking
               </h1>
               <div className=" shadow-lg rounded-2xl p-6 bg-background border border-accent-foreground/20">

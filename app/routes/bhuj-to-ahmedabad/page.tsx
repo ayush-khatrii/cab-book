@@ -4,25 +4,25 @@ import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Gandhidham to Ahmedabad Taxi | Book Cab @ ₹11/km - Shivay Safar",
-  description: "Reliable Gandhidham to Ahmedabad cab service. Professional drivers, sanitized 4-seater and 7-seater SUVs. Fixed pricing, no hidden costs. Book Shivay Safar now!",
+  title: "Bhuj to Ahmedabad Taxi | Safe & Comfortable Cab Service - Shivay Safar",
+  description: "Book a reliable Bhuj to Ahmedabad taxi with Shivay Safar. Enjoy premium travel with verified drivers, transparent pricing, and 24/7 support. Book your cab today!",
   keywords: [
-    "Gandhidham to Ahmedabad taxi",
-    "Gandhidham to Ahmedabad cab fare",
-    "Ahmedabad airport drop from Gandhidham",
-    "one way cab Gandhidham to Ahmedabad",
-    "Shivay Safar routes",
-    "taxi service in Kutch"
+    "Bhuj to Ahmedabad taxi",
+    "Bhuj to Ahmedabad cab",
+    "Ahmedabad airport drop from Bhuj",
+    "one way taxi Bhuj to Ahmedabad",
+    "best taxi service in Bhuj",
+    "Kutch to Ahmedabad cab fare"
   ],
   alternates: {
-    canonical: "https://shivaysafar.com/routes/gandhidham-to-ahmedabad",
+    canonical: "https://shivaysafar.com/routes/bhuj-to-ahmedabad",
   },
   openGraph: {
-    title: "Gandhidham to Ahmedabad Taxi Service | Shivay Safar",
-    description: "Affordable and safe travel from Gandhidham to Ahmedabad. Choose from Sedans or SUVs. 24/7 Booking.",
-    url: "https://shivaysafar.com/routes/gandhidham-to-ahmedabad",
+    title: "Bhuj to Ahmedabad Taxi Service | Shivay Safar",
+    description: "Premium intercity travel from Bhuj to Ahmedabad. Safe, punctual, and affordable one-way or round-trip cabs.",
+    url: "https://shivaysafar.com/routes/bhuj-to-ahmedabad",
     type: "website",
-    images: [{ url: "/og-ahmedabad.jpg", width: 1200, height: 630 }]
+    images: [{ url: "/og-bhuj-ahmedabad.jpg", width: 1200, height: 630 }]
   }
 };
 
@@ -33,13 +33,13 @@ export default function RoutePage() {
       <div className="max-w-6xl mx-auto px-6 py-16 md:py-24">
         <div className="flex flex-col items-center text-center space-y-6">
           <span className="px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider border border-primary/20">
-            Top Rated Route
+            Trusted by 1000+ Travelers
           </span>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-tight">
-            Gandhidham to <span className="text-primary">Ahmedabad</span> Taxi
+            Bhuj to <span className="text-primary">Ahmedabad</span> Taxi
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
-            Premium door-to-door cab service. Safe, punctual, and transparently priced for your business or leisure travel.
+            Reliable door-to-door transportation from the heart of Kutch to Ahmedabad. Experience safety and comfort with our premium intercity fleet.
           </p>
           <div className="pt-4">
             <Button size="lg" className="rounded-full px-10 h-14 text-lg font-bold shadow-lg transition-transform hover:scale-105" asChild>
@@ -52,39 +52,39 @@ export default function RoutePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
           <FeatureCard
             icon={<FaCarSide />}
-            title="Clean Fleet"
-            desc="Regularly sanitized Sedans and SUVs for a hygienic journey."
+            title="Premium Fleet"
+            desc="Well-maintained Sedans and SUVs equipped with AC and GPS for a smooth ride."
           />
           <FeatureCard
             icon={<FaClock />}
-            title="On-Time Pickup"
-            desc="Zero wait time policy. Our drivers reach your location early."
+            title="24/7 Availability"
+            desc="Book your ride any time of the day or night. We ensure 100% punctuality."
           />
           <FeatureCard
             icon={<FaRupeeSign />}
-            title="Fixed Pricing"
-            desc="No hidden charges or unexpected night surges. Pay as per quote."
+            title="Transparent Fare"
+            desc="Get upfront quotes with no hidden taxes or unexpected surge pricing."
           />
           <FeatureCard
             icon={<FaShieldAlt />}
-            title="Secure Travel"
-            desc="GPS tracked vehicles with verified, professional highway drivers."
+            title="Safety Focused"
+            desc="Our drivers are background-checked highway experts for your peace of mind."
           />
         </div>
 
         {/* Content Section for SEO Crawling */}
         <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-accent/30 p-8 md:p-12 rounded-3xl border border-border">
           <div>
-            <h2 className="text-3xl font-bold mb-6 text-primary">Reliable Intercity Travel</h2>
+            <h2 className="text-3xl font-bold mb-6 text-primary">Your Premium Travel Experience</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Shivay Safar provides the most dependable <strong>Gandhidham to Ahmedabad taxi service</strong>. Whether you are heading to the Ahmedabad Airport (SVPI) or the city center, our fleet ensures a fatigue-free experience.
+                Shivay Safar provides the most reliable <strong>Bhuj to Ahmedabad taxi service</strong>. Whether you're traveling for a medical appointment, a business meeting, or an airport transfer, we ensure you reach your destination on time and in total comfort.
               </p>
               <ul className="space-y-2 list-inside list-disc">
-                <li>One-way and Round-trip options</li>
-                <li>Pickup from Gandhidham, Adipur, and Anjar</li>
-                <li>Experienced drivers familiar with NH47 routes</li>
-                <li>24/7 customer support for instant bookings</li>
+                <li>Professional door-to-door pickup and drop</li>
+                <li>One-way and round-trip booking options available</li>
+                <li>Hassle-free transfers to SVPI Airport Ahmedabad</li>
+                <li>Transparent billing and professional driver behavior</li>
               </ul>
             </div>
           </div>
@@ -94,18 +94,18 @@ export default function RoutePage() {
             <div className="space-y-3">
               <div className="flex justify-between border-b py-2">
                 <span className="text-muted-foreground">Approx Distance:</span>
-                <span className="font-semibold">300 KM</span>
+                <span className="font-semibold">330 KM</span>
               </div>
               <div className="flex justify-between border-b py-2">
                 <span className="text-muted-foreground">Travel Time:</span>
-                <span className="font-semibold">5.5 Hours</span>
+                <span className="font-semibold">6 - 7 Hours</span>
               </div>
               <div className="flex justify-between border-b py-2">
                 <span className="text-muted-foreground">Base Fare:</span>
                 <span className="font-semibold text-primary">Starts at ₹11/km</span>
               </div>
               <div className="flex justify-between py-2">
-                <span className="text-muted-foreground">Vehicle Types:</span>
+                <span className="text-muted-foreground">Vehicles:</span>
                 <span className="font-semibold">Sedan, SUV, Innova</span>
               </div>
             </div>
